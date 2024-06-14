@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.doit.senti.mapper.BoardMapper">
+
+	<!-- List<BoardVO> getList();
+	void insert(BoardVO boardVO);
+	BoardVO read(long bno);
+	int update(BoardVO boardVO);
+	int delete(long bno); -->
+	
+	<!-- 
+	<delete id="delete" >
+		DELETE FROM tbl_board
+		WHERE  bno = #{bno}
+	</delete>
+	
+	<update id="update" >
+		UPDATE tbl_board
+		SET title =#{title}
+			,content = #{content}
+			,writer = #{writer}
+			,updatedate=SYSDATE
+		WHERE bno=#{bno}
+	</update>
+	
+	
+	<select id="read" resultType="org.doit.ik.domain.BoardVO">
+		SELECT *
+		FROM tbl_board
+		WHERE bno = #{ bno }
+	</select>
+	
+	#은 Getter 반드시있어야 사용가능 파라미터타입 안줘도됨 
+	 parameterType="org.doit.ik.domain.BoardVO"
+	<insert id="insert">
+		INSERT INTO tbl_board (bno,title,content,writer)
+		VALUES (seq_board.nextval, #{title}, #{content}, #{writer})
+	</insert>
+	
+	
+	
+	<insert id="insertSelectKey" parameterType="org.doit.ik.domain.BoardVO">
+	<selectKey order="BEFORE" resultType="long" keyProperty="bno" >
+	SELECT seq_board.nextval
+	FROM dual
+	
+	</selectKey>
+		INSERT INTO tbl_board (bno,title,content,writer)
+		VALUES (#{bno}, #{title}, #{content}, #{writer})
+	</insert>
+	 -->
+	<select id="getList" resultType="org.doit.senti.domain.board.BoardVO">	
+		
+
+SELECT
+    p.pd_id,
+    p.brand_id,
+    p.medium_ctgr_id,
+    brand_name,
+    pd_price,
+    pd_info,
+    pd_sales_quantity,
+    pd_discount_rate,
+    pd_image_url,
+    pd_name,
+    pd_info_image_url,
+    c.medium_ctgr_name,
+    l.large_ctgr_id
+    
+    
+FROM
+         product p
+    JOIN brand         b ON p.brand_id = b.brand_id
+    JOIN product_image i ON p.pd_id = i.pd_id
+    JOIN medium_ctgr c ON p.medium_ctgr_id = c.medium_ctgr_id
+    JOIN large_ctgr l on p.large_ctgr_id=l.large_ctgr_id
+    
+WHERE
+    p.medium_ctgr_id =  #{medium_ctgr_id, jdbcType=VARCHAR} 	
+	</select>
+	
+	<select id="mRead" resultType="org.doit.senti.domain.board.BoardVO">			
+SELECT  medium_ctgr_id,
+		medium_ctgr_name
+FROM medium_ctgr 
+WHERE large_ctgr_id = #{large_ctgr_id}
+	</select>
+	
+		<select id="lRead" resultType="org.doit.senti.domain.board.BoardVO">			
+SELECT l.large_ctgr_name 
+FROM large_ctgr l
+Where l.large_ctgr_id=#{large_ctgr_id}
+	</select>
+	
+		
+		<select id="oRead" resultType="org.doit.senti.domain.board.BoardVO">			
+SELECT
+    pd_option_name
+FROM
+    product_option
+WHERE
+    large_ctgr_id = #{large_ctgr_id}
+	</select>
+	
+	
+	
+<select id="iRead" resultType="org.doit.senti.domain.board.BoardVO">
+SELECT
+    pd_info_image_url
+FROM
+    product_image
+WHERE
+    pd_id = #{pd_id}
+</select>	
+
+
+
+	
+	
+		<select id="selectBylargeCtgrId" resultType="org.doit.senti.domain.board.BoardVO">			
+SELECT
+    pd_option_name
+FROM
+    product_option
+WHERE
+    large_ctgr_id = #{large_ctgr_id}
+	</select>
+	
+	
+	
+	
+	
+	
+		<select id="pDetail" resultType="org.doit.senti.domain.board.BoardVO">		
+	
+ SELECT
+ 	p.pd_id,
+    p.pd_name,
+    p.pd_price,
+    p.pd_discount_rate,
+    p.pd_price * ( 1 - p.pd_discount_rate / 100 ) AS discounted,
+    i.pd_image_url,
+    i.pd_info_image_url,
+    d.deli_pay,  
+    p.large_ctgr_id,
+    p.pd_info
+    
+FROM
+    product p
+    JOIN product_image i ON p.pd_id = i.pd_id
+    JOIN delivery_pay d ON p.main_ctgr_id = d.main_ctgr_id
+      
+WHERE
+    p.pd_id = #{pd_id}
+GROUP BY
+	p.pd_id,
+    p.pd_name,
+    p.pd_price,
+    p.pd_discount_rate,
+    i.pd_image_url,
+    i.pd_info_image_url,
+    d.deli_pay,
+    p.large_ctgr_id,
+    p.pd_info,
+    p.pd_id
+
+	</select>
+	
+	
+	
+		
+	 <select id="selectByMediumCtgrId" resultType="org.doit.senti.domain.board.BoardVO">
+
+SELECT 
+    p.pd_id,
+    p.pd_name,
+    p.pd_price,
+    b.brand_name,
+    i.pd_image_url,
+    s.small_ctgr_id,
+    s.small_ctgr_name,
+    l.large_ctgr_id
+FROM
+         product p
+    JOIN brand         b ON p.brand_id = b.brand_id
+    JOIN product_image i ON p.pd_id = i.pd_id 
+    JOIN small_ctgr s on p.small_ctgr_id = s.small_ctgr_id
+    JOIN large_ctgr l on p.large_ctgr_id = l.large_ctgr_id
+where p.medium_ctgr_id = #{medium_ctgr_id}
+     </select>
+     	 <select id="selectBySmallCtgrId" resultType="org.doit.senti.domain.board.BoardVO">
+
+SELECT
+    p.pd_id,
+    p.pd_name,
+    p.pd_price,
+    b.brand_name,
+    i.pd_image_url,
+    s.small_ctgr_id,
+    s.small_ctgr_name,
+    l.large_ctgr_id
+FROM
+         product p
+    JOIN brand         b ON p.brand_id = b.brand_id
+    JOIN product_image i ON p.pd_id = i.pd_id
+    JOIN small_ctgr    s ON p.small_ctgr_id = s.small_ctgr_id
+    JOIN large_ctgr    l ON p.large_ctgr_id = l.large_ctgr_id
+WHERE
+    p.small_ctgr_id = #{small_ctgr_id}
+     </select>
+     
+     
+
+
+
+
+</mapper>
+ 

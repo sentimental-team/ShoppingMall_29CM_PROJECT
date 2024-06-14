@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.doit.senti.mapper.LikeMapper">
+  
+  <!-- 좋아요 한지 안한지 체크 -->
+  <select id="checkLike" resultType="Integer">
+  	SELECT COUNT(*) FROM pd_like 
+  	WHERE pd_id = #{pdId} AND member_id = #{loginMemberId}
+  </select>
+  
+  <!-- 좋아요 추가 -->
+  <insert id="insertProductLike" >
+	  INSERT INTO pd_like (pd_like_id, member_id, pd_id) 
+	  VALUES ( (SELECT NVL(MAX(TO_NUMBER(pd_like_id)),0)+1 FROM pd_like), #{loginMemberId}, #{pdId} )
+  </insert>
+  
+  <delete id="deleteProductLike">
+  	DELETE pd_like
+	WHERE pd_id = #{pdId} AND member_id = #{loginMemberId}
+  </delete>
+  
+  <!-- 좋아요 갯수  -->
+  <select id="getLikeCount" resultType="Integer">
+  	SELECT COUNT(*) AS pdLikeCount
+    FROM pd_like
+    WHERE pd_id = #{pdId}
+  </select>
+  
+  <!-- 회원별 좋아요 갯수  -->
+  <select id="getMemberLikeCount" resultType="Integer">
+  	SELECT COUNT(*) AS pdLikeCount
+    FROM pd_like
+    WHERE member_id = #{loginMemberId}
+  </select>
+  
+</mapper>
+ 

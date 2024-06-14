@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.doit.senti.mapper.NoticeMapper">
+
+    <select id="getNotices" resultType="org.doit.senti.domain.board.NoticeBoardVO">
+        SELECT *
+        FROM (
+            SELECT ROWNUM AS NUM, N.*
+            FROM (
+                SELECT *
+                FROM NOTICE_BOARD
+                ORDER BY NOTICE_DATE DESC
+            ) N
+        )
+        WHERE NUM BETWEEN (1 + (#{page}-1)*15) AND (15 + (#{page}-1)*15)
+    </select>
+    
+    <insert id="insert" parameterType="org.doit.senti.domain.board.NoticeBoardVO">
+        INSERT INTO NOTICE_BOARD 
+        VALUES (notice_id_seq.nextval, #{noticeBoard.noticeTitle}, #{noticeBoard.noticeContent}, #{noticeBoard.noticeDate}, #{noticeBoard.memberId})
+    </insert>
+    
+    <delete id="delete">
+		DELETE NOTICE_BOARD 
+		WHERE NOTICE_ID = #{noticeId}
+	</delete>
+	
+	<select id="getNoticeId" resultType="org.doit.senti.domain.board.NoticeBoardVO">
+        SELECT *
+        FROM NOTICE_BOARD 
+        WHERE NOTICE_ID = #{noticeId}
+    </select>
+	
+  <update id="update" parameterType="org.doit.senti.domain.board.NoticeBoardVO">
+        UPDATE NOTICE_BOARD
+        SET NOTICE_TITLE = #{noticeBoard.noticeTitle},
+            MEMBER_ID = #{noticeBoard.memberId},
+            NOTICE_DATE = #{noticeBoard.noticeDate},
+            NOTICE_CONTENT = #{noticeBoard.noticeContent}
+        WHERE NOTICE_ID = #{noticeBoard.noticeId}
+    </update>
+	
+
+</mapper>

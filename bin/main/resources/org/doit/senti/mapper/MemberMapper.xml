@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.doit.senti.mapper.MemberMapper">
+
+  <!-- 회원 정보 가져오기 -->
+  <select id="getMember" resultType="org.doit.senti.domain.user.MemberVO">
+    SELECT 
+      MEMBER_ID as memberId, 
+      MEMBER_PWD as memberPwd, 
+      MEMBER_NAME as memberName, 
+      MILEAGE, 
+      COUPON_ID as couponId, 
+      GRADE_ID as gradeId,
+      ENABLED
+    FROM MEMBER
+    WHERE MEMBER_ID = #{memberId}
+  </select>
+  
+  <!-- 회원 정보와 권한 정보 매핑 -->
+  <resultMap type="org.doit.senti.domain.user.MemberVO" id="memberMap">
+    <id property="memberId" column="MEMBER_ID" />
+    <result property="memberPwd" column="MEMBER_PWD" />
+    <result property="memberName" column="MEMBER_NAME" />
+    <result property="mileage" column="MILEAGE" />
+    <result property="couponId" column="COUPON_ID" />
+    <result property="gradeId" column="GRADE_ID" />
+    <result property="enabled" column="ENABLED" />
+    <collection property="authList" ofType="org.doit.senti.domain.user.AuthVO">
+      <result property="username" column="USERNAME" />
+      <result property="authority" column="AUTHORITY" />
+    </collection>
+  </resultMap>
+  
+  <!-- 회원 정보와 권한 정보 가져오기 -->
+  <select id="read" resultMap="memberMap">
+    SELECT 
+      m.MEMBER_ID as memberId, 
+      m.MEMBER_PWD as memberPwd, 
+      m.MEMBER_NAME as memberName, 
+      m.MILEAGE, 
+      m.COUPON_ID as couponId, 
+      m.GRADE_ID as gradeId, 
+      m.ENABLED, 
+      auth.USERNAME as username, 
+      auth.AUTHORITY as authority
+    FROM MEMBER m 
+    LEFT JOIN MEMBER_AUTHORITIES auth ON m.MEMBER_ID = auth.USERNAME
+    WHERE m.MEMBER_ID = #{memberId}
+  </select>
+  
+  <!-- 회원 정보 삽입 -->
+  <insert id="insert" parameterType="org.doit.senti.domain.user.MemberVO">
+    INSERT INTO MEMBER 
+      (MEMBER_ID, MEMBER_PWD, MEMBER_NAME, MILEAGE, COUPON_ID, GRADE_ID, ENABLED) 
+    VALUES 
+      (#{memberId}, #{memberPwd}, #{memberName}, #{mileage}, #{couponId}, #{gradeId}, #{enabled})
+  </insert>
+
+</mapper>

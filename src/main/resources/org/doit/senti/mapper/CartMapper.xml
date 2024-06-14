@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.doit.senti.mapper.CartMapper">
+
+	<!-- 장바구니 조회 쿼리 -->
+	<select id="getCart" resultType="CartDTO">
+		<!-- 로그인 완성시 member_id의 세션값을 받아와서 처리 
+		SELECT m.member_id, pd_name, select_option, brand_name, pd_price, pd_image_url, deli_pay, cart_id, stock, pd_id
+		FROM cart c JOIN member m ON c.member_id = m.member_id
+            JOIN product p ON p.pd_id = c.pd_id
+            JOIN brand b ON b.brand_id = p.brand_id
+            JOIN product_image pi ON pi.pd_id = p.pd_id
+            JOIN large_ctgr lc ON p.large_ctgr_id = lc.large_ctgr_id
+            JOIN main_ctgr mc ON lc.main_ctgr_id = mc.main_ctgr_id
+            JOIN delivery_pay dp ON dp.main_ctgr_id = mc.main_ctgr_id
+        WHERE m.member_id = #{memberId}
+         -->
+        
+		SELECT m.member_id, pd_name, select_option, brand_name, pd_image_url
+		, deli_pay, cart_id, stock, pd_id, lc.large_ctgr_id
+		, ROUND(p.pd_price * ( 1 - p.pd_discount_rate / 100 ), -1) AS pd_price
+		FROM cart c JOIN member m ON c.member_id = m.member_id
+            JOIN product p ON p.pd_id = c.pd_id
+            JOIN brand b ON b.brand_id = p.brand_id
+            JOIN product_image pi ON pi.pd_id = p.pd_id
+            JOIN large_ctgr lc ON p.large_ctgr_id = lc.large_ctgr_id
+            JOIN main_ctgr mc ON lc.main_ctgr_id = mc.main_ctgr_id
+            JOIN delivery_pay dp ON dp.main_ctgr_id = mc.main_ctgr_id
+        WHERE m.member_id = 'yujin@naver.com'
+        ORDER BY cart_id
+	</select>
+	
+	<!-- 장바구니 개별 삭제 -->
+	<delete id="deleteCart" parameterType="int">
+		DELETE FROM cart WHERE cart_id = #{cartId}
+	</delete>
+
+	<!-- 장바구니 선택 삭제 -->
+	<delete id="deleteSelectCart" parameterType="list">
+    	DELETE FROM cart WHERE cart_id IN
+	    <foreach item="cartId" collection="list" open="(" separator="," close=")">
+	    #{cartId}
+	    </foreach>
+	</delete>
+	
+	<!-- 장바구니 수량 -->
+	<update id="updateCartStock">
+		UPDATE cart
+		SET stock = #{stock}
+		WHERE cart_id = #{cartId}
+	</update>
+	
+	<!-- 단일 상품 주문 -->
+	<!-- 
+	<select id="getProductToOrder" parameterType="int" resultType="cartDTO">
+		SELECT m.member_id, pd_name, select_option, brand_name, pd_price
+		, pd_image_url, deli_pay, cart_id, stock, pd_id, lc.large_ctgr_id
+		, ROUND(p.pd_price * ( 1 - p.pd_discount_rate / 100 ), -1) AS sale_price
+		FROM cart c JOIN member m ON c.member_id = m.member_id
+		    JOIN product p ON p.pd_id = c.pd_id
+		    JOIN brand b ON b.brand_id = p.brand_id
+		    JOIN product_image pi ON pi.pd_id = p.pd_id
+		    JOIN large_ctgr lc ON p.large_ctgr_id = lc.large_ctgr_id
+		    JOIN main_ctgr mc ON lc.main_ctgr_id = mc.main_ctgr_id
+		    JOIN delivery_pay dp ON dp.main_ctgr_id = mc.main_ctgr_id
+		WHERE m.member_id = 'yujin@naver.com' AND cart_id = #{cartId} 
+		ORDER BY cart_id
+	</select>
+	 -->
+	
+	<!-- 상품 주문 -->
+<!-- 	<select id="getProductToOrder" parameterType="list" resultType="list">
+		SELECT m.member_id, pd_name, select_option, brand_name, pd_price
+		, pd_image_url, deli_pay, cart_id, stock, pd_id, lc.large_ctgr_id
+		, ROUND(p.pd_price * ( 1 - p.pd_discount_rate / 100 ), -1) AS pd_price
+		FROM cart c JOIN member m ON c.member_id = m.member_id
+		    JOIN product p ON p.pd_id = c.pd_id
+		    JOIN brand b ON b.brand_id = p.brand_id
+		    JOIN product_image pi ON pi.pd_id = p.pd_id
+		    JOIN large_ctgr lc ON p.large_ctgr_id = lc.large_ctgr_id
+		    JOIN main_ctgr mc ON lc.main_ctgr_id = mc.main_ctgr_id
+		    JOIN delivery_pay dp ON dp.main_ctgr_id = mc.main_ctgr_id
+		WHERE m.member_id = 'yujin@naver.com' AND cart_id IN 
+		<foreach item="cartId" collection="list" open="(" separator="," close=")">
+	    #{cartId}
+	    </foreach>
+		ORDER BY cart_id
+	</select> -->
+	
+	
+	<select id="getProductToOrder" resultType="org.doit.senti.domain.user.CartDTO">			
+SELECT
+    p.pd_id,
+    p.pd_name,
+    select_option,
+    pd_price,
+    b.brand_name,
+    c.stock,
+    i.pd_image_url
+FROM
+         cart c
+    JOIN product       p ON p.pd_id = c.pd_id
+    JOIN brand         b ON p.brand_id = b.brand_id
+    JOIN product_image i ON p.pd_id = i.pd_id
+WHERE
+    cart_id = #{cart_id}
+    
+	</select>
+			
+	<select id="getProductToOrder2" parameterType="list" resultType="org.doit.senti.domain.user.CartDTO">			
+	SELECT
+	    p.pd_id,
+	    p.pd_name,
+	    select_option,
+	    pd_price,
+	    b.brand_name,
+	    c.stock,
+	    i.pd_image_url
+	FROM
+	         cart c
+	    JOIN product       p ON p.pd_id = c.pd_id
+	    JOIN brand         b ON p.brand_id = b.brand_id
+	    JOIN product_image i ON p.pd_id = i.pd_id
+	WHERE
+	    cart_id IN 
+	    
+		<foreach item="cartId" collection="list" open="(" separator="," close=")">
+	    #{cartId}
+	    </foreach>
+    
+	</select>
+
+</mapper>
+ 

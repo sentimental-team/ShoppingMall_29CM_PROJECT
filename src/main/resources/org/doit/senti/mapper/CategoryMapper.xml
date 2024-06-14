@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.doit.senti.mapper.CategoryMapper">
+  
+  <select id="getMainCtgr" resultType="ProductCategoryDTO">
+  	SELECT * FROM main_ctgr
+  </select>
+  
+  <select id="getLargeCtgr" resultType="ProductCategoryDTO">
+  	SELECT * FROM large_ctgr WHERE main_ctgr_id = #{mainCtgrId}
+  </select>
+  
+  <select id="getMediumCtgr" resultType="ProductCategoryDTO">
+  	SELECT * FROM medium_ctgr WHERE large_ctgr_id = #{largeCtgrId}
+  </select>
+  
+  <select id="getSmallCtgr" resultType="ProductCategoryDTO">
+  	SELECT * FROM small_ctgr WHERE medium_ctgr_id = #{mediumCtgrId}
+  </select>
+  
+  <select id="getBrand" resultType="ProductCategoryDTO">
+  	SELECT * FROM brand
+  </select>
+ 
+
+</mapper>
+ 

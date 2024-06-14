@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+  <settings>
+    <!-- 컬러명이 c_name 일 경우  cName 변환 -->
+    <setting name="mapUnderscoreToCamelCase" value="true"/>
+    <!--  <setting name="jdbcTypeForNull" value="NULL" /> -->
+  </settings>
+  <typeAliases>
+    <!-- <typeAlias type="org.doit.ik.domain.DeptDTO" alias="DeptDTO" /> --> 
+    <typeAlias type="org.doit.senti.domain.board.ProductLikeDTO" alias="ProductLikeDTO"/>
+    <typeAlias type="org.doit.senti.domain.board.LikeListDTO" alias="LikeListDTO"/>
+    <typeAlias type="org.doit.senti.domain.board.ProductCategoryDTO" alias="ProductCategoryDTO"/>
+    <typeAlias type="org.doit.senti.domain.board.InquiryVO" alias="InquiryVO"/>
+    <typeAlias type="org.doit.senti.domain.user.MemberVO" alias="MemberVO" />
+    <typeAlias type="org.doit.senti.domain.user.ReviewVO" alias="ReviewVO" />
+    <typeAlias type="org.doit.senti.domain.user.CartDTO" alias="CartDTO" />
+    <typeAlias type="org.doit.senti.domain.board.ProductRegisterDTO" alias="ProductRegisterDTO" />
+    <typeAlias type="org.doit.senti.domain.board.ProductImageDTO" alias="ProductImageDTO" />
+    <typeAlias type="java.util.Map" alias="Map" />
+    <typeAlias type="java.util.HashMap" alias="HashMap" />
+    <typeAlias type="java.util.List" alias="List" />
+  </typeAliases>
+</configuration>   
+ 

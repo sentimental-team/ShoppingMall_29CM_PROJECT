@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.doit.senti.mapper.ProductRegisterMapper">
+  <insert id="insertProduct" parameterType="ProductRegisterDTO">
+	  INSERT INTO product
+	  (pd_id, pd_name, pd_info, brand_id, pd_price, pd_discount_rate, main_ctgr_id, large_ctgr_id, medium_ctgr_id, small_ctgr_id)
+	  VALUES ((SELECT NVL(MAX(TO_NUMBER(pd_id)),0)+1 FROM product), #{ pdName }, #{ pdInfo }, #{brandId}, #{pdPrice}, 
+	  #{pdDiscountRate}, #{mainCtgrId}, #{largeCtgrId}, #{mediumCtgrId}, #{smallCtgrId})
+  </insert>
+  
+  <insert id="insertProductNoneSmallCtgr" parameterType="ProductRegisterDTO">
+	  INSERT INTO product
+	  (pd_id, pd_name, pd_info, brand_id, pd_price, pd_discount_rate, main_ctgr_id, large_ctgr_id, medium_ctgr_id)
+	  VALUES ((SELECT NVL(MAX(TO_NUMBER(pd_id)),0)+1 FROM product), #{ pdName }, #{ pdInfo }, #{brandId}, #{pdPrice}, 
+	  #{pdDiscountRate}, #{mainCtgrId}, #{largeCtgrId}, #{mediumCtgrId})
+  </insert>
+  
+  <insert id="insertProductImg" parameterType="ProductImageDTO">
+	  INSERT INTO product_image
+	  (pd_image_id, pd_image_url, pd_id, pd_image_uuid)
+	  VALUES ( (SELECT NVL(MAX(TO_NUMBER(pd_image_id)),0)+1 FROM product_image), #{ pdImageUrl }, 
+	  (SELECT NVL(MAX(TO_NUMBER(pd_id)),0) FROM product), #{ pdImageUuid })
+  </insert>
+  
+  <update id="insertProductImgInfo">
+	  UPDATE product_image
+	  SET pd_info_image_url = #{pdInfoImageUrl, jdbcType=VARCHAR} , pd_image_info_uuid = #{pdImageInfoUuid, jdbcType=VARCHAR}
+	  WHERE pd_id = (SELECT MAX(pd_id) FROM product_image)
+  </update>
+  
+</mapper>
+ 

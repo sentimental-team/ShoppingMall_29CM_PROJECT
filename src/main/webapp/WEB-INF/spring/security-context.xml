@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+                           http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+                           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+    <!-- Static resources exclusion -->
+    <security:http pattern="/static/**" security="none"/>
+    <security:http pattern="/design/**" security="none"/>
+    <security:http pattern="/css/**" security="none"/>
+    <security:http pattern="/js/**" security="none"/>
+    <security:http pattern="/signUp/dupliId.do" security="none"/>
+    
+
+	 <security:http use-expressions="true">
+    	
+    	<!-- 세션 관리 설정 추가 -->
+        <security:session-management session-fixation-protection="migrateSession">
+            <security:concurrency-control max-sessions="1" expired-url="/signUp/login.do?expired=true"/>
+        </security:session-management>
+    	
+        <!-- URL 패턴에 대한 권한 설정 -->
+        <security:intercept-url pattern="/signUp/join.do" access="permitAll"/>
+        <security:intercept-url pattern="/signUp/login.do" access="permitAll"/>
+        <security:intercept-url pattern="/signUp/logout.do" access="permitAll"/>
+        <security:intercept-url pattern="/signUp/**" access="permitAll"/>
+        <security:intercept-url pattern="/login" access="permitAll"/>
+        <security:intercept-url pattern="/main.do" access="permitAll"/>
+        <security:intercept-url pattern="/" access="permitAll"/>
+        
+        <!-- 모든 .do 및 .jsp 파일에 권한 설정 -->
+        <security:intercept-url pattern="/**/*.do" access="permitAll"/>
+        <security:intercept-url pattern="/**/*.jsp" access="permitAll"/>
+        
+        
+        <!-- 그 외의 모든 URL 권한 설정 -->
+        <security:intercept-url pattern="/**" access="permitAll"/>
+
+        <!-- 커스텀 로그인 페이지 -->
+        <security:form-login login-page="/signUp/login.do"
+                             login-processing-url="/login"
+                             username-parameter="username"
+                             password-parameter="password"
+                             authentication-success-handler-ref="loginSuccessHandler"
+                             authentication-failure-url="/signUp/login.do?error=true"
+                             default-target-url="/main.do"
+                             always-use-default-target="true"/>
+
+        <!-- 로그아웃 설정 -->
+        <security:logout logout-url="/signUp/logout.do"
+                     invalidate-session="true"
+                     delete-cookies="JSESSIONID"
+                     logout-success-url="/main.do"/>
+		</security:http>
+
+    <!-- PasswordEncoder -->
+    <bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+    <!-- 인증 관리자 설정 -->
+    <security:authentication-manager>
+        <security:authentication-provider user-service-ref="loginUserDetailsService">
+            <security:password-encoder ref="bCryptPasswordEncoder"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+    <!-- UserDetailsService -->
+    <bean id="loginUserDetailsService" class="org.doit.senti.domain.security.LoginUserDetailsService"/>
+</beans>

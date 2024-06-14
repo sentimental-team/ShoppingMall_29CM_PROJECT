@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.doit.senti.mapper.SignUpMapper">
+  <!-- 회원 가입 -->
+  <insert id="insert" parameterType="MemberVO">
+    <!-- 사용자 정보 삽입 -->
+    INSERT INTO MEMBER (member_id, member_pwd, member_name)
+    VALUES (#{memberId}, #{memberPwd}, #{memberName})
+  </insert>
+  
+  <!-- 사용자 권한 삽입 -->
+  <insert id="insertAuthority" parameterType="MemberVO">
+    INSERT INTO MEMBER_AUTHORITIES (username, authority)
+    VALUES (#{memberId}, 'ROLE_USER')
+  </insert>
+  
+  <!-- 아이디 중복 체크 -->
+  <select id="dupliId" resultType="int">
+    SELECT COUNT(*)
+    FROM MEMBER
+    WHERE member_id = #{memberId}
+  </select>
+  
+  
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.doit.senti.mapper.InquiryMapper">
+
+	<!-- // 문의내역 갯수 반환하는 메서드 public int getCount(String field, String query) 
+		throws ClassNotFoundException, SQLException; -->
+	<!-- <select id="getCount" resultType="Integer"> SELECT COUNT(*) CNT FROM 
+		inquiry WHERE member_id = #{member_id} </select> -->
+
+	<!-- // 문의내역 삭제하는 메서드 public int delete(String inquiryId) throws ClassNotFoundException, 
+		SQLException; -->
+	<delete id="delete">
+		DELETE inquiry
+		WHERE inquiry_id= #{inquiryId}
+	</delete>
+
+	<!-- // 문의내역 추가하는 메서드 -->
+	<insert id="insert">
+		<selectKey order="BEFORE" resultType="String"
+			keyProperty="inquiryId">
+			SELECT NVL(MAX(TO_NUMBER(inquiryId)),0)+1
+			FROM inquiry
+		</selectKey>
+		INSERT INTO inquiry
+		(inquiry_id, inquiry_title, inquiry_content,inquiry_date
+		, inquiryImage, buy_inquiry, general_inquiry_id, etc_inquiry, member_id)
+		VALUES(
+			(SELECT NVL(MAX(TO_NUMBER(inquiryId)),0)+1 FROM inquiry), #{inquiryTitle}, #{inquiryContent} , SYSDATE
+			, #{inquiryImage, javaType=String, jdbcType=VARCHAR}}, #{buyInquiry}, #{generalInquiryId}, #{etcInquiry}, #{memberId}
+			)
+	</insert>
+
+
+
+	<!-- // 문의내역의 목록을 List 컬렉션으로 반환하는 메서드 public List<InquiryVO> getInquirys( 
+		 String memberId // 작성한멤버아이디) throws ClassNotFoundException, SQLException; -->
+	<select id="getInquirys" resultType="org.doit.senti.domain.board.InquiryVO">
+		select * from inquiry 
+		where member_id = #{memberId}
+	</select>
+
+
+</mapper>
+ 

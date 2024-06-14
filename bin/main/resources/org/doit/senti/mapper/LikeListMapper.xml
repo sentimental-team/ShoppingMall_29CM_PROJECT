@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.doit.senti.mapper.LikeListMapper">
+
+	
+	<select id="getLikeList" resultType="LikeListDTO">
+		SELECT p.pd_id, p.pd_name, b.brand_name, p.pd_price, p.pd_discount_rate, 
+		p.pd_price * (100-p.pd_discount_rate)/100 AS discount_price, pd_image_url, p.large_ctgr_id 
+		FROM product p JOIN pd_like pl ON p.pd_id = pl.pd_id
+		               JOIN brand b ON p.brand_id = b.brand_id
+		               JOIN product_image pi ON p.pd_id = pi.pd_id
+		WHERE pl.member_id = #{loginMemberId}
+		ORDER BY pl.pd_like_id DESC
+     </select>
+     
+     <select id="selectMemberName" resultType="String">
+     	SELECT member_name FROM member
+     	WHERE member_id = #{loginMemberId}
+     </select>
+     
+     <select id="getLikeListWithPaging" resultType="LikeListDTO">
+		<![CDATA[
+		SELECT pd_id AS pdId, pd_name AS pdName, brand_name AS brandName
+			, pd_price AS pdPrice, pd_discount_rate AS pdDiscountRate, discountPrice
+			, pd_image_url AS pdImageUrl, large_ctgr_id AS largeCtgrId
+		FROM(
+		    SELECT rownum AS num, p.pd_id, p.pd_name, b.brand_name, p.pd_price, p.pd_discount_rate, 
+		    p.pd_price * (100-p.pd_discount_rate)/100 AS discountPrice, pd_image_url, p.large_ctgr_id 
+		    FROM product p JOIN pd_like pl ON p.pd_id = pl.pd_id
+		                   JOIN brand b ON p.brand_id = b.brand_id
+		                   JOIN product_image pi ON p.pd_id = pi.pd_id
+		    WHERE pl.member_id = #{loginMemberId} AND rownum <= #{ criteria.pageNum } * #{ criteria.amount }
+		    )
+		WHERE num > (#{ criteria.pageNum } - 1) * #{ criteria.amount }
+		]]>
+     </select>
+	
+	<select id="getTotalCount" resultType="Integer">
+	  	SELECT COUNT(*) AS likeCount
+	    FROM pd_like
+	    WHERE member_id = #{loginMemberId}
+	</select>
+	
+	
+</mapper>
+ 

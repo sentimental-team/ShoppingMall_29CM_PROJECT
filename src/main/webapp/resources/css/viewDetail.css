@@ -1,0 +1,3799 @@
+@charset "UTF-8";
+
+    :root {
+        --ruler-scale-color-gray-00: #fff;
+        --ruler-scale-color-gray-100: #f4f4f4;
+        --ruler-scale-color-gray-200: #e4e4e4;
+        --ruler-scale-color-gray-300: #c4c4c4;
+        --ruler-scale-color-gray-400: #a0a0a0;
+        --ruler-scale-color-gray-500: #5d5d5d;
+        --ruler-scale-color-gray-600: #474747;
+        --ruler-scale-color-gray-700: #303030;
+        --ruler-scale-color-gray-800: #27272a;
+        --ruler-scale-color-gray-900: #19191a;
+        --ruler-scale-color-gray-950: #000;
+        --ruler-scale-color-gray-alpha-200: rgba(93,93,93,.08);
+        --ruler-scale-color-gray-alpha-300: rgba(93,93,93,.16);
+        --ruler-scale-color-gray-alpha-400: rgba(93,93,93,.24);
+        --ruler-scale-color-red-100: #ffefeb;
+        --ruler-scale-color-red-200: #ffbfaa;
+        --ruler-scale-color-red-300: #ff916c;
+        --ruler-scale-color-red-400: #ff6933;
+        --ruler-scale-color-red-500: #ff4800;
+        --ruler-scale-color-red-600: #d53f00;
+        --ruler-scale-color-red-700: #ab3803;
+        --ruler-scale-color-red-800: #823107;
+        --ruler-scale-color-red-900: #582609;
+        --ruler-scale-color-red-950: #2e1608;
+        --ruler-scale-color-red-alpha-200: rgba(255,72,0,.08);
+        --ruler-scale-color-red-alpha-300: rgba(255,72,0,.16);
+        --ruler-scale-color-red-alpha-400: rgba(255,72,0,.24);
+        --ruler-scale-color-blue-100: #ebf1ff;
+        --ruler-scale-color-blue-200: #b8cdff;
+        --ruler-scale-color-blue-300: #86a5ff;
+        --ruler-scale-color-blue-400: #5b7fff;
+        --ruler-scale-color-blue-500: #375fff;
+        --ruler-scale-color-blue-600: #203ff6;
+        --ruler-scale-color-blue-700: #1025e5;
+        --ruler-scale-color-blue-800: #0611bd;
+        --ruler-scale-color-blue-900: #010474;
+        --ruler-scale-color-blue-950: #003;
+        --ruler-scale-color-blue-alpha-200: rgba(52,95,255,.08);
+        --ruler-scale-color-blue-alpha-300: rgba(52,95,255,.16);
+        --ruler-scale-color-blue-alpha-400: rgba(52,95,255,.24);
+        --ruler-scale-color-yellow-100: #fff7f0;
+        --ruler-scale-color-yellow-200: #ffdfb9;
+        --ruler-scale-color-yellow-300: #ffc97f;
+        --ruler-scale-color-yellow-400: #ffb741;
+        --ruler-scale-color-yellow-500: #ffa800;
+        --ruler-scale-color-yellow-600: #d18d16;
+        --ruler-scale-color-yellow-700: #a37021;
+        --ruler-scale-color-yellow-800: #755322;
+        --ruler-scale-color-yellow-900: #47341b;
+        --ruler-scale-color-yellow-950: #19130c;
+        --ruler-scale-color-green-100: #eefee6;
+        --ruler-scale-color-green-200: #c2eeb2;
+        --ruler-scale-color-green-300: #81dc71;
+        --ruler-scale-color-green-400: #3fcb3c;
+        --ruler-scale-color-green-500: #12ba23;
+        --ruler-scale-color-green-600: #139e14;
+        --ruler-scale-color-green-700: #1e8215;
+        --ruler-scale-color-green-800: #246616;
+        --ruler-scale-color-green-900: #234a15;
+        --ruler-scale-color-green-950: #1b2e11;
+        --ruler-scale-dimension-font-size-25: 10px;
+        --ruler-scale-dimension-font-size-50: 11px;
+        --ruler-scale-dimension-font-size-75: 12px;
+        --ruler-scale-dimension-font-size-100: 13px;
+        --ruler-scale-dimension-font-size-125: 14px;
+        --ruler-scale-dimension-font-size-150: 15px;
+        --ruler-scale-dimension-font-size-200: 16px;
+        --ruler-scale-dimension-font-size-250: 18px;
+        --ruler-scale-dimension-font-size-300: 20px;
+        --ruler-scale-dimension-font-size-350: 22px;
+        --ruler-scale-dimension-font-size-400: 24px;
+        --ruler-scale-dimension-font-size-500: 28px;
+        --ruler-scale-dimension-font-size-550: 30px;
+        --ruler-scale-dimension-font-size-600: 32px;
+        --ruler-scale-dimension-font-size-1000: 48px;
+        --ruler-scale-dimension-25: 2px;
+        --ruler-scale-dimension-50: 4px;
+        --ruler-scale-dimension-75: 6px;
+        --ruler-scale-dimension-100: 8px;
+        --ruler-scale-dimension-125: 10px;
+        --ruler-scale-dimension-150: 12px;
+        --ruler-scale-dimension-200: 16px;
+        --ruler-scale-dimension-225: 18px;
+        --ruler-scale-dimension-250: 20px;
+        --ruler-scale-dimension-300: 24px;
+        --ruler-scale-dimension-350: 28px;
+        --ruler-scale-dimension-375: 30px;
+        --ruler-scale-dimension-400: 32px;
+        --ruler-scale-dimension-500: 40px;
+        --ruler-scale-dimension-600: 48px;
+        --ruler-scale-dimension-700: 56px;
+        --ruler-scale-dimension-750: 60px;
+        --ruler-scale-font-weight-thin: 100;
+        --ruler-scale-font-weight-extraLight: 200;
+        --ruler-scale-font-weight-light: 300;
+        --ruler-scale-font-weight-regular: 400;
+        --ruler-scale-font-weight-medium: 500;
+        --ruler-scale-font-weight-semibold: 600;
+        --ruler-scale-font-weight-bold: 700;
+        --ruler-scale-font-weight-extraBold: 800;
+        --ruler-scale-letter-spacing: 0;
+        --ruler-scale-line-height-1: 100%;
+        --ruler-scale-line-height-2: 120%;
+        --ruler-scale-line-height-3: 136%;
+        --ruler-scale-line-height-4: 140%;
+        --ruler-scale-line-height-5: 150%;
+        --ruler-scale-line-height-6: 160%;
+        --ruler-scale-corner-radius-25: 2px;
+        --ruler-scale-corner-radius-50: 4px;
+        --ruler-scale-corner-radius-75: 6px;
+        --ruler-scale-corner-radius-100: 8px;
+        --ruler-scale-corner-radius-200: 16px;
+        --ruler-scale-corner-radius-250: 20px;
+        --ruler-scale-corner-radius-full: 9999px;
+        --ruler-static-scale-color-white: #fff;
+        --ruler-static-scale-color-white-alpha-200: #ffffff20;
+        --ruler-static-scale-color-white-alpha-500: #ffffff80;
+        --ruler-static-scale-color-white-alpha-900: #ffffffe6;
+        --ruler-static-scale-color-black: #000;
+        --ruler-static-scale-color-black-alpha-200: #00000020;
+        --ruler-static-scale-color-black-alpha-500: #00000080;
+        --ruler-static-scale-color-black-alpha-900: #000000e6;
+        --ruler-static-scale-font-family-pretendard: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+        --ruler-static-scale-font-family-29cm-default-font: var(--ruler-static-scale-font-family-pretendard);
+        --ruler-semantic-color-common-on-black: var(--ruler-static-scale-color-black);
+        --ruler-semantic-color-common-on-black-hover: var(--ruler-static-scale-color-black-alpha-900);
+        --ruler-semantic-color-common-on-black-pressed: var(--ruler-static-scale-color-black-alpha-900);
+        --ruler-semantic-color-common-on-white: var(--ruler-static-scale-color-white);
+        --ruler-semantic-color-common-on-white-hover: var(--ruler-static-scale-color-white-alpha-900);
+        --ruler-semantic-color-common-on-white-pressed: var(--ruler-static-scale-color-white-alpha-900);
+        --ruler-semantic-color-common-interactive-low: var(--ruler-scale-color-blue-alpha-200);
+        --ruler-semantic-color-common-interactive: var(--ruler-scale-color-blue-500);
+        --ruler-semantic-color-common-interactive-hover: var(--ruler-scale-color-blue-400);
+        --ruler-semantic-color-common-interactive-pressed: var(--ruler-scale-color-blue-400);
+        --ruler-semantic-color-common-negative: var(--ruler-scale-color-red-600);
+        --ruler-semantic-color-common-negative-hover: var(--ruler-scale-color-red-400);
+        --ruler-semantic-color-common-negative-pressed: var(--ruler-scale-color-red-400);
+        --ruler-semantic-color-common-accent-low: var(--ruler-scale-color-red-alpha-200);
+        --ruler-semantic-color-common-accent: var(--ruler-scale-color-red-500);
+        --ruler-semantic-color-text-primary: var(--ruler-scale-color-gray-950);
+        --ruler-semantic-color-text-primary-hover: var(--ruler-scale-color-gray-600);
+        --ruler-semantic-color-text-primary-pressed: var(--ruler-scale-color-gray-600);
+        --ruler-semantic-color-text-secondary: var(--ruler-scale-color-gray-600);
+        --ruler-semantic-color-text-secondary-hover: var(--ruler-scale-color-gray-500);
+        --ruler-semantic-color-text-secondary-pressed: var(--ruler-scale-color-gray-500);
+        --ruler-semantic-color-text-tertiary: var(--ruler-scale-color-gray-400);
+        --ruler-semantic-color-text-tertiary-hover: var(--ruler-scale-color-gray-300);
+        --ruler-semantic-color-text-tertiary-pressed: var(--ruler-scale-color-gray-300);
+        --ruler-semantic-color-text-disabled: var(--ruler-scale-color-gray-300);
+        --ruler-semantic-color-text-on-color: var(--ruler-scale-color-gray-00);
+        --ruler-semantic-color-background-low: var(--ruler-scale-color-gray-100);
+        --ruler-semantic-color-background-default: var(--ruler-scale-color-gray-00);
+        --ruler-semantic-color-background-default-black: var(--ruler-static-scale-color-black);
+        --ruler-semantic-color-fill-primary: var(--ruler-scale-color-gray-950);
+        --ruler-semantic-color-fill-primary-hover: var(--ruler-scale-color-gray-800);
+        --ruler-semantic-color-fill-primary-pressed: var(--ruler-scale-color-gray-800);
+        --ruler-semantic-color-fill-secondary: var(--ruler-scale-color-gray-700);
+        --ruler-semantic-color-fill-tertiary: var(--ruler-scale-color-gray-100);
+        --ruler-semantic-color-fill-silent: var(--ruler-scale-color-gray-00);
+        --ruler-semantic-color-fill-silent-hover: var(--ruler-scale-color-gray-100);
+        --ruler-semantic-color-fill-silent-pressed: var(--ruler-scale-color-gray-100);
+        --ruler-semantic-color-fill-surface-contents: var(--ruler-scale-color-gray-100);
+        --ruler-semantic-color-fill-surface-floating: var(--ruler-scale-color-gray-950);
+        --ruler-semantic-color-fill-surface-dialog: var(--ruler-scale-color-gray-00);
+        --ruler-semantic-color-fill-surface-sheet: var(--ruler-scale-color-gray-00);
+        --ruler-semantic-color-fill-surface-black: var(--ruler-static-scale-color-black);
+        --ruler-semantic-color-fill-disabled: var(--ruler-scale-color-gray-100);
+        --ruler-semantic-color-border-divider-strong: var(--ruler-scale-color-gray-950);
+        --ruler-semantic-color-border-divider: var(--ruler-scale-color-gray-100);
+        --ruler-semantic-color-border-line: var(--ruler-scale-color-gray-200);
+        --ruler-semantic-color-border-line-hover: var(--ruler-scale-color-gray-400);
+        --ruler-semantic-color-border-line-pressed: var(--ruler-scale-color-gray-400);
+        --ruler-semantic-color-border-line-selected: var(--ruler-scale-color-gray-950);
+        --ruler-semantic-color-border-line-disabled: var(--ruler-scale-color-gray-100);
+        --ruler-semantic-color-overlay-dimmed: var(--ruler-static-scale-color-black-alpha-500);
+        --ruler-semantic-typography-title-xxl-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-xxl-font-weight: var(--ruler-scale-font-weight-regular);
+        --ruler-semantic-typography-title-xxl-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-xxl-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-xxl-font-size: var(--ruler-scale-dimension-font-size-550);
+        --ruler-semantic-typography-title-xxl-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-xxl-bold-font-weight: var(--ruler-scale-font-weight-bold);
+        --ruler-semantic-typography-title-xxl-bold-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-xxl-bold-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-xxl-bold-font-size: var(--ruler-scale-dimension-font-size-550);
+        --ruler-semantic-typography-title-xxl-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-xxl-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-title-xxl-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-xxl-medium-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-xxl-medium-font-size: var(--ruler-scale-dimension-font-size-550);
+        --ruler-semantic-typography-title-xl-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-xl-bold-font-weight: var(--ruler-scale-font-weight-bold);
+        --ruler-semantic-typography-title-xl-bold-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-xl-bold-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-xl-bold-font-size: var(--ruler-scale-dimension-font-size-500);
+        --ruler-semantic-typography-title-xl-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-xl-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-title-xl-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-xl-medium-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-xl-medium-font-size: var(--ruler-scale-dimension-font-size-500);
+        --ruler-semantic-typography-title-l-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-l-bold-font-weight: var(--ruler-scale-font-weight-bold);
+        --ruler-semantic-typography-title-l-bold-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-l-bold-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-l-bold-font-size: var(--ruler-scale-dimension-font-size-400);
+        --ruler-semantic-typography-title-l-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-l-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-title-l-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-l-medium-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-l-medium-font-size: var(--ruler-scale-dimension-font-size-400);
+        --ruler-semantic-typography-title-m-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-m-bold-font-weight: var(--ruler-scale-font-weight-bold);
+        --ruler-semantic-typography-title-m-bold-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-m-bold-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-m-bold-font-size: var(--ruler-scale-dimension-font-size-350);
+        --ruler-semantic-typography-title-m-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-m-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-title-m-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-m-medium-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-m-medium-font-size: var(--ruler-scale-dimension-font-size-350);
+        --ruler-semantic-typography-title-s-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-s-bold-font-weight: var(--ruler-scale-font-weight-bold);
+        --ruler-semantic-typography-title-s-bold-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-s-bold-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-s-bold-font-size: var(--ruler-scale-dimension-font-size-300);
+        --ruler-semantic-typography-title-s-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-s-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-title-s-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-s-medium-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-s-medium-font-size: var(--ruler-scale-dimension-font-size-300);
+        --ruler-semantic-typography-title-xs-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-xs-bold-font-weight: var(--ruler-scale-font-weight-bold);
+        --ruler-semantic-typography-title-xs-bold-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-xs-bold-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-xs-bold-font-size: var(--ruler-scale-dimension-font-size-250);
+        --ruler-semantic-typography-title-xs-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-title-xs-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-title-xs-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-title-xs-medium-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-title-xs-medium-font-size: var(--ruler-scale-dimension-font-size-250);
+        --ruler-semantic-typography-text-xxl-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-xxl-font-weight: var(--ruler-scale-font-weight-regular);
+        --ruler-semantic-typography-text-xxl-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-xxl-line-height: var(--ruler-scale-line-height-4);
+        --ruler-semantic-typography-text-xxl-font-size: var(--ruler-scale-dimension-font-size-200);
+        --ruler-semantic-typography-text-xxl-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-xxl-bold-font-weight: var(--ruler-scale-font-weight-bold);
+        --ruler-semantic-typography-text-xxl-bold-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-xxl-bold-line-height: var(--ruler-scale-line-height-4);
+        --ruler-semantic-typography-text-xxl-bold-font-size: var(--ruler-scale-dimension-font-size-200);
+        --ruler-semantic-typography-text-xxl-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-xxl-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-text-xxl-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-xxl-medium-line-height: var(--ruler-scale-line-height-4);
+        --ruler-semantic-typography-text-xxl-medium-font-size: var(--ruler-scale-dimension-font-size-200);
+        --ruler-semantic-typography-text-xl-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-xl-bold-font-weight: var(--ruler-scale-font-weight-bold);
+        --ruler-semantic-typography-text-xl-bold-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-xl-bold-line-height: var(--ruler-scale-line-height-5);
+        --ruler-semantic-typography-text-xl-bold-font-size: var(--ruler-scale-dimension-font-size-150);
+        --ruler-semantic-typography-text-xl-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-xl-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-text-xl-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-xl-medium-line-height: var(--ruler-scale-line-height-5);
+        --ruler-semantic-typography-text-xl-medium-font-size: var(--ruler-scale-dimension-font-size-150);
+        --ruler-semantic-typography-text-xl-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-xl-font-weight: var(--ruler-scale-font-weight-regular);
+        --ruler-semantic-typography-text-xl-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-xl-line-height: var(--ruler-scale-line-height-5);
+        --ruler-semantic-typography-text-xl-font-size: var(--ruler-scale-dimension-font-size-150);
+        --ruler-semantic-typography-text-l-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-l-bold-font-weight: var(--ruler-scale-font-weight-bold);
+        --ruler-semantic-typography-text-l-bold-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-l-bold-line-height: var(--ruler-scale-line-height-4);
+        --ruler-semantic-typography-text-l-bold-font-size: var(--ruler-scale-dimension-font-size-125);
+        --ruler-semantic-typography-text-l-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-l-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-text-l-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-l-medium-line-height: var(--ruler-scale-line-height-4);
+        --ruler-semantic-typography-text-l-medium-font-size: var(--ruler-scale-dimension-font-size-125);
+        --ruler-semantic-typography-text-l-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-l-font-weight: var(--ruler-scale-font-weight-regular);
+        --ruler-semantic-typography-text-l-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-l-line-height: var(--ruler-scale-line-height-4);
+        --ruler-semantic-typography-text-l-font-size: var(--ruler-scale-dimension-font-size-125);
+        --ruler-semantic-typography-text-m-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-m-bold-font-weight: var(--ruler-scale-font-weight-bold);
+        --ruler-semantic-typography-text-m-bold-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-m-bold-line-height: var(--ruler-scale-line-height-4);
+        --ruler-semantic-typography-text-m-bold-font-size: var(--ruler-scale-dimension-font-size-100);
+        --ruler-semantic-typography-text-m-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-m-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-text-m-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-m-medium-line-height: var(--ruler-scale-line-height-4);
+        --ruler-semantic-typography-text-m-medium-font-size: var(--ruler-scale-dimension-font-size-100);
+        --ruler-semantic-typography-text-m-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-m-font-weight: var(--ruler-scale-font-weight-regular);
+        --ruler-semantic-typography-text-m-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-m-line-height: var(--ruler-scale-line-height-4);
+        --ruler-semantic-typography-text-m-font-size: var(--ruler-scale-dimension-font-size-100);
+        --ruler-semantic-typography-text-s-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-s-font-weight: var(--ruler-scale-font-weight-regular);
+        --ruler-semantic-typography-text-s-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-s-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-text-s-font-size: var(--ruler-scale-dimension-font-size-75);
+        --ruler-semantic-typography-text-s-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-s-bold-font-weight: var(--ruler-scale-font-weight-bold);
+        --ruler-semantic-typography-text-s-bold-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-s-bold-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-text-s-bold-font-size: var(--ruler-scale-dimension-font-size-75);
+        --ruler-semantic-typography-text-s-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-s-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-text-s-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-s-medium-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-text-s-medium-font-size: var(--ruler-scale-dimension-font-size-75);
+        --ruler-semantic-typography-text-xs-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-xs-font-weight: var(--ruler-scale-font-weight-regular);
+        --ruler-semantic-typography-text-xs-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-xs-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-text-xs-font-size: var(--ruler-scale-dimension-font-size-50);
+        --ruler-semantic-typography-text-xs-bold-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-xs-bold-font-weight: var(--ruler-scale-font-weight-bold);
+        --ruler-semantic-typography-text-xs-bold-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-xs-bold-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-text-xs-bold-font-size: var(--ruler-scale-dimension-font-size-50);
+        --ruler-semantic-typography-text-xs-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-xs-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-text-xs-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-xs-medium-line-height: var(--ruler-scale-line-height-3);
+        --ruler-semantic-typography-text-xs-medium-font-size: var(--ruler-scale-dimension-font-size-50);
+        --ruler-semantic-typography-text-xxs-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-xxs-font-weight: var(--ruler-scale-font-weight-regular);
+        --ruler-semantic-typography-text-xxs-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-xxs-line-height: var(--ruler-scale-line-height-2);
+        --ruler-semantic-typography-text-xxs-font-size: var(--ruler-scale-dimension-font-size-25);
+        --ruler-semantic-typography-text-xxs-medium-font-family: var(--ruler-static-scale-font-family-29cm-default-font);
+        --ruler-semantic-typography-text-xxs-medium-font-weight: var(--ruler-scale-font-weight-medium);
+        --ruler-semantic-typography-text-xxs-medium-letter-spacing: var(--ruler-scale-letter-spacing);
+        --ruler-semantic-typography-text-xxs-medium-line-height: var(--ruler-scale-line-height-2);
+        --ruler-semantic-typography-text-xxs-medium-font-size: var(--ruler-scale-dimension-font-size-25);
+    }
+    body, input, select, textarea, button, a {
+        -webkit-text-size-adjust: none;
+        font-family: 'campton', 'Apple SD Gothic Neo', NanumBarunGothic, '나눔바른고딕', Malgun Gothic, '맑은 고딕', dotum, sans-serif;
+    }
+    div {
+        display: block;
+        unicode-bidi: isolate;
+    }
+    html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, audio, video, input, textarea, button, select {
+        margin: 0;
+        padding: 0;
+    }
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+    :root {
+        --swiper-theme-color: #007aff;
+    }
+    ol, ul, li {
+        list-style: none;
+    }
+    ul {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+        unicode-bidi: isolate;
+    }
+    li {
+        display: list-item;
+        text-align: -webkit-match-parent;
+        unicode-bidi: isolate;
+    }
+    img {
+        max-width: 100%;
+        border: 0;
+        vertical-align: top;
+        overflow-clip-margin: content-box;
+        overflow: clip;
+    }
+    h3 {
+        display: block;
+        font-size: 1.17em;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        unicode-bidi: isolate;
+    }
+    p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        unicode-bidi: isolate;
+    }
+    button {
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        outline: none;
+    }
+    .css-zqyuit {
+        display: flex;
+        flex-wrap: nowrap;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        margin-bottom: 5px;
+        padding-top: 35px;
+    }
+    .css-70qvj9 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    .css-wb64ex {
+        display: flex;
+    }
+    .css-wb64ex:not(:first-of-type)::before {
+        color: #5d5d5d;
+        font-size: 22px;
+        font-weight: 100;
+        margin: 0 10px;
+        content: '/';
+    }
+    .css-1iceoh8 {
+        position: relative;
+        display: inline-block;
+        height: 33px;
+    }
+    .css-azx95j {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        height: 100%;
+    }
+    .css-8ch9kd {
+        font-size: 15px;
+        font-weight: 500;
+        margin-right: 8px;
+        color: #000000;
+    }
+    .css-9uy14h {
+        width: 24px;
+        height: 24px;
+    }
+    .ctgr1 {
+        transform: matrix(1, 0, 0, -1, 0, 24);
+        fill: none;
+        fill-rule: evenodd;
+    }
+    .ctgr2 {
+        d: path("M 0 0 h 24 v 24 H 0 Z");
+    }
+    .ctgr3 {
+        stroke: rgb(0, 0, 0);
+        stroke-width: 2;
+        d: path("m 16.545 13.727 l -4.554 -4.545 l -4.536 4.526");
+    }
+    .ctgr4 {
+        stroke: rgb(0, 0, 0);
+        stroke-width: 2;
+        cx: 12;
+        cy: 12;
+        r: 10;
+    }
+    :not(svg) {
+        transform-origin: 0px 0px;
+    }
+    
+    .css-qoulyp {
+        position: absolute;
+        display: none;
+        z-index: 11;
+        width: 170px;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 0;
+        background-color: #ffffff;
+        border: 1px solid #303033;
+    }
+    .css-uio8sw {
+        min-width: 900px;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 40px 50px 0;
+    }
+    .css-1ux6qe5 {
+        margin-bottom: 16px;
+    }
+    .css-y49a97 {
+        position: relative;
+        display: flex;
+        padding-right: 80px;
+    }
+    .css-k95f3n {
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    .css-82vwid {
+        flex-shrink: 0;
+        width: 74px;
+        height: 74px;
+        object-fit: cover;
+    }
+    .css-14c9ube {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 14px;
+    }
+    a:-webkit-any-link {
+        color: -webkit-link;
+        cursor: pointer;
+    }
+    .css-1dncbyk {
+        overflow: hidden;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+        color: #000000;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .css-8e7eit {
+        overflow: hidden;
+        font-size: 13px;
+        color: #000000;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .css-kaibhs {
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        align-items: flex-start;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        margin-top: 6px;
+    }
+    .css-nzh9w2 {
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 25px;
+        display: inline;
+        padding: 0 9px;
+        font-size: 11px;
+        color: #000000;
+        border: 1px solid #d4d4d4;
+        border-radius: 2px;
+    }
+    @media (min-width: 541px) {
+        .css-5jl7kz {
+            padding: 40px 50px 0;
+        }
+    }
+    @media (min-width: 541px) {
+        .css-5jl7kz {
+            min-width: 900px;
+            max-width: 1300px;
+        }
+    }
+    @media (min-width: 541px) {
+        .css-1y47rmj {
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            justify-content: space-between;
+        }
+    }
+    .css-1y47rmj {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: flex-start;
+        -webkit-box-align: flex-start;
+        -ms-flex-align: flex-start;
+        align-items: flex-start;
+        width: 100%;
+    }
+    /* 상품 슬라이드하는 곳부터  */
+    @media (min-width: 541px) {
+    .css-1y47rmj {
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+    }
+}
+    .css-1nxhd22 {
+        position: relative;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        width: 47%;
+    }
+    .css-1vt3f8z {
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+    }
+    .css-122y91a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .css-12qah06 {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .css-1vt3f8z {
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+    }
+    .css-122y91a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .css-uw6dxe:disabled {
+        opacity: 0.35;
+    }
+    .css-uw6dxe:disabled {
+        cursor: not-allowed;
+    }
+    .css-uw6dxe {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 25px;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        padding: 15px;
+        background-color: #ffffff;
+        left: 0;
+    }
+    .splide__arrow--prev {
+        left: 1em;
+    }
+    .splide__arrow--prev svg {
+        transform: scaleX(-1);
+    }
+    .css-19ilmue {
+        width: 42px;
+        height: 80px;
+        width: 10px;
+        height: 28px;
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+    }
+    .css-19ilmue path {
+        stroke: #303033;
+        stroke-width: 3;
+    }
+    svg:not(:root) {
+        overflow-clip-margin: content-box;
+        overflow: hidden;
+    }
+    .css-1l4yul5 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 25px;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        padding: 15px;
+        background-color: #ffffff;
+        right: 0;
+    }
+    .splide__arrow--next {
+        right: 1em;
+    }
+    .css-fc0kkr {
+        width: 42px;
+        height: 80px;
+        width: 10px;
+        height: 28px;
+    }
+    
+    .css-1nxhd22 .splide__pagination {
+        position: unset;
+        padding-top: 16px;
+    }
+    .splide__pagination {
+        bottom: .5em;
+        left: 0;
+        padding: 0 1em;
+        position: absolute;
+        right: 0;
+        z-index: 1;
+    }
+    .splide__pagination {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0;
+        pointer-events: none;
+    }
+    .splide__pagination li {
+        display: inline-block;
+        line-height: 1;
+        list-style-type: none;
+        margin: 0;
+        pointer-events: auto;
+    }
+    .css-1nxhd22 .splide__pagination__page.is-active {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        background-color: #000000;
+    }
+    .css-1nxhd22 .splide__pagination__page {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        background-color: #e4e4e4;
+        border-radius: 50%;
+        -webkit-transition: none;
+        transition: none;
+    }
+    .splide__pagination__page.is-active {
+        background: #fff;
+        transform: scale(1.4);
+        z-index: 1;
+    }
+    .splide__pagination__page {
+        background: #ccc;
+        border: 0;
+        border-radius: 50%;
+        display: inline-block;
+        height: 8px;
+        margin: 3px;
+        opacity: .7;
+        padding: 0;
+        position: relative;
+        transition: transform .2s linear;
+        width: 8px;
+    }
+    .css-3eeht {
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: 100%;
+        padding-left: 45px;
+    }
+    .css-uz7uc7 {
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        padding-bottom: 16px;
+        border-top: 2px solid #000000;
+        border-bottom: 1px solid #f4f4f4;
+    }
+    .css-e9pho6 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+    }
+    @media (min-width: 541px) {
+        .css-14q0h0e {
+            display: none;
+        }
+    }
+    
+    .css-xz8ybi {
+        padding: 24px 0;
+        padding-right: 34px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 26px;
+        color: #000000;
+    }
+    .css-1gyviqy {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        width: 85px;
+        border-left: 1px solid #e4e4e4;
+    }
+    .css-1qwq84l {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 25px;
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        font-size: 12px;
+        line-height: 1;
+        color: #000000;
+    }
+    .css-kglvp1 {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .heart{
+        d: path("M 9 6.088 C 9 3.831 10.791 2 13 2 s 4 1.83 4 4.088 c 0 1.743 -1.46 3.23 -1.46 3.23 L 9 16 L 2.46 9.318 S 1 7.83 1 6.088 C 1 3.831 2.791 2 5 2 s 4 1.83 4 4.088 Z");
+        fill: rgb(255, 255, 255);
+        fill-rule: evenodd;
+        stroke: rgb(93, 93, 93);
+        stroke-width: 0.7;
+    }
+    
+    .slide_arrow1 {
+        d: path("M 1 0 l 40 40.083 L 1.166 80");
+        fill: none;
+        fill-rule: evenodd;
+        stroke: rgb(0, 0, 0);
+        stroke-width: 5;
+    }
+
+    .slide_arrow2 {
+        d: path("M 1 0 l 40 40.083 L 1.166 80");
+        fill: none;
+        fill-rule: evenodd;
+        stroke: rgb(0, 0, 0);
+        stroke-width: 5;
+    }
+
+    /* 상품 별점 */
+    .css-1ilqvfb {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-bottom: 24px;
+    }
+    .css-nbg1jm {
+        margin-right: 12px;
+    }
+    .css-18biwo {
+        display: -webkit-inline-box;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .css-9nop8 {
+        position: relative;
+        display: inline-block;
+        line-height: 0;
+    }
+    .star {
+        fill: rgb(212, 212, 212);
+        fill-rule: evenodd;
+        stroke: rgb(212, 212, 212);
+        stroke-width: 0.7;
+        d: path("M 4.146 3.95 L 0 4.583 l 3 3.075 L 2.292 12 L 6 9.95 L 9.708 12 L 9 7.658 l 3 -3.075 l -4.146 -0.633 L 6 0 Z");
+    }
+    .css-neyd9i {
+        overflow: hidden;
+        position: absolute;
+        display: inline-block;
+        line-height: 0;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+    }
+    .star2 {
+        fill: rgb(0, 0, 0);
+        fill-rule: evenodd;
+        stroke: rgb(0, 0, 0);
+        stroke-width: 0.7;
+        d: path("M 4.146 3.95 L 0 4.583 l 3 3.075 L 2.292 12 L 6 9.95 L 9.708 12 L 9 7.658 l 3 -3.075 l -4.146 -0.633 L 6 0 Z");
+    }
+    .css-mfscko {
+        display: inline-block;
+        height: 14px;
+        font-size: 11px;
+        font-weight: 500;
+        color: #5d5d5d;
+        border-bottom: 0.5px solid #5d5d5d;
+    }
+    
+    /* 가격 부분 */
+    .css-lcoy4n {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: end;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        align-items: end;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+    }
+    .css-1rr4qq7 {
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+    }
+    .css-1bci2fm {
+        font-size: 16px;
+        font-weight: 500;
+        color: rgb(196, 196, 196);
+    }
+    .css-h6obet {
+        position: relative;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        min-height: 32px;
+    }
+    .css-1jsmahk {
+        margin-right: 6px;
+        font-size: 22px;
+        font-weight: 600;
+        color: rgb(255, 72, 0);
+    }
+    .css-4bcxzt {
+        font-size: 22px;
+        font-weight: 600;
+        color: #000000;
+    }
+    .css-a5v5ts {
+        position: relative;
+        bottom: 1px;
+        margin-left: 2px;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    em, address {
+        font-style: normal;
+    }
+    .css-1cevk7j {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        min-width: 120px;
+        -webkit-align-items: flex-end;
+        -webkit-box-align: flex-end;
+        -ms-flex-align: flex-end;
+        align-items: flex-end;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+    }
+    .css-1gchlp8 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        min-width: 40px;
+        min-height: 25px;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        width: 97px;
+        height: 32px;
+        padding: 0px 10px 0px 14px;
+        font-size: 11px;
+        font-weight: 500;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 0, 0);
+    }
+    .css-qzxgwt {
+        width: 12px;
+        height: 12px;
+    }
+    .g_coupon_download{
+        fill: rgb(255, 255, 255);
+        fill-rule: evenodd;
+    }
+    .p_coupon_download1{
+        fill: none;
+        d: path("M 0 0 h 9 v 9 H 0 Z");
+    }
+    .p_coupon_download2{
+        d: path("M 7.284 4.243 L 4.625 6.695 l -0.292 0.275 l -0.003 -0.003 v 0.001 l -0.673 -0.626 l 0.002 -0.002 l -2.23 -2.083 l 0.733 -0.582 l 1.665 1.607 L 3.828 0 h 0.937 v 5.339 l 1.856 -1.678 l 0.663 0.582 Z m 0.31 3.505 v 0.943 h -6.54 v -0.943 h 6.54 Z");
+    }
+    .css-52zi8k {
+        margin-top: 4px;
+        font-size: 13px;
+        line-height: 18px;
+        color: #5d5d5d;
+    }
+    .css-enxt79 {
+        border-bottom: 1px solid #f4f4f4;
+    }
+    .css-1n5ilnb {
+        position: relative;
+        background-color: var(--ruler-semantic-color-background-default);
+    }
+    .css-7boy05 {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .css-1eaetqv {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .css-1ueg5w {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        white-space: nowrap;
+    }
+    .css-mmrttp {
+        display: inline-block;
+        font-family: var(--ruler-semantic-typography-text-m-bold-font-family);
+        font-weight: var(--ruler-semantic-typography-text-m-bold-font-weight);
+        line-height: var(--ruler-semantic-typography-text-m-bold-line-height);
+        font-size: var(--ruler-semantic-typography-text-m-bold-font-size);
+        color: var(--ruler-semantic-color-text-primary);
+        display: inline;
+    }
+    .css-x1sij0 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: baseline;
+        -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+        align-items: baseline;
+    }
+    .css-1g7qv4a {
+        line-height: 20px;
+    }
+    .css-1udwh3t {
+        display: block;
+        margin-left: 2px;
+    }
+    svg > .css-1udwh3t {
+        width: 20;
+        height: 20;
+        fill: none;
+    }
+    .view_explanation1 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        d: path("M 18.3332 9.99999 C 18.3332 14.6024 14.6022 18.3333 9.99984 18.3333 C 5.39746 18.3333 1.6665 14.6024 1.6665 9.99999 C 1.6665 5.39762 5.39746 1.66666 9.99984 1.66666 C 14.6022 1.66666 18.3332 5.39762 18.3332 9.99999 Z M 9.99984 17.5 C 14.142 17.5 17.4998 14.1421 17.4998 9.99999 C 17.4998 5.85785 14.142 2.49999 9.99984 2.49999 C 5.8577 2.49999 2.49984 5.85785 2.49984 9.99999 C 2.49984 14.1421 5.8577 17.5 9.99984 17.5 Z");
+        fill: var(--ruler-scale-color-gray-400);
+    }
+    .view_explanation2 {
+        d: path("M 8.98441 12.2742 C 9.00601 10.6746 9.76938 10.3477 10.7704 9.7287 C 11.4978 9.27663 11.9227 8.7411 11.9227 7.97606 C 11.9227 6.94674 11.0873 6.2582 10.0358 6.26515 C 9.05642 6.2582 8.17782 6.88414 8.12021 8.07343 H 7.08317 C 7.13358 6.44598 8.40827 5.41666 10.0358 5.41666 C 11.7498 5.41666 12.9165 6.51553 12.9165 8.01779 C 12.9165 9.03321 12.4268 9.74261 11.4762 10.3407 C 10.5544 10.911 9.99984 11.1753 9.97823 12.2742 V 12.5107 H 8.98441 V 12.2742 Z M 8.68914 13.846 C 8.68914 13.4357 9.04202 13.1018 9.46692 13.0949 C 9.88461 13.1018 10.2303 13.4357 10.2303 13.846 C 10.2303 14.2494 9.88461 14.5902 9.46692 14.5832 C 9.04202 14.5902 8.68914 14.2494 8.68914 13.846 Z");
+        fill: var(--ruler-scale-color-gray-400);
+    }
+    .css-17mseqq {
+        position: absolute;
+        display: block;
+        text-indent: -9999px;
+    }
+    /* 구매가능금액 툴팁 */
+    @media (min-width: 541px) {
+        .css-jtvhsa {
+            max-width: calc(100% - 20px);
+        }
+    }
+    .css-jtvhsa {
+        position: absolute;
+        z-index: 20;
+        left: 0;
+        display: none;
+        width: 100%;
+        margin-top: 28px;
+    }
+    .css-i5lk9o {
+        display: inline-block;
+        font-family: var(--ruler-semantic-typography-text-m-font-family);
+        font-weight: var(--ruler-semantic-typography-text-m-font-weight);
+        line-height: var(--ruler-semantic-typography-text-m-line-height);
+        font-size: var(--ruler-semantic-typography-text-m-font-size);
+        color: var(--ruler-semantic-color-text-secondary);
+        box-sizing: border-box;
+        padding: 16px 14px;
+        white-space: pre-wrap;
+        background: var(--ruler-semantic-color-background-default);
+        border: 1px solid var(--ruler-semantic-color-border-line);
+    }
+    .css-1gdpno1:first-of-type {
+        margin-top: 0;
+    }
+    .css-1gdpno1 {
+        display: inline-block;
+        font-family: var(--ruler-semantic-typography-text-m-font-family);
+        font-weight: var(--ruler-semantic-typography-text-m-font-weight);
+        line-height: var(--ruler-semantic-typography-text-m-line-height);
+        font-size: var(--ruler-semantic-typography-text-m-font-size);
+        color: var(--ruler-semantic-color-text-secondary);
+        position: relative;
+        padding-left: 12px;
+    }
+    .css-79elbk {
+        position: relative;
+    }
+    .css-1otzfd9 {
+        position: absolute;
+        z-index: 1;
+        padding: 6px 12px;
+        font-size: 12px;
+        font-weight: 400;
+        color: #ffffff;
+        white-space: nowrap;
+        opacity: 0;
+        background: #ff4800;
+        border-radius: 2px;
+        -webkit-transition: opacity 0.2s ease-in-out;
+        transition: opacity 0.2s ease-in-out;
+        top: -12px;
+        left: 50%;
+        -webkit-transform: translate(-50%, -100%);
+        -moz-transform: translate(-50%, -100%);
+        -ms-transform: translate(-50%, -100%);
+        transform: translate(-50%, -100%);
+        top: 12px;
+        left: 100%;
+        -webkit-transform: translate(-100%, -100%);
+        -moz-transform: translate(-100%, -100%);
+        -ms-transform: translate(-100%, -100%);
+        transform: translate(-100%, -100%);
+        margin-left: 8px;
+    }
+    .css-1otzfd9::after {
+        left: 100%;
+        -webkit-transform: translateX(100%);
+        -moz-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+        transform: translateX(100%);
+        margin-left: -32px;
+    }
+    .css-1otzfd9::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        border-top: 7px solid #ff4800;
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+    }
+    .css-10bxcp7 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 6px;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 60px;
+        margin-right: -2px;
+    }
+    @media (min-width: 541px) {
+        .css-a8kslq {
+            gap: 8px;
+        }
+    }
+    .css-a8kslq {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 6px;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        -webkit-justify-content: end;
+        justify-content: end;
+    }
+    .css-zqatfe {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 6px;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .css-u757q {
+        font-family: var(--ruler-semantic-typography-text-xxl-bold-font-family);
+        font-weight: var(--ruler-semantic-typography-text-xxl-bold-font-weight);
+        line-height: var(--ruler-semantic-typography-text-xxl-bold-line-height);
+        font-size: var(--ruler-semantic-typography-text-xxl-bold-font-size);
+        color: var(--ruler-semantic-color-text-tertiary);
+        display: inline;
+    }
+    .css-1kj9qon {
+        font-family: var(--ruler-semantic-typography-text-xxl-bold-font-family);
+        font-weight: var(--ruler-semantic-typography-text-xxl-bold-font-weight);
+        line-height: var(--ruler-semantic-typography-text-xxl-bold-line-height);
+        font-size: var(--ruler-semantic-typography-text-xxl-bold-font-size);
+        color: var(--ruler-semantic-color-text-primary);
+        position: relative;
+        display: flex;
+        -webkit-box-align: baseline;
+        align-items: baseline;
+    }
+    .css-14gt3bc {
+        margin-left: 2px;
+    }
+    .css-1bz6w5x {
+        width: 12px;
+        height: 6px;
+        margin: 0 0 0 8px;
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        padding: 3px;
+    }
+    .view_down1 {
+        fill: none;
+        fill-rule: evenodd;
+        stroke: var(--ruler-semantic-color-text-primary);
+        stroke-width: 2;
+    }
+    .view_down2 {
+        d: path("M 28 1 L 13.97 15 L 0 1.058");
+    }
+
+    /* 무이자 할부 */
+    .css-17qwfjj {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--ruler-scale-color-gray-100);
+    }
+    .css-a4fgns {
+        display: inline-block;
+        font-family: var(--ruler-semantic-typography-text-m-medium-font-family);
+        font-weight: var(--ruler-semantic-typography-text-m-medium-font-weight);
+        line-height: var(--ruler-semantic-typography-text-m-medium-line-height);
+        font-size: var(--ruler-semantic-typography-text-m-medium-font-size);
+        color: var(--ruler-semantic-color-text-secondary);
+        display: inline-block;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        -webkit-align-self: flex-start;
+        -ms-flex-item-align: flex-start;
+        align-self: flex-start;
+        width: 110px;
+    }
+    .css-1slczgn {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        gap: 8px;
+    }
+    .css-70qvj9 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .css-x0q8ne {
+        display: inline-block;
+        font-family: var(--ruler-semantic-typography-text-m-bold-font-family);
+        font-weight: var(--ruler-semantic-typography-text-m-bold-font-weight);
+        line-height: var(--ruler-semantic-typography-text-m-bold-line-height);
+        font-size: var(--ruler-semantic-typography-text-m-bold-font-size);
+        color: var(--ruler-semantic-color-text-secondary);
+    }
+    .css-acbihw {
+        margin-left: 1px;
+    }
+    .installmentInfo1 {
+        fill: none;
+        fill-rule: evenodd;
+    }    
+    .installmentInfo2 {
+        d: path("M 0 0 h 12 v 12 H 0 Z");
+    }
+    .installmentInfo3 {
+        stroke: rgb(160, 160, 160);
+        d: path("m 4.5 2.155 l 3.89 3.889 L 4.5 9.933");
+    }
+    /* 배송 정보 */
+    .css-1kw04qr {
+        padding: 20px 0;
+    }
+    .ul_shipping_info {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 0px;
+        unicode-bidi: isolate;
+    }
+    
+    .css-32ihlf {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin-bottom: 16px;
+    }
+    .css-6jcthz {
+        display: inline-block;
+        font-family: var(--ruler-semantic-typography-text-m-medium-font-family);
+        font-weight: var(--ruler-semantic-typography-text-m-medium-font-weight);
+        line-height: var(--ruler-semantic-typography-text-m-medium-line-height);
+        font-size: var(--ruler-semantic-typography-text-m-medium-font-size);
+        color: var(--ruler-semantic-color-text-secondary);
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        width: 110px;
+    }
+    .css-x1sij0 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: baseline;
+        -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+        align-items: baseline;
+    }
+    .css-1behjaf {
+        line-height: 20px;
+        margin-top: -1px;
+    }
+    .css-1udwh3t {
+        display: block;
+        margin-left: 2px;
+    }
+    svg > .css-1udwh3t {
+        width: 20;
+        height: 20;
+        fill: none;
+    }
+    .shipping_tooltip1 {
+        fill-rule: evenodd;
+        clip-rule: evenodd;
+        d: path("M 18.3332 9.99999 C 18.3332 14.6024 14.6022 18.3333 9.99984 18.3333 C 5.39746 18.3333 1.6665 14.6024 1.6665 9.99999 C 1.6665 5.39762 5.39746 1.66666 9.99984 1.66666 C 14.6022 1.66666 18.3332 5.39762 18.3332 9.99999 Z M 9.99984 17.5 C 14.142 17.5 17.4998 14.1421 17.4998 9.99999 C 17.4998 5.85785 14.142 2.49999 9.99984 2.49999 C 5.8577 2.49999 2.49984 5.85785 2.49984 9.99999 C 2.49984 14.1421 5.8577 17.5 9.99984 17.5 Z");
+        fill: var(--ruler-scale-color-gray-400);
+    }
+    .shipping_tooltip2 {
+        d: path("M 8.98441 12.2742 C 9.00601 10.6746 9.76938 10.3477 10.7704 9.7287 C 11.4978 9.27663 11.9227 8.7411 11.9227 7.97606 C 11.9227 6.94674 11.0873 6.2582 10.0358 6.26515 C 9.05642 6.2582 8.17782 6.88414 8.12021 8.07343 H 7.08317 C 7.13358 6.44598 8.40827 5.41666 10.0358 5.41666 C 11.7498 5.41666 12.9165 6.51553 12.9165 8.01779 C 12.9165 9.03321 12.4268 9.74261 11.4762 10.3407 C 10.5544 10.911 9.99984 11.1753 9.97823 12.2742 V 12.5107 H 8.98441 V 12.2742 Z M 8.68914 13.846 C 8.68914 13.4357 9.04202 13.1018 9.46692 13.0949 C 9.88461 13.1018 10.2303 13.4357 10.2303 13.846 C 10.2303 14.2494 9.88461 14.5902 9.46692 14.5832 C 9.04202 14.5902 8.68914 14.2494 8.68914 13.846 Z");
+        fill: var(--ruler-scale-color-gray-400);
+    }
+    .css-17mseqq {
+        position: absolute;
+        display: block;
+        text-indent: -9999px;
+    }
+    @media (min-width: 541px) {
+        .css-jtvhsa {
+            max-width: calc(100% - 20px);
+        }
+    }
+    .css-i5lk9o {
+        display: inline-block;
+        font-family: var(--ruler-semantic-typography-text-m-font-family);
+        font-weight: var(--ruler-semantic-typography-text-m-font-weight);
+        line-height: var(--ruler-semantic-typography-text-m-line-height);
+        font-size: var(--ruler-semantic-typography-text-m-font-size);
+        color: var(--ruler-semantic-color-text-secondary);
+        box-sizing: border-box;
+        padding: 16px 14px;
+        white-space: pre-wrap;
+        background: var(--ruler-semantic-color-background-default);
+        border: 1px solid var(--ruler-semantic-color-border-line);
+    }
+    .css-rgis3z {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        gap: 2px;
+        line-height: 0;
+    }
+    .css-wpwytb {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        gap: 4px;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .css-6fhy8c {
+        display: inline-block;
+        font-family: var(--ruler-semantic-typography-text-m-medium-font-family);
+        font-weight: var(--ruler-semantic-typography-text-m-medium-font-weight);
+        line-height: var(--ruler-semantic-typography-text-m-medium-line-height);
+        font-size: var(--ruler-semantic-typography-text-m-medium-font-size);
+        color: var(--ruler-semantic-color-common-interactive);
+    }
+    .css-6fhy8cc {
+        display: inline-block;
+        font-family: var(--ruler-semantic-typography-text-m-medium-font-family);
+        font-weight: var(--ruler-semantic-typography-text-m-medium-font-weight);
+        font-size: var(--ruler-semantic-typography-text-m-medium-font-size);
+        color: var(--ruler-semantic-color-common-interactive);
+    }
+    .css-32ihlf:last-of-type {
+        margin-bottom: 0;
+    }
+    .css-32ihlf {
+        position: relative;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin-bottom: 16px;
+    }
+    .css-6jcthz {
+        display: inline-block;
+        font-family: var(--ruler-semantic-typography-text-m-medium-font-family);
+        font-weight: var(--ruler-semantic-typography-text-m-medium-font-weight);
+        line-height: var(--ruler-semantic-typography-text-m-medium-line-height);
+        font-size: var(--ruler-semantic-typography-text-m-medium-font-size);
+        color: var(--ruler-semantic-color-text-secondary);
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-shrink: 0;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        width: 110px;
+    }
+    .css-ac5pa2 {
+        display: inline-block;
+        font-family: var(--ruler-semantic-typography-text-m-medium-font-family);
+        font-weight: var(--ruler-semantic-typography-text-m-medium-font-weight);
+        font-size: var(--ruler-semantic-typography-text-m-medium-font-size);
+        color: var(--ruler-semantic-color-text-secondary);
+    }
+    .css-ozyn3l {
+        padding: 20px 0;
+        border-top: 1px solid #f4f4f4;
+    }
+    .css-129gw94 {
+        line-height: 0;
+    }
+    .css-1rhyn18:last-of-type {
+        margin-bottom: 0px;
+    }
+    .css-1rhyn18 {
+        position: relative;
+        width: 100%;
+        margin-bottom: 4px;
+    }
+    .css-79elbk {
+        position: relative;
+    }
+    .css-qmbng6 {
+        display: block;
+        width: 100%;
+        border: 1px solid rgb(212, 212, 212);
+        outline: none;
+        cursor: pointer;
+        height: 36px;
+        padding: 0px 30px 0px 14px;
+        font-size: 13px;
+        color: rgb(48, 48, 51);
+        background: transparent;
+    }
+    .css-cs4h3q {
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        width: 12px;
+        height: 6px;
+        margin-top: -4px;
+        line-height: 6px;
+        vertical-align: top;
+    }
+    .select_option1 {
+        fill: none;
+        fill-rule: evenodd;
+        stroke: rgb(212, 212, 212);
+        stroke-width: 3;
+    }
+    .select_option2 {
+        d: path("M 28 1 L 13.97 15 L 0 1.058");
+    }
+    .css-jna93d {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        padding-top: 16px;
+    }
+    .css-vqh4y {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 25px;
+        width: 100%;
+        height: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        background-color: #ffffff;
+        color: #000000;
+        border: 1px solid #d4d4d4;
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+    }
+    .css-103n73x {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 25px;
+        width: 100%;
+        height: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #ffffff;
+        background-color: #000000;
+        box-shadow: 10px 10px 16px 0 rgb(0 0 0 / 30%);
+        -webkit-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        margin-left: 6px;
+    }
+    .css-103n73x:hover {
+        background-color: red;
+    }
+
+    /* 까지 */
+
+    /* 상품 정보, 설명 */
+    @media (min-width: 541px) {
+        .css-5jl7kz {
+            padding: 40px 50px 0;
+        }
+    }
+    
+    @media (min-width: 541px) {
+        .css-5jl7kz {
+            min-width: 900px;
+            max-width: 1300px;
+        }
+    }    
+
+    .css-5jl7kz {
+        margin: 0 auto;
+    }
+
+
+    article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+        display: block;
+    }
+    .css-1l6r90u {
+        position: relative;
+        border-bottom: 1px solid rgb(228, 228, 228);
+    }
+    .css-1kzibha {
+        min-width: 40px;
+        min-height: 25px;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        width: 100%;
+        height: 54px;
+        font-size: 17px;
+        font-weight: 700;
+        color: rgb(48, 48, 51);
+    }
+    .css-bjblx9 {
+        width: 12px;
+        height: 6px;
+        transform: rotate(180deg);
+    }
+    
+    .product_info_view1 {
+        fill: none;
+        fill-rule: evenodd;
+        stroke: rgb(212, 212, 212);
+        stroke-width: 3;
+    }
+    .product_info_view2 {
+        d: path("M 28 1 L 13.97 15 L 0 1.058");
+    }
+    .css-ckmsfc {
+        margin-top: -5px;
+        padding: 0px 0px 10px;
+        font-size: 14px;
+        line-height: 1.8;
+        color: rgb(48, 48, 51);
+        word-break: break-all;
+    }
+    .css-k008qs {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    .css-ysqghp {
+        font-size: 14px;
+        font-weight: normal;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+    }
+    .css-e3b3e9 {
+        position: relative;
+        border-bottom: 1px solid rgb(228, 228, 228);
+    }
+    
+    .css-bjblx9 {
+        width: 12px;
+        height: 6px;
+        transform: rotate(180deg);
+    }
+    .css-ckmsfc {
+        margin-top: -5px;
+        padding: 0px 0px 10px;
+        font-size: 14px;
+        line-height: 1.8;
+        color: rgb(48, 48, 51);
+        word-break: break-all;
+    }
+    .css-l57rop {
+        padding-bottom: 10px;
+    }
+    /* 까지 */
+
+    
+    
+    
+    
+    
+    
+    /* 상품정보 보기 */
+    @media (min-width: 541px) {
+        .css-edibn {
+            max-width: 1000px;
+        }
+    }
+    @media (min-width: 541px) {
+        .css-edibn {
+            min-width: 900px;
+            max-width: 1300px;
+        }
+    }
+    .css-edibn {
+        margin: 0 auto;
+        padding-bottom: 140px;
+        padding-bottom: calc(constant(safe-area-inset-bottom) + 140px);
+        padding-bottom: calc(env(safe-area-inset-bottom) + 140px);
+    }
+    @media (min-width: 541px) {
+        .css-1wvn7e9 {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+    }
+    .css-cqao5e {
+        padding: 0;
+        max-height: 3000px;
+        overflow: hidden;
+    }
+    .css-6rwnxw {
+        margin-bottom: 50px;
+    }
+    .css-1u363o {
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 30px;
+        color: #000000;
+    }
+    h2 {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        unicode-bidi: isolate;
+    }
+    .transform-component-module_wrapper__1_Fgj {
+        position: relative;
+        width: -moz-fit-content;
+        width: fit-content;
+        height: -moz-fit-content;
+        height: fit-content;
+        overflow: hidden;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        margin: 0;
+        padding: 0;
+    }
+    .transform-component-module_content__2jYgh {
+        display: flex;
+        flex-wrap: wrap;
+        width: -moz-fit-content;
+        width: fit-content;
+        height: -moz-fit-content;
+        height: fit-content;
+        margin: 0;
+        padding: 0;
+        transform-origin: 0% 0%;
+    }
+    .css-1jymsv8 {
+        max-width: 100%;
+        margin-top: 8px;
+        font-size: 16px;
+        line-height: 26px;
+        color: #000000;
+    }
+    .css-17yt8te {
+        display: table;
+        margin: 0 auto;
+    }
+    .transform-component-module_content__2jYgh img {
+        pointer-events: none;
+    }
+    .css-1j3v5r6 {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 1000px;
+        height: 601px;
+    }
+    .css-1i8e379 {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 1000px;
+        height: 4543px;
+    }
+    .css-1b1t0j7 {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 1105px;
+    }
+    /* 까지 설명사진은 첫번째 2번째 마지막꺼만 넣어봄*/
+    
+    
+    
+    
+    
+    
+    
+    
+    .css-xydx6f {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 1000px;
+        height: 11529px;
+    }
+    .css-1urinh9 {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 521px;
+    }
+    .css-ywucxc {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 497px;
+    }
+    .css-1adlh0m {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 2077px;
+    }
+    .css-er8ply {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 1293px;
+    }
+    .css-1scxc5e {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 1299px;
+    }
+    .css-wr87ye {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 1287px;
+    }
+    .css-lpxp9d {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 1595px;
+    }
+    .css-1bz5kv5 {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 1586px;
+    }
+    .css-v3s4m6 {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 484px;
+    }
+    .css-9bagql {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 863px;
+    }
+    .css-1x34r7s {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 872px;
+    }
+    .css-156eoe4 {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 1153px;
+    }
+    .css-1yu4n1w {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 1170px;
+    }
+    .css-hfvqfh {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 775px;
+    }
+    .css-1dupgxg {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 782px;
+    }
+    .css-1rjk2ix {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 603px;
+    }
+    .css-1w6p6oe {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 2691px;
+    }
+    .css-9zq42x {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 1000px;
+        height: 2854px;
+    }
+    .css-15yvzh9 {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 1000px;
+        height: 1389px;
+    }
+    .css-1b1t0j7 {
+        display: block;
+        min-width: 750px;
+        max-width: 100%;
+        object-fit: cover;
+        width: 860px;
+        height: 1105px;
+    }
+    .css-1j6c1k1 {
+        position: relative;
+    }
+    .css-h7utre {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 25px;
+        width: 100%;
+        height: 58px;
+        border: 1px solid rgb(0, 0, 0);
+        color: rgb(0, 0, 0);
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .css-1hwrpy {
+        margin: 0px 0px 0px 8px;
+        width: 12px;
+        height: 12px;
+    }
+    .css-1j6c1k1::after {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 100%;
+        height: 160px;
+        background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
+        content: "";
+    }
+
+    /* 상품 정보보기 시작 */
+    .css-1bl1yo {
+        margin-top: 60px;
+    }
+    section {
+        display: block;
+        unicode-bidi: isolate;
+    }
+    .css-14lcz5m {
+        font-size: 22px;
+        line-height: 30px;
+        font-weight: 600;
+        color: #000000;
+    }
+    .css-gcbtkb {
+        margin-top: 8px;
+        font-size: 16px;
+        line-height: 26px;
+        color: #000000;
+    }
+
+    .css-1wi5uwm {
+        position: relative;
+        margin-top: 50px;
+    }
+    .css-9kbqwj {
+        font-size: 22px;
+        line-height: 30px;
+        font-weight: 600;
+        color: rgb(0, 0, 0);
+    }
+    .css-1x7jfi1 {
+        table-layout: fixed;
+        border-spacing: 0px;
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 14px;
+        color: rgb(0, 0, 0);
+        text-align: left;
+        border-width: 4px 1px 1px;
+        border-style: solid;
+        border-color: rgb(0, 0, 0) rgb(212, 212, 212) rgb(212, 212, 212);
+        border-image: initial;
+        margin-top: 12px;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        display: table;
+        border-collapse: separate;
+        box-sizing: border-box;
+        text-indent: initial;
+        unicode-bidi: isolate;
+        border-spacing: 2px;
+        border-color: gray;
+    }
+    tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        unicode-bidi: isolate;
+        border-color: inherit;
+    }
+    tr {
+        display: table-row;
+        vertical-align: inherit;
+        unicode-bidi: isolate;
+        border-color: inherit;
+    }
+    .css-f2rgan {
+        width: 240px;
+        padding: 18px 20px;
+        font-weight: 600;
+        color: rgb(0, 0, 0);
+        border: 1px solid rgb(212, 212, 212);
+    }
+    th {
+        display: table-cell;
+        vertical-align: inherit;
+        font-weight: bold;
+        text-align: -internal-center;
+        unicode-bidi: isolate;
+    }
+    .css-q35or5 {
+        padding: 18px 20px;
+        overflow-wrap: break-word;
+        border-style: solid;
+        border-color: rgb(212, 212, 212);
+        border-image: initial;
+        border-width: 1px 0px 0px 1px;
+    }
+    td {
+        display: table-cell;
+        vertical-align: inherit;
+        unicode-bidi: isolate;
+    }
+    /* 까지 */
+    .css-1wi5uwm {
+        margin-left: 150px;
+        margin-right: 150px;
+        position: static;
+        margin-top: 50px;
+    }
+    @media screen and (max-width: 600px) {
+        .css-1wi5uwm {
+            margin: 0; /* 마진을 0으로 설정하여 요소를 숨깁니다. */
+        }
+    }
+    .css-9kbqwj {
+        font-size: 22px;
+        line-height: 30px;
+        font-weight: 600;
+        color: rgb(0, 0, 0);
+    }
+    .css-r9lnna {
+        position: relative;
+        overflow: hidden;
+        background-image: url(https://img.29cm.co.kr/next-brand/2020/03/26/7edae1d…_20200326171211.jpg?width=1000);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+        margin-top: 50px;
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+    @media screen and (max-width: 600px) {
+        .css-r9lnna {
+            margin: 0; /* 마진을 0으로 설정하여 요소를 숨깁니다. */
+        }
+    }
+    .css-r9lnna::before {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        inset: 0px;
+        background: rgba(0, 0, 0, 0.6);
+        
+    }
+    .css-1e3m3k1 {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 468px;
+        padding: 48px 45% 144px 50px;
+        color: rgb(255, 255, 255);
+        word-break: break-all;
+        
+    }
+    .css-cs9g2x {
+        display: block;
+        font-size: 14px;
+        line-height: 1.1;
+    }
+    .css-1oj7gx8 {
+        font-size: 46px;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+    .css-jai8i {
+        margin-top: 20px;
+        font-size: 16px;
+        line-height: 26px;
+        white-space: pre-line;
+    }
+    p {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        unicode-bidi: isolate;
+    }
+    .css-1xaekgw {
+        margin-top: 20px;
+    }
+    .css-1b4nt2n {
+        -webkit-box-pack: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 25px;
+        display: flex;
+        flex-direction: column;
+        -webkit-box-align: center;
+        align-items: center;
+        margin-left: -5px;
+        font-size: 12px;
+        line-height: 1;
+        color: rgb(255, 255, 255);
+    }
+    .css-1q42te3 {
+        width: 30px;
+        height: 30px;
+    }
+    .css-rw02hl {
+        margin-top: 7px;
+        font-size: 12px;
+    }
+    .css-1eangog {
+        position: absolute;
+        z-index: 2;
+        bottom: 50px;
+        left: 50px;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        padding: 16px 14px;
+        font-size: 14px;
+        color: rgb(255, 255, 255);
+        border: 1px solid rgb(255, 255, 255);
+    }
+    
+    a {
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        outline: none;
+    }
+    a:-webkit-any-link {
+        color: -webkit-link;
+        cursor: pointer;
+    }
+    .css-1dmv4kt {
+        width: 42px;
+        height: 6px;
+        margin-left: 57px;
+    }
+    /* 해당 브랜드 상품 */
+    .css-c9lclf {
+        content-visibility: auto;
+        contain-intrinsic-size: 360px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    .css-1vy2ajr {
+        margin-bottom: 15px;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        font-size: 22px;
+        line-height: 30px;
+        font-weight: bold;
+        display: none;
+    }
+    @media (min-width: 541px) {
+        .css-kz79nd {
+            display: none;
+        }
+    }
+    .css-kz79nd {
+        font-size: 13px;
+        font-weight: normal;
+        color: rgb(93, 93, 93);
+    }
+    .css-1m4f0m {
+        margin: 0px -9px;
+        margin-left: 140px;
+        margin-right: 140px;
+    }
+    
+
+    .css-1m4f0m .slide {
+        position: relative;
+        padding-bottom: 60px;
+    }
+    
+    .splide.is-initialized, .splide.is-rendered {
+        visibility: visible;
+    }
+    .splide {
+        position: relative;
+        visibility: hidden;
+    }
+
+
+    .splide__track--draggable {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+    }
+    .splide__track {
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
+    }
+    .splide__list {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        display: flex;
+        height: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .css-mmkycr {
+        width: 20%;
+        padding: 0px 9px;
+    }
+    .splide__slide {
+        -webkit-tap-highlight-color: transparent;
+    }
+    .splide__slide {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        list-style-type: none !important;
+        margin: 0;
+        position: relative;
+    }
+    .css-79elbk {
+        position: relative;
+    }
+    .css-17d7tlx {
+        overflow: hidden;
+        font-size: 13px;
+        color: rgb(0, 0, 0);
+    }
+    .css-1so5xgc {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        padding-top: 100%;
+        background: rgb(245, 247, 246);
+    }
+    .splide__slide img {
+        vertical-align: bottom;
+    }
+    .css-aaltuk {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        margin: auto;
+    }
+    .css-ltqa49 {
+        display: flex;
+        margin-top: 12px;
+    }
+    .css-16agjqd {
+        overflow: hidden;
+        width: 100%;
+    }
+    .css-18mjw15 {
+        display: block;
+        margin-top: 3px;
+        text-decoration: none;
+    }
+    .css-1bz3l1k {
+        overflow: hidden;
+        display: -webkit-box;
+        padding-right: 10%;
+        font-weight: 400;
+        line-height: 18px;
+        color: rgb(0, 0, 0);
+        text-overflow: ellipsis;
+        word-break: break-all;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+
+    /* 슬라이드 버튼 */
+    .css-egfzt5 {
+        position: absolute;
+        bottom: 0px;
+        display: block;
+        width: 100%;
+        font-size: 30px;
+        font-weight: 200;
+        font-style: italic;
+        line-height: 34px;
+        color: rgb(160, 160, 160);
+        text-align: center;
+    }
+    .css-119htks {
+        padding-right: 5px;
+        color: rgb(0, 0, 0);
+    }
+    .css-1sugwtq {
+        padding-left: 5px;
+    }
+    .css-13o7eu2 {
+        display: block;
+    }
+    .css-12c5844:disabled {
+        cursor: not-allowed;
+    }
+    .css-12c5844 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        position: absolute;
+        bottom: -3px;
+        z-index: 1;
+        box-sizing: content-box;
+        min-width: 10px;
+        min-height: 20px;
+        width: 10px;
+        height: 20px;
+        padding: 10px;
+        left: 50%;
+        margin-left: -100px;
+    }
+    .css-12c5844 svg {
+        width: 100%;
+        height: 100%;
+    }
+    .splide__arrow--prev svg {
+        transform: scaleX(-1);
+    }
+    .css-l0saa {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        position: absolute;
+        bottom: -3px;
+        z-index: 1;
+        box-sizing: content-box;
+        min-width: 10px;
+        min-height: 20px;
+        width: 10px;
+        height: 20px;
+        padding: 10px;
+        right: 50%;
+        margin-right: -100px;
+    }
+    /* 까지 */
+    h4 {
+        display: block;
+        margin-block-start: 1.33em;
+        margin-block-end: 1.33em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        unicode-bidi: isolate;
+    }
+    .css-1hda3uw {
+        display: block;
+        margin-top: 7px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .css-1kt1fs {
+        font-size: 13px;
+        font-weight: 300;
+        color: rgb(160, 160, 160);
+    }
+    .css-p7mzyt {
+        margin-right: 1px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 17px;
+        color: rgb(255, 72, 0);
+    }
+    .css-842lcu {
+        color: rgb(0, 0, 0);
+    }
+    @media (min-width: 541px) {
+        .css-uh8kc9 {
+            display: none;
+        }
+    }    
+    .css-uh8kc9 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 25px;
+    }
+    
+    .css-17mseqq {
+        position: absolute;
+        display: block;
+        text-indent: -9999px;
+    }
+    .css-mmkycr {
+        width: 20%;
+        padding: 0px 9px;
+    }
+    .css-79elbk {
+        position: relative;
+    }
+    .css-17d7tlx {
+        overflow: hidden;
+        font-size: 13px;
+        color: rgb(0, 0, 0);
+    }
+    .css-1so5xgc {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        padding-top: 100%;
+        background: rgb(245, 247, 246);
+    }
+    .splide__slide img {
+        vertical-align: bottom;
+    }
+    .css-aaltuk {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        margin: auto;
+    }
+    .css-ltqa49 {
+        display: flex;
+        margin-top: 12px;
+    }
+    .css-16agjqd {
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .css-1bz3l1k {
+        overflow: hidden;
+        display: -webkit-box;
+        padding-right: 10%;
+        font-weight: 400;
+        line-height: 18px;
+        color: rgb(0, 0, 0);
+        text-overflow: ellipsis;
+        word-break: break-all;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+    .css-1hda3uw {
+        display: block;
+        margin-top: 7px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    @media (min-width: 541px) {
+    
+        .css-uh8kc9 {
+            display: none;
+        }
+    }
+    .css-uh8kc9 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 25px;
+    }
+    .css-17mseqq {
+        position: absolute;
+        display: block;
+        text-indent: -9999px;
+    }
+    .css-mmkycr {
+        width: 20%;
+        padding: 0px 9px;
+    }
+    .css-79elbk {
+        position: relative;
+    }
+    .css-17d7tlx {
+        overflow: hidden;
+        font-size: 13px;
+        color: rgb(0, 0, 0);
+    }
+    .css-1so5xgc {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        padding-top: 100%;
+        background: rgb(245, 247, 246);
+    }
+    .css-aaltuk {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        margin: auto;
+    }
+    .css-ltqa49 {
+        display: flex;
+        margin-top: 12px;
+    }
+    .css-16agjqd {
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .css-1bz3l1k {
+        overflow: hidden;
+        display: -webkit-box;
+        padding-right: 10%;
+        font-weight: 400;
+        line-height: 18px;
+        color: rgb(0, 0, 0);
+        text-overflow: ellipsis;
+        word-break: break-all;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+    .css-1hda3uw {
+        display: block;
+        margin-top: 7px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .css-842lcu {
+        color: rgb(0, 0, 0);
+    }
+    @media (min-width: 541px) {
+    
+        .css-uh8kc9 {
+            display: none;
+        }
+    }
+    .css-mmkycr {
+        width: 20%;
+        padding: 0px 9px;
+    }
+    .css-79elbk {
+        position: relative;
+    }
+    .css-17d7tlx {
+        overflow: hidden;
+        font-size: 13px;
+        color: rgb(0, 0, 0);
+    }
+    .css-1so5xgc {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        padding-top: 100%;
+        background: rgb(245, 247, 246);
+    }
+    .css-aaltuk {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        margin: auto;
+    }
+    .css-ltqa49 {
+        display: flex;
+        margin-top: 12px;
+    }
+    .css-16agjqd {
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .css-1bz3l1k {
+        overflow: hidden;
+        display: -webkit-box;
+        padding-right: 10%;
+        font-weight: 400;
+        line-height: 18px;
+        color: rgb(0, 0, 0);
+        text-overflow: ellipsis;
+        word-break: break-all;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+    .css-1hda3uw {
+        display: block;
+        margin-top: 7px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .css-842lcu {
+        color: rgb(0, 0, 0);
+    }
+    @media (min-width: 541px) {
+        .css-uh8kc9 {
+            display: none;
+        }
+    }
+    .css-uh8kc9 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 25px;
+    }
+    .css-mmkycr {
+        width: 20%;
+        padding: 0px 9px;
+    }
+    .css-79elbk {
+        position: relative;
+    }
+    .css-17d7tlx {
+        overflow: hidden;
+        font-size: 13px;
+        color: rgb(0, 0, 0);
+    }
+    .css-1so5xgc {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        padding-top: 100%;
+        background: rgb(245, 247, 246);
+    }
+    .css-aaltuk {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        margin: auto;
+    }
+    .css-ltqa49 {
+        display: flex;
+        margin-top: 12px;
+    }
+    .css-16agjqd {
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .css-1bz3l1k {
+        overflow: hidden;
+        display: -webkit-box;
+        padding-right: 10%;
+        font-weight: 400;
+        line-height: 18px;
+        color: rgb(0, 0, 0);
+        text-overflow: ellipsis;
+        word-break: break-all;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+    .css-1hda3uw {
+        display: block;
+        margin-top: 7px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .css-842lcu {
+        color: rgb(0, 0, 0);
+    }
+    
+    /* 리뷰 */
+    .css-1w043rb {
+        margin-top: 50px;
+        margin-left: 140px;
+        margin-right: 140px;
+    }
+    .css-rpfdd0 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        border-bottom: 4px solid rgb(0, 0, 0);
+        padding-bottom: 12px;
+    }
+    .css-70qvj9 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .css-rrzi56 {
+        display: flex;
+        gap: 2px;
+        font-size: 22px;
+        line-height: 30px;
+        font-weight: 600;
+        color: rgb(0, 0, 0);
+        margin-right: 8px;
+    }
+    .css-18biwo {
+        display: -webkit-inline-box;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .css-9nop8 {
+        position: relative;
+        display: inline-block;
+        line-height: 0;
+    }
+    .css-9nop8:not(:first-of-type) {
+        margin-left: 2px;
+    }
+    .css-12192rx {
+        padding: 30px 0px 15px;
+        content-visibility: auto;
+        contain-intrinsic-size: 180px;
+    }
+    .css-ruapjk {
+        position: relative;
+        flex-shrink: 0;
+    }
+    .css-y4wdi3 {
+        position: relative;
+        cursor: pointer;
+    }
+    .css-n8h1i5 {
+        position: absolute;
+        inset: 0px;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        object-fit: cover;
+    }
+    .css-uwwqev {
+        width: 100%;
+        height: 100%;
+    }
+    .css-rxshk0 {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 100%;
+        background: rgb(216, 216, 216);
+    }
+    .css-13o7eu2 {
+        display: block;
+    }
+    .css-1yhj7r7:disabled {
+        cursor: not-allowed;
+    }
+    .css-1yhj7r7 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        min-height: 25px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        min-width: 0px;
+        height: 120px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(228, 228, 228);
+        left: 0px;
+    }
+    .css-1ysd006 {
+        width: 10px;
+        height: 28px;
+        transform: rotate(180deg);
+    }
+    .css-1lxndzo {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        min-height: 25px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        min-width: 0px;
+        height: 120px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(228, 228, 228);
+        right: 0px;
+    }
+    .css-1bmm1n2 {
+        width: 10px;
+        height: 28px;
+    }
+
+    /* 리뷰 글 */
+    .css-100fusk {
+        position: relative;
+        padding: 15px 10px 10px;
+        background-color: rgb(255, 255, 255);
+    }
+    .css-4g6ai3 {
+        cursor: pointer;
+    }
+    .css-69znzl {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 11px;
+        font-weight: 300;
+        line-height: 15px;
+        color: rgb(0, 0, 0);
+    }
+    .css-18biwo {
+        display: -webkit-inline-box;
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .css-9nop8 {
+        position: relative;
+        display: inline-block;
+        line-height: 0;
+    }
+    .css-5030pi {
+        padding: 0px 5px;
+    }
+    .css-1riowxi {
+        display: flex;
+        -webkit-box-flex: 1;
+        flex-grow: 1;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+    }
+    .css-16tn2ye {
+        position: relative;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+    }
+    .css-31l7gp {
+        min-width: 0px;
+    }
+    .css-4oetsc {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 6px;
+    }
+    .css-nn803e {
+        display: flex;
+        gap: 1px;
+    }
+    .css-rlwyr0 {
+        flex-shrink: 0;
+        font-size: 12px;
+        color: rgb(160, 160, 160);
+        line-height: 1.25;
+        white-space: pre;
+    }
+    .css-wle0cx {
+        font-size: 12px;
+        color: rgb(160, 160, 160);
+        line-height: 1.25;
+    }
+    .css-1gk1nxz {
+        overflow: hidden;
+        font-size: 14px;
+        line-height: 22px;
+        color: rgb(0, 0, 0);
+        text-align: left;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        word-break: break-all;
+    }
+    .css-1jjxju6 {
+        flex-shrink: 0;
+        margin-left: 16px;
+    }
+    .css-18bdumj {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+    .css-175ywfd {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        margin-top: 2px;
+        margin-bottom: 10px;
+    }
+    .css-imikhc {
+        display: inline-block;
+        margin-right: 5px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 0, 0);
+        flex-shrink: 0;
+        height: 18px;
+        padding: 0px 6px;
+        font-size: 10px;
+        line-height: 18px;
+        border-radius: 1px;
+    }
+
+    /* 리뷰 페이지 스타일 */
+    .css-1oq0g9s {
+        padding: 0px 50px;
+        position: relative;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        margin-top: 15px;
+    }
+    .css-16vmvyd {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        line-height: 1;
+    }
+    .css-12l5i6f {
+        padding: 0px 8px;
+        min-width: 10px;
+        font-size: 16px;
+        font-weight: 300;
+        color: rgb(0, 0, 0);
+    }
+    .css-1xzw0uc {
+        font-size: 16px;
+        color: rgb(0, 0, 0);
+        font-weight: 700;
+        border-bottom: 1px solid rgb(0, 0, 0);
+    }
+    .css-129gw94 {
+        line-height: 0;
+    }
+    .css-11r31mh {
+        width: 11px;
+        height: 22px;
+        margin: 0px 20px 0px 10px;
+    }
+    
+    .css-17mseqq {
+        position: absolute;
+        display: block;
+        text-indent: -9999px;
+    }
+    .css-129gw94 {
+        line-height: 0;
+    }
+    .css-ar1b2l {
+        width: 11px;
+        height: 22px;
+        margin: 0px 10px 0px 20px;
+    }
+    
+    /* 상품 Q&A */
+    .css-f18qjw {
+        position: relative;
+        margin-top: 70px;
+        margin-left: 140px;
+        margin-right: 140px;
+    }
+    .css-3sj7fp {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        border-bottom: 4px solid rgb(0, 0, 0);
+        padding-bottom: 4px;
+    }
+    .css-190b6wm {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    .css-1byql8u {
+        font-size: 22px;
+        line-height: 30px;
+        font-weight: 600;
+        color: rgb(0, 0, 0);
+        margin-right: 15px;
+    }
+    .css-k008qs {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    .css-13veewm {
+        padding: 2px 20px 0px;
+        font-size: 14px;
+        line-height: 42px;
+        color: rgb(0, 0, 0);
+        font-weight: 700;
+    }
+    .css-1bpzozu:not(:last-of-type)::after {
+        display: inline-block;
+        width: 1px;
+        height: 14px;
+        margin: 17px 0px 0px;
+        background: rgb(212, 212, 212);
+        vertical-align: top;
+        content: "";
+    }
+    .css-7mk7dj {
+        padding: 2px 20px 0px;
+        font-size: 14px;
+        font-weight: 200;
+        line-height: 42px;
+        color: rgb(93, 93, 93);
+    }
+    .css-v3245 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        min-width: 40px;
+        min-height: 25px;
+        margin-left: 36px;
+        font-size: 14px;
+        font-weight: 700;
+        color: rgb(48, 48, 51);
+        text-decoration: underline;
+    }
+    .css-18f9y8v {
+        padding: 14px 10px;
+        position: relative;
+        text-align: left;
+    }
+    .css-1a2sitv {
+        cursor: pointer;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+    }
+    .css-31l7gp {
+        min-width: 0px;
+    }
+    .css-ef2jzh {
+        margin-bottom: 2px;
+        font-size: 14px;
+        line-height: 20px;
+        color: rgb(160, 160, 160);
+    }
+    .css-1wmvtpx {
+        position: relative;
+        margin-top: 2px;
+        padding-right: 40px;
+        min-width: 0px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 24px;
+        color: rgb(0, 0, 0);
+        word-break: break-all;
+        overflow: hidden;
+        height: 24px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-indent: 22px;
+    }
+    css-1wmvtpx::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: -3px;
+        width: 20px;
+        height: 20px;
+        background: url(https://img.29cm.co.kr/next29cm/product/qna_lock.png) 0% 0% / 20px 20px no-repeat;
+    }
+    .css-aaq76s {
+        display: flex;
+        flex-shrink: 0;
+        min-width: 0px;
+    }
+    .css-1xdq1r6 {
+        display: inline-flex;
+        flex-shrink: 0;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+        margin-top: 22px;
+        font-size: 11px;
+        line-height: 24px;
+        color: rgb(0, 0, 0);
+        width: 150px;
+    }
+    .css-8uhtka {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .css-8cxk5l {
+        display: inline-flex;
+        flex-shrink: 0;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+        margin-top: 22px;
+        font-size: 11px;
+        line-height: 24px;
+        color: rgb(0, 0, 0);
+        width: 74px;
+    }
+    .css-q5n7xs {
+        display: inline-flex;
+        flex-shrink: 0;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+        margin-top: 22px;
+        font-size: 11px;
+        line-height: 24px;
+        color: rgb(0, 0, 0);
+        width: 65px;
+    }
+    .css-xkg75d {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        min-width: 35px;
+        height: 24px;
+        padding: 1px 0px;
+        font-size: 12px;
+        font-weight: 200;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        background: rgb(55, 95, 255);
+        border-radius: 2px;
+    }
+    .css-1kw6o0w {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        height: 1px;
+        margin: 0px;
+        padding: 0px;
+        background-color: rgb(228, 228, 228);
+        border: 0px;
+    }
+    #product_qna {
+        padding-left: 0;
+    }
+    .css-1wmvtpx::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: -3px;
+        width: 20px;
+        height: 20px;
+        background: url(https://img.29cm.co.kr/next29cm/product/qna_lock.png) 0% 0% / 20px 20px no-repeat;
+    }
+    .css-f5ijgx {
+        position: relative;
+        margin-top: 2px;
+        padding-right: 40px;
+        min-width: 0px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 24px;
+        color: rgb(0, 0, 0);
+        word-break: break-all;
+        overflow: hidden;
+        height: 24px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* 배송정보 교환 환불안내 */
+    .css-1axy229 {
+        margin-top: 80px;
+        margin-left: 140px;
+        margin-right: 150px;
+    }
+    .css-1j59ktc:first-of-type {
+        margin-top: 0px;
+    }
+    .css-d15rx0 {
+        padding-bottom: 13px;
+        border-bottom: 4px solid rgb(0, 0, 0);
+        line-height: 30px;
+        font-size: 22px;
+        font-weight: 700;
+    }
+    .css-2bwj7u {
+        margin-top: 13px;
+        line-height: 26px;
+        font-size: 14px;
+        padding-left: 0%;
+    }
+    @media (min-width: 541px) {
+        .css-1lu4an7 {
+            position: relative;
+            padding-left: 12px;
+            color: rgb(48, 48, 51);
+            line-height: 26px;
+        }
+    }
+    @media (min-width: 541px) {
+        .css-1lu4an7::before {
+            position: absolute;
+            top: 11px;
+            left: 0px;
+            width: 3px;
+            height: 3px;
+            border-radius: 100%;
+            background-color: rgb(48, 48, 51);
+            content: "";
+        }
+    }
+
+    /* Best 상품 안내 */
+    .css-1sqa5e1 {
+        content-visibility: auto;
+        contain-intrinsic-size: 404px;
+        overflow: hidden;
+        margin-top: 70px;
+        margin-left: 140px;
+        margin-right: 140px;
+    }
+    .css-119szb1 {
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 30px;
+    }
+    .css-gszwq7 {
+        margin: 12px 0px;
+    }
+    .css-16szog4 {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        min-height: 20px;
+        line-height: 20px;
+        margin-right: 6px;
+    }
+    .css-wm7oed {
+        position: absolute;
+        z-index: -10;
+        top: -100%;
+        left: -100%;
+        width: 13px;
+        height: 13px;
+        background: transparent;
+    }
+    .css-wm7oed:checked + .e1r8czm21 {
+        font-weight: 600;
+    }
+    .css-16szog4 input:checked + label {
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        border: 1px solid rgb(0, 0, 0);
+    }
+    .css-16szog4 label {
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        height: 31px;
+        padding: 8px 14px 7px;
+        border-radius: 16.5px;
+        border: 1px solid rgb(228, 228, 228);
+        font-family: AppleSDGothicNeo;
+        font-size: 13px;
+        font-weight: 500;
+        background-color: rgb(255, 255, 255);
+        color: rgb(93, 93, 93);
+    }
+    .css-yxewik {
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        padding-left: 27px;
+        line-height: 20px;
+        color: rgb(48, 48, 51);
+    }
+    .css-1m4f0m {
+        margin: 0px -9px;
+    }
+    .css-1m4f0m .slide {
+        position: relative;
+        padding-bottom: 60px;
+    }
+    .css-mmkycr {
+        width: 20%;
+        padding: 0px 9px;
+    }
+    .css-79elbk {
+        position: relative;
+    }
+    .css-17d7tlx {
+        overflow: hidden;
+        font-size: 13px;
+        color: rgb(0, 0, 0);
+    }
+    .css-1so5xgc {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        padding-top: 100%;
+        background: rgb(245, 247, 246);
+    }
+    .css-aaltuk {
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        margin: auto;
+    }
+    @media (min-width: 541px) {
+        .css-xfiaz9 {
+            width: 52px;
+            height: 52px;
+        }
+    }   
+    .css-xfiaz9 {
+        position: absolute;
+        z-index: 1;
+        top: -4px;
+        left: 0px;
+        transform: translate3d(0px, 0px, 0px);
+    }
+    @media (min-width: 541px) {
+        .css-s7yxw7 {
+            transform: skew(0deg, -6deg);
+        }
+    }
+    .css-s7yxw7 {
+        position: absolute;
+        inset: 0px;
+        background-color: rgb(0, 0, 0);
+    }
+    .css-1atqnkr {
+        position: absolute;
+        inset: 0px;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        font-family: Campton;
+        font-size: 18px;
+        color: rgb(255, 255, 255);
+    }
+    .css-ltqa49 {
+        display: flex;
+        margin-top: 12px;
+    }
+    .css-16agjqd {
+        overflow: hidden;
+        width: 100%;
+    }
+    .css-1ocrzm4 {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        margin-top: 6px;
+        margin-bottom: 5px;
+        font-size: 13px;
+        font-weight: bold;
+        line-height: 16px;
+        color: rgb(0, 0, 0);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .css-18mjw15 {
+        display: block;
+        margin-top: 3px;
+    }
+    .css-1bz3l1k {
+        overflow: hidden;
+        display: -webkit-box;
+        padding-right: 10%;
+        font-weight: 400;
+        line-height: 18px;
+        color: rgb(0, 0, 0);
+        text-overflow: ellipsis;
+        word-break: break-all;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+    .css-1hda3uw {
+        display: block;
+        margin-top: 7px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .css-1kt1fs {
+        font-size: 13px;
+        font-weight: 300;
+        color: rgb(160, 160, 160);
+    }
+    .css-p7mzyt {
+        margin-right: 1px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 17px;
+        color: rgb(255, 72, 0);
+    }
+    .css-842lcu {
+        color: rgb(0, 0, 0);
+    }
+    .css-zalwcv {
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        height: 17px;
+        margin-top: 8px;
+        padding: 0px 6px;
+        font-size: 10px;
+        line-height: 1;
+        color: rgb(29, 29, 29);
+        background: rgb(244, 244, 244);
+        border-radius: 2px;
+    }
+
+    /* 다른 고객이 구매한 상품 */
+    .css-1jik08a {
+        content-visibility: auto;
+        contain-intrinsic-size: 404px;
+        overflow: hidden;
+        margin-top: 90px;
+        margin-left : 140px;
+        margin-right: 140px;
+    }
+
+    /*관련 이벤트 */
+    .css-135dpyw{
+        padding-left: 0;
+    }
+    .css-135dpyw {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 12px 0px 0px -8px;
+    }
+    .css-1trshyt {
+        position: relative;
+        width: 50%;
+        padding-bottom: 30px;
+        padding-left: 8px;
+    }
+    .css-1lvmlwe {
+        padding-bottom: 42.8%;
+        background-image: url(https://img.29cm.co.kr/next-edition/2024/02/06/d275da7…_20240206142330.jpg?width=500);
+        background-position: center center;
+        background-size: cover;
+    }
+    .css-1ep3pp5 {
+        margin-top: 13px;
+        color: rgb(0, 0, 0);
+    }
+    .css-c62ssp {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 25px;
+    }
+    .css-1c3vj09 {
+        margin-top: 6px;
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .event-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+    }
+    
+    .event-item {
+        width: calc(25% - 10px); /* 4분할로 나누기 위해 25%의 너비 할당 */
+        margin-bottom: 20px;
+    }
+    
+    .event-item a {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .event-image {
+        height: 200px; /* 이미지의 높이 설정 */
+        background-size: cover;
+        background-position: center;
+    }
+    .image1 {
+        background-image: url('https://tse3.mm.bing.net/th?id=OIP._mxaJ2UVTBKA3NRTj073kAHaEK&pid=Api&P=0&h=220');
+    }
+    .css-uctowo {
+        margin-left: 140px;
+        margin-right: 140px;
+    }
+
+    /* 네비 */
+    .css-1qi5uc2 {
+        position: fixed;
+        z-index: 5;
+        right: 10px;
+        bottom: 80px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    .css-wuhjr5 {
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 100%;
+        background-color: rgb(0, 0, 0);
+        cursor: pointer;
+        margin-bottom: 6px;
+    }
+    .css-l5at91 {
+        width: 12px;
+    }
+    .css-17mseqq {
+        position: absolute;
+        display: block;
+        text-indent: -9999px;
+    }
+    .css-3310rc {
+        overflow: hidden;
+        display: inline-block;
+        width: 34px;
+        height: 34px;
+        line-height: 100em;
+        background: url(https://img.29cm.co.kr/next29cm/icon_scroll2.png) 0px 0px / 34px 68px no-repeat;
+    }
+    .css-1r1ons4 {
+        overflow: hidden;
+        display: inline-block;
+        width: 34px;
+        height: 34px;
+        line-height: 100em;
+        background: url(https://img.29cm.co.kr/next29cm/icon_scroll2.png) 0px -34px / 34px 68px no-repeat;
+    }

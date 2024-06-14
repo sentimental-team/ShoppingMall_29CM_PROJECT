@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.doit.senti.mapper.ReviewMapper">
+  <!-- public List<ReviewVO> getReviews(int pdId) throws ClassNotFoundException, SQLException; -->
+  <select id="getReviews" resultType="ReviewVO">
+    SELECT member_id, review_date, review_content, image_url
+    FROM review r JOIN pay p ON r.pay_id = p.pay_id
+    WHERE p.pd_id = #{pd_id}
+  </select>
+  
+  <!-- public int reviewCount(int pdId) throws ClassNotFoundException, SQLException; -->
+  <select id="reviewCount" resultType="int">
+    SELECT COUNT(*)
+    FROM review r JOIN pay p ON r.pay_id = p.pay_id
+    WHERE pd_id = #{pd_id}
+  </select>
+  
+  <!-- public int reviewAverage(int pd_id)throws ClassNotFoundException, SQLException; -->
+  <select id="reviewAverage" resultType="int">
+    SELECT NVL(AVG(review_rating),0)
+    FROM review r JOIN pay p ON r.pay_id = p.pay_id
+    WHERE pd_id = #{pd_id}
+  </select>
+  
+  <!-- public int reviewInsert(ReviewVO review) throws ClassNotFoundException, SQLException; -->
+  <insert id="reviewInsert">
+    INSERT INTO review ( review_id, review_content, review_rating, pay_id <if test="imageUrl != null">, image_url</if>)
+    VALUES ( (SELECT NVL(MAX(review_id),0)+1 FROM review, #{reviewContent}, #{reviewRating}, #{payId} <if test="imageUrl != null">, #{imageUrl}</if> )
+  </insert>
+  
+  <!-- public int reviewUpdate(ReviewVO review)throws ClassNotFoundException, SQLException; -->
+  <update id="reviewUpdate">
+    UPDATE review 
+    SET review_content = #{reviewContent}, review_date = SYSDATE
+       <if test="imageUrl != null">
+         , image_url = #{imageUrl}
+       </if>
+    WHERE pay_id = #{payId}
+  </update>
+  
+  <!-- public int reviewDelete(int payId)throws ClassNotFoundException, SQLException; -->
+  <delete id="reviewDelete">
+    DELETE review
+    WHERE pay_id = #{payId}
+  </delete>
+  
+  <!-- public int returnPayId(int pd_id, String memberId)throws ClassNotFoundException, SQLException; -->
+  <select id="returnPayId" resultType="int">
+    SELECT pay_id
+    FROM pay
+    WHERE pd_id = #{pd_id} AND member_id = #{memberId} AND pay_id NOT IN ( SELECT pay_id FROM pay p JOIN review r ON p.pay_id = r.pay_id WHERE pd_id = #{pd_id} AND member_id = #{memberId})
+  </select>
+  
+  <!-- public int existPayId(int pd_id, String memberId) throws ClassNotFoundException, SQLException; -->
+  <select id="existPayId" resultType="int">
+    SELECT COUNT(*)
+    FROM (
+    SELECT pay_id
+    FROM pay
+    WHERE pd_id = #{pd_id} AND member_id = #{memberId} AND pay_id NOT IN ( SELECT pay_id FROM pay p JOIN review r ON p.pay_id = r.pay_id WHERE pd_id = #{pd_id} AND member_id = #{memberId})
+          )
+  </select>
+  
+  
+  
+</mapper>
+ 
