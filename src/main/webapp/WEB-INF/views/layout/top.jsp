@@ -585,6 +585,7 @@ button {
 </style>
 <head>
 <meta charset="UTF-8">
+<link rel="shortcut icon" href="../resources/images/logo.ico">
 </head>
 <body>
    <div class="head">

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" href="../resources/images/logo.ico">
 <link rel="stylesheet" href="https://d13fzx7h5ezopb.cloudfront.net/www/v954/home/styles.css">
 <link rel="stylesheet" href="https://d13fzx7h5ezopb.cloudfront.net/fonts/font.css" media="all">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

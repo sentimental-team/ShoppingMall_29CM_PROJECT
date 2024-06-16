@@ -17,13 +17,13 @@ public class LikePageDTO {
 	
 	public LikePageDTO(int total, LikeCriteria criteria) {
 		this.total = total;
+		this.criteria = criteria;
 		
-		this.endPage = (int)(Math.ceil(criteria.getPageNum()/
-                (double)criteria.getAmount())) * criteria.getAmount();
+		this.endPage = (int)(Math.ceil(criteria.getPageNum() / 10.0)) * 10;
 		
-        this.startPage = this.endPage - criteria.getAmount() + 1;
+        this.startPage = this.endPage - 9;
         
-        int realEndPage = (int)(Math.ceil((double)total/criteria.getAmount()));
+        int realEndPage = (int)(Math.ceil((double)total / criteria.getAmount()));
         if(realEndPage < this.endPage) this.endPage = realEndPage;
         
         this.prev = this.startPage > 1;

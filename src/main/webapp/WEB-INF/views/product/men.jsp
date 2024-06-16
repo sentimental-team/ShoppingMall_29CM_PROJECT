@@ -88,7 +88,7 @@
                                 </div>
                             </a>
                             <div class="ppp">
-                                <button  class="heart" data-pdid="${list.pdId }">
+                                <button  class="heart" data-pdid="${list.pdId }" onclick="checkLoginAndLike(${list.pdId})">
                                     <c:if test="${list.likeCheck eq 0 }">
      									<svg xmlns="http://www.w3.org/2000/svg" width="21" height="18"
      										viewBox="0 0 20 20" class="bi-suit-heart">
@@ -295,7 +295,7 @@ $(document).ready(function() {
 });
 </script>
 <script>
-$('.heart').on('click', function(){
+/* $('.heart').on('click', function(){
 	let pdId = $(this).data("pdid");
 	let likeCheck = document.getElementById("likeCheck");
 	
@@ -304,7 +304,6 @@ $('.heart').on('click', function(){
 		
 		$.ajax({
 			url: "/product/addlike.do",
-			/* dataType: "json", */
 			type: "POST",
 			data: JSON.stringify({pdId: pdId}),
 			contentType: 'application/json; charset=utf-8',
@@ -349,8 +348,44 @@ $('.heart').on('click', function(){
 		});
 		
 	}
-})
+}) */
+function checkLoginAndLike(pdId, element) {
+    var isLoggedIn = ${isLoggedIn};
+    if (!isLoggedIn) {
+        alert('로그인이 필요합니다.');
+        window.location.href = '/signUp/login.do';
+    } else {
+        // AJAX 요청을 보내 좋아요 상태를 변경합니다.
+        let svgClass = $(element).children('svg').attr('class');
+        let url = (svgClass == "bi-suit-heart") ? "/product/addlike.do" : "/product/removelike.do";
 
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: JSON.stringify({pdId: pdId}),
+            contentType: 'application/json; charset=utf-8',
+            cache: false,
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+            },
+            success: function() {
+                console.log(svgClass == "bi-suit-heart" ? "좋아요 추가" : "좋아요 삭제");
+                $(element).children('svg').attr('class', svgClass == "bi-suit-heart" ? 'bi-suit-heart-fill' : 'bi-suit-heart');
+                location.reload();
+            },
+            error: function(request, status, error) {
+                console.log("좋아요 처리 중 에러 발생");
+                console.log("상태코드 : " + request.status);
+            }
+        });
+    }
+}
+$(document).ready(function() {
+    $('.heart').on('click', function() {
+        let pdId = $(this).data("pdid");
+        checkLoginAndLike(pdId, this);
+    });
+});
 </script>
 <script>
 function clickHeart(button) {
@@ -415,7 +450,6 @@ function clickHeart(button) {
         });
     }
 }
-
 </script>
 
 

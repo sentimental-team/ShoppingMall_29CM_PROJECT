@@ -184,14 +184,17 @@ public class ProductController {
 
 	     Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		 String loginMemberId = null;
-
+		 boolean isLoggedIn = false;
+		 
 		    // 인증 객체가 UserDetails 타입인지 확인하고 캐스팅
 		    if (authentication.getPrincipal() instanceof UserDetails) {
 		        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 		        loginMemberId = userDetails.getUsername();
+		        isLoggedIn = true;
 		    } else {
 		        // principal이 UserDetails가 아닌 경우 처리
 		        loginMemberId = authentication.getPrincipal().toString();
+		        isLoggedIn = !loginMemberId.equals("anonymousUser");
 		    }
 		
 	     List<BoardVO> productList = boardService.getList(medium_ctgr_id);
@@ -221,6 +224,7 @@ public class ProductController {
 	      // model.addAttribute("list",  this.boardService.getList(medium_ctgr_id));
 	      model.addAttribute("list",  productList);
 	      model.addAttribute("loginMemberId", loginMemberId);
+	      model.addAttribute("isLoggedIn", isLoggedIn);
 	      
 		return "product/men.jsp";
 		
