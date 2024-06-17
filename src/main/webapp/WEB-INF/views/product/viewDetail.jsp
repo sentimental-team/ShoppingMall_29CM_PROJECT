@@ -527,12 +527,13 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                 <button class="reviewWrite" type="button">REVIEW쓰기</button>
 			</div>
 			<!-- --------------------------------------------------------------------------------------------------------------- -->
-					<form action="/viewDetail/review.do" method="post" enctype="multipart/form-data" >
+					<%-- action="/product/review.do?pd_id=${pdId}&large_ctgr_id=${large_ctgr_id}&${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data" --%> 
+					<form id="reviewInsert"  action="/product/review.do?pd_id=${pdId}&large_ctgr_id=${large_ctgr_id}&${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data">
 					<div class="reviewBox">
 					<div class="reviewMbox">
 						<h2 class="reviewSbox">아이디</h2>
 						<div class="reviewSquare">
-							<span class="reviewID" >admin2@naver.com</span>
+							<span class="reviewID" >${memberId}</span>
 							<!-- <input name="memberId" class="reviewID"> -->
 						</div>
 					</div>
@@ -540,31 +541,31 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 						<h2 class="reviewSbox">상품별점</h2>
 						<div class="reviewSquare">
 							<span class="reviewID" ><fieldset class="reviewForm">
-        <input type="radio" name="rating" value="5" id="rate1"><label for="rate1"><svg xmlns="http://www.w3.org/2000/svg"
+        <input type="radio" name="reviewRating" value="5" id="rate1"><label for="rate1"><svg xmlns="http://www.w3.org/2000/svg"
                                 width="14.4" height="14.4" viewBox="0 0 13 12">
                                 <path  id="star"  fill="#d4d4d4" fill-rule="evenodd" stroke="#d4d4d4" stroke-width="0.7"
                                     d="M4.146 3.95L0 4.583l3 3.075L2.292 12 6 9.95 9.708 12 9 7.658l3-3.075-4.146-.633L6 0z">
                                 </path>
                             </svg></label>
-        <input type="radio" name="rating" value="4" id="rate2"><label for="rate2"><svg xmlns="http://www.w3.org/2000/svg"
+        <input type="radio" name="reviewRating" value="4" id="rate2"><label for="rate2"><svg xmlns="http://www.w3.org/2000/svg"
                                 width="14.4" height="14.4" viewBox="0 0 13 12">
                                 <path  id="star"  fill="#d4d4d4" fill-rule="evenodd" stroke="#d4d4d4" stroke-width="0.7"
                                     d="M4.146 3.95L0 4.583l3 3.075L2.292 12 6 9.95 9.708 12 9 7.658l3-3.075-4.146-.633L6 0z">
                                 </path>
                             </svg></label>
-        <input type="radio"" name="rating" value="3" id="rate3"><label for="rate3"><svg xmlns="http://www.w3.org/2000/svg"
+        <input type="radio"" name="reviewRating" value="3" id="rate3"><label for="rate3"><svg xmlns="http://www.w3.org/2000/svg"
                                 width="14.4" height="14.4" viewBox="0 0 13 12">
                                 <path  id="star"  fill="#d4d4d4" fill-rule="evenodd" stroke="#d4d4d4" stroke-width="0.7"
                                     d="M4.146 3.95L0 4.583l3 3.075L2.292 12 6 9.95 9.708 12 9 7.658l3-3.075-4.146-.633L6 0z">
                                 </path>
                             </svg></label>
-        <input type="radio" name="rating" value="2" id="rate4"><label for="rate4"><svg xmlns="http://www.w3.org/2000/svg"
+        <input type="radio" name="reviewRating" value="2" id="rate4"><label for="rate4"><svg xmlns="http://www.w3.org/2000/svg"
                                 width="14.4" height="14.4" viewBox="0 0 13 12">
                                 <path  id="star"  fill="#d4d4d4" fill-rule="evenodd" stroke="#d4d4d4" stroke-width="0.7"
                                     d="M4.146 3.95L0 4.583l3 3.075L2.292 12 6 9.95 9.708 12 9 7.658l3-3.075-4.146-.633L6 0z">
                                 </path>
                             </svg></label>
-        <input type="radio" name="rating" value="1" id="rate5"><label for="rate5"><svg xmlns="http://www.w3.org/2000/svg"
+        <input type="radio" name="reviewRating" value="1" id="rate5"><label for="rate5"><svg xmlns="http://www.w3.org/2000/svg"
                                 width="14.4" height="14.4" viewBox="0 0 13 12">
                                 <path  id="star"  fill="#d4d4d4" fill-rule="evenodd" stroke="#d4d4d4" stroke-width="0.7"
                                     d="M4.146 3.95L0 4.583l3 3.075L2.292 12 6 9.95 9.708 12 9 7.658l3-3.075-4.146-.633L6 0z">
@@ -577,14 +578,14 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 						<h2 class="reviewSbox">리뷰내용</h2>
 						<div class="reviewSquare">
 							<textarea rows="5" placeholder="리뷰는 최소 5자 이상 입력해 주세요."
-								class="reviewText" name="reviewContent"></textarea>
+								class="reviewText" name="reviewContent" id="reviewContent"></textarea>
 						</div>
 					</div>
 					<div class="reviewMbox">
 						<h2 class="reviewSbox">사진첨부</h2>
 						<div class="reviewSquare">
-							<input type="file" accept="image/*" multiple="" class="imageInput" name="file">
-							<button class="imageButton"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" color="onColor" class="imageButton2"><path d="M13 3H11V11H3V13H11V21H13V13H21V11H13V3Z" fill="white"></path></svg></button>
+							<input type="file"  name="file" id="file">
+							<!-- <button class="imageButton"> --><!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" color="onColor" class="imageButton2"><path d="M13 3H11V11H3V13H11V21H13V13H21V11H13V3Z" fill="white"></path></svg> --><!-- </button> -->
 						</div>
 					</div>
 					<div class="reviewMbox">
@@ -608,6 +609,7 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 						<button class="reviewReg" type="submit">등록</button>
 					</div>
 				</div>
+				<input type="hidden" id="csrf_token" name="${_csrf.parameterName }" value="${_csrf.token }">
 				</form>
 				<!-- ------------------------------------------------------------------------------------------------------- -->
             
@@ -622,16 +624,20 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                             style="padding-left: 40px; padding-right: 40px;">
                             <ul class="splide__list" id="splide06-list" role="presentation" style="transform: translateX(0px);">
                     <c:forEach items="${ reviews }" var="reviews">
-                      <li class="splide__slide css-y4wdi3 ef5b6hc10 is-active is-visible" id="splide06-slide01"
+                      
+                              <c:choose>
+                                      <c:when test="${ not empty reviews.imageUrl }">
+                                      <li class="splide__slide css-y4wdi3 ef5b6hc10 is-active is-visible" id="splide06-slide01"
                                     role="group" aria-roledescription="slide" aria-label="1 of 31"
                                     style="margin-right: 10px; width: 120px; height: 120px;">
                                     <div class="css-uwwqev ef5b6hc1">
                                         <div class="css-rxshk0 ef5b6hc2"><img
                                                 src="${ reviews.imageUrl }"
                                                 alt="" class="css-n8h1i5 ef5b6hc3"></div>
-                                    </div>
-                                </li>
-                    
+                                         </div>
+                                         </li>
+                                      </c:when>
+                                    </c:choose>
                     </c:forEach>
                                       
                             </ul>
@@ -711,7 +717,7 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                                                     <path fill="#000000" fill-rule="evenodd" stroke="#000000" stroke-width="0.7"
                                                         d="M4.146 3.95L0 4.583l3 3.075L2.292 12 6 9.95 9.708 12 9 7.658l3-3.075-4.146-.633L6 0z">
                                                     </path>
-                                                </svg></i></i></div><span class="css-5030pi e1eysicp5">${ reviews.memberId }</span><span
+                                                </svg></i></i></div><span class="css-5030pi e1eysicp5">${ reviews.memberId }</span><c:choose><c:when test="${ reviews.memberId eq memberId }"><button class="reviewUpdate" data-payId="${ reviews.payId }"  type="button">수정</button><button class="reviewDelete"  data-payId="${ reviews.payId }"  type="button">삭제</button></c:when></c:choose><span
                                         class="css-1riowxi e1eysicp6">${ reviews.reviewDate }</span>
                                 </div>
                                 <div class="css-16tn2ye e1eysicp7">
@@ -720,10 +726,15 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                                         </div>
                                         <p class="css-1gk1nxz e1eysicp8">${ reviews.reviewContent }</p>
                                     </div>
-                                    <div class="css-1jjxju6 e1eysicp0"><img
+                                    <c:choose>
+                                      <c:when test="${ not empty reviews.imageUrl }">
+                                        <div class="css-1jjxju6 e1eysicp0"><img
                                             src="${ reviews.imageUrl }"
                                             loading="lazy" alt="리뷰 이미지" class="css-18bdumj e1eysicp15"></div>
-                                </div>
+                                        </div>
+                                      </c:when>
+                                    </c:choose>
+                                    
                             </div>
                         </div>
                     </li>
@@ -1012,6 +1023,76 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         <button class="css-1r1ons4 e10drivl0" type="button">Bottom</button>
     </div>
     <input type="hidden" id="csrf_token" name="${_csrf.parameterName }" value="${_csrf.token }">
+    
+    <!-- ------------------------------------------------------------------------------------------- -->
+    <!-- 리뷰 수정 모달창  -->
+    <form>
+    <div class="modalBox">
+      <div class="modalContent">
+					<div class="modalMbox">
+						<h2 class="modalSbox">아이디</h2>
+						<div class="modalSquare">
+							<span class="reviewID" >${memberId}</span>
+							<!-- <input name="memberId" class="reviewID"> -->
+						</div>
+					</div>
+					<div class="modalMbox">
+						<h2 class="modalSbox">상품별점</h2>
+						<div class="modalSquare">
+							<span class="reviewID" ><fieldset class="reviewForm">
+        <input type="radio" name="reviewRating" value="5" id="rate1"><label for="rate1"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="14.4" height="14.4" viewBox="0 0 13 12">
+                                <path  id="star"  fill="#d4d4d4" fill-rule="evenodd" stroke="#d4d4d4" stroke-width="0.7"
+                                    d="M4.146 3.95L0 4.583l3 3.075L2.292 12 6 9.95 9.708 12 9 7.658l3-3.075-4.146-.633L6 0z">
+                                </path>
+                            </svg></label>
+        <input type="radio" name="reviewRating" value="4" id="rate2"><label for="rate2"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="14.4" height="14.4" viewBox="0 0 13 12">
+                                <path  id="star"  fill="#d4d4d4" fill-rule="evenodd" stroke="#d4d4d4" stroke-width="0.7"
+                                    d="M4.146 3.95L0 4.583l3 3.075L2.292 12 6 9.95 9.708 12 9 7.658l3-3.075-4.146-.633L6 0z">
+                                </path>
+                            </svg></label>
+        <input type="radio"" name="reviewRating" value="3" id="rate3"><label for="rate3"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="14.4" height="14.4" viewBox="0 0 13 12">
+                                <path  id="star"  fill="#d4d4d4" fill-rule="evenodd" stroke="#d4d4d4" stroke-width="0.7"
+                                    d="M4.146 3.95L0 4.583l3 3.075L2.292 12 6 9.95 9.708 12 9 7.658l3-3.075-4.146-.633L6 0z">
+                                </path>
+                            </svg></label>
+        <input type="radio" name="reviewRating" value="2" id="rate4"><label for="rate4"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="14.4" height="14.4" viewBox="0 0 13 12">
+                                <path  id="star"  fill="#d4d4d4" fill-rule="evenodd" stroke="#d4d4d4" stroke-width="0.7"
+                                    d="M4.146 3.95L0 4.583l3 3.075L2.292 12 6 9.95 9.708 12 9 7.658l3-3.075-4.146-.633L6 0z">
+                                </path>
+                            </svg></label>
+        <input type="radio" name="reviewRating" value="1" id="rate5"><label for="rate5"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="14.4" height="14.4" viewBox="0 0 13 12">
+                                <path  id="star"  fill="#d4d4d4" fill-rule="evenodd" stroke="#d4d4d4" stroke-width="0.7"
+                                    d="M4.146 3.95L0 4.583l3 3.075L2.292 12 6 9.95 9.708 12 9 7.658l3-3.075-4.146-.633L6 0z">
+                                </path>
+                            </svg></label>
+    </fieldset></span>
+						</div>
+					</div>
+					<div class="modalMbox">
+						<h2 class="modalSbox">리뷰내용</h2>
+						<div class="modalSquare">
+							<textarea rows="5" placeholder="리뷰는 최소 5자 이상 입력해 주세요."
+								class="modalText" name="reviewContent" id="reviewContent"></textarea>
+						</div>
+					</div>
+					<div class="modalMbox">
+						<h2 class="modalSbox">사진첨부</h2>
+						<div class="modalSquare2">
+							<input type="file"  name="file" id="file">
+						</div>
+					</div>
+					<div class="modalButtons">
+						<button class="modalClose" type="button">닫기</button>
+						<button class="reviewUp" type="submit">수정</button>
+					</div>
+				</div>
+				</div>
+    </form>
 </body>
 <script>
 const csrfToken = $('#csrf_token').val();
@@ -1059,7 +1140,124 @@ $(document).ready(function() {
         }
     });
 });
+
 	
+</script>
+
+
+<script>
+
+//리뷰 등록 ajax
+/* $(document).ready(function() {
+	$("#reviewInsert").submit(function(){
+	var file = $('#file')[0].files[0];
+    var formData = new FormData();
+    formData.append('file', file);
+
+    var data = {
+      reviewContent: $('#reviewContent').val(),
+      reviewRating: $('input:radio[name=reviewRating]:checked').val()
+    };
+
+    formData.append("review", new Blob([JSON.stringify(data)], {type: "application/json"}));
+    
+    $.ajax({
+        url: "/viewDetail/review.do",
+        method: "post",
+        data: formData,
+        contentType: false,
+        processData: false,
+        cache: false,
+        enctype: 'multipart/form-data',
+        dataType: "json",
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+        },
+        success: function(data, callback, xhr) {
+        	if (data == 1) {
+          		location.reload();
+          	}
+        },
+        error: function () {
+        	 alert('ERROR');
+        }  
+      });	
+	});
+}); */
+	
+//리뷰 삭제 ajax
+$(".reviewDelete").on("click",function(){
+	  var pay_id = $(this).data("payid");
+       $.ajax({
+          type: "POST",
+          url: '/viewDetail/delete.do',
+          data: {pay_id:pay_id},
+          datatype: 'json',
+          beforeSend: function(xhr) {
+              xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+          },
+          success: function (data, callback, xhr) {
+          	if (data == 1) {
+          		location.reload();
+          	}
+          },
+          error: function () {
+              alert('ERROR');
+          } 
+      })
+
+ });
+// 리뷰 수정 ajax
+
+
+
+// 리뷰 수정 모달창 띄우기
+$(".reviewUpdate").on("click",function(){
+	$(".modalBox").css('display','block');
+});
+
+//외부 페이지 누르면 수정 모달창 닫기
+window.onclick = function(event) {
+	  var modal = document.getElementsByClassName("modalBox")[0];
+	  if (event.target == modal) {
+	    modal.style.display = "none";
+	  }
+	}
+
+// 모달창 닫기 버튼
+$(".modalClose").on("click",function(){
+	$(".modalBox").css('display','none');
+});
+
+
+
+
+
+// 리뷰쓰기창 보이게 하기
+	$(document).ready(function(){
+		// const urlParams = new URL(location.href).searchParams;
+
+		// const pd_id = urlParams.get('pd_id');
+		const pd_id = ${pdId};
+		$.ajax({
+			type:"POST",
+			url:"/viewDetail/reviewWrite.do",
+			data: {pd_id:pd_id},
+			datatype: 'json',
+			beforeSend: function(xhr) {
+              xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+          },
+			success: function(data, callback, xhr){
+				if (data != 0) {
+					$(".reviewWrite").css('display','block');
+				}
+			}
+			
+		})
+		
+	});
+
+
 	// 리뷰 쓰기 누르면 리뷰 쓰는창 뜨기
 	$(".reviewWrite").on("click",function(){
 		if ($(".reviewBox").css('display')=='none') {
@@ -1070,6 +1268,7 @@ $(document).ready(function() {
 	});
 	
 	
+
 </script>
 <script>
 $("#option2").on("click", function(event){

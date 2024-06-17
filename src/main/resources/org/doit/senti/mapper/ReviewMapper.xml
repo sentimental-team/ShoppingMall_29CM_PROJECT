@@ -6,9 +6,10 @@
 <mapper namespace="org.doit.senti.mapper.ReviewMapper">
   <!-- public List<ReviewVO> getReviews(int pdId) throws ClassNotFoundException, SQLException; -->
   <select id="getReviews" resultType="ReviewVO">
-    SELECT member_id, review_date, review_content, image_url
+    SELECT member_id, review_date, review_content, image_url, review_rating, r.pay_id as pay_id
     FROM review r JOIN pay p ON r.pay_id = p.pay_id
     WHERE p.pd_id = #{pd_id}
+    ORDER BY review_date DESC
   </select>
   
   <!-- public int reviewCount(int pdId) throws ClassNotFoundException, SQLException; -->
@@ -28,7 +29,7 @@
   <!-- public int reviewInsert(ReviewVO review) throws ClassNotFoundException, SQLException; -->
   <insert id="reviewInsert">
     INSERT INTO review ( review_id, review_content, review_rating, pay_id <if test="imageUrl != null">, image_url</if>)
-    VALUES ( (SELECT NVL(MAX(review_id),0)+1 FROM review, #{reviewContent}, #{reviewRating}, #{payId} <if test="imageUrl != null">, #{imageUrl}</if> )
+    VALUES ( (SELECT NVL(MAX(review_id),0)+1 FROM review), #{reviewContent}, #{reviewRating}, #{payId} <if test="imageUrl != null">, #{imageUrl}</if> )
   </insert>
   
   <!-- public int reviewUpdate(ReviewVO review)throws ClassNotFoundException, SQLException; -->
@@ -51,7 +52,7 @@
   <select id="returnPayId" resultType="int">
     SELECT pay_id
     FROM pay
-    WHERE pd_id = #{pd_id} AND member_id = #{memberId} AND pay_id NOT IN ( SELECT pay_id FROM pay p JOIN review r ON p.pay_id = r.pay_id WHERE pd_id = #{pd_id} AND member_id = #{memberId})
+    WHERE pd_id =  #{pdId} AND member_id = #{memberId} AND pay_id NOT IN ( SELECT p.pay_id FROM pay p JOIN review r ON p.pay_id = r.pay_id WHERE pd_id = #{pdId} AND member_id = #{memberId})
   </select>
   
   <!-- public int existPayId(int pd_id, String memberId) throws ClassNotFoundException, SQLException; -->
@@ -60,7 +61,7 @@
     FROM (
     SELECT pay_id
     FROM pay
-    WHERE pd_id = #{pd_id} AND member_id = #{memberId} AND pay_id NOT IN ( SELECT pay_id FROM pay p JOIN review r ON p.pay_id = r.pay_id WHERE pd_id = #{pd_id} AND member_id = #{memberId})
+    WHERE pd_id = #{pdId} AND member_id = #{memberId} AND pay_id NOT IN ( SELECT p.pay_id FROM pay p JOIN review r ON p.pay_id = r.pay_id WHERE pd_id = #{pdId} AND member_id = #{memberId})
           )
   </select>
   
