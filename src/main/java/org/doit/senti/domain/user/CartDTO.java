@@ -15,7 +15,7 @@ public class CartDTO {
 	
 	// getCart
 	private String pdName;
-	private String pdImageURL;
+	private String pdImageUrl;
 	private String brandName;
 	private int pdPrice;
 	private int pdDiscountRate;

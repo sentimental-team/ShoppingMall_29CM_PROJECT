@@ -5,6 +5,18 @@
 
 <mapper namespace="org.doit.senti.mapper.OrderMapper">
 	
+	<insert id="insertPay">
+	    INSERT INTO pay (pay_id, member_id, d_addr_name, receiver, d_addr, tel_num1, tel_num2, use_mileage,
+	                     total_pay, pay_date, pay_type_id, pd_id)
+	    VALUES 
+	        (seq_pay_id.NEXTVAL, #{memberId}, #{daddrname}, #{receiver}, #{daddr}, #{telNum1}, 
+	        #{telNum2}, 0,
+	         #{totalPay}, SYSDATE, #{payTypeId}, #{pdId})
+	</insert>
+	 
+	<select id="getPayOption" resultType="org.doit.senti.domain.board.OrderDTO">
+		SELECT pay_type_name, pay_type_id
+		FROM pay_type
+	</select>
 	
-	
-</mapper>
+</mapper>	

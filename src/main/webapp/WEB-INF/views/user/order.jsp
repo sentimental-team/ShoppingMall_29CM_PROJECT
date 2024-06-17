@@ -1503,7 +1503,189 @@ img {
 .sec2-bottom-border {
     width: 100%;
     height: 1px;
-    background-color: var(--ruler-semantic-color-fill-primary);
+    /* background-color: var(--ruler-semantic-color-fill-primary); */
+}
+
+.left-section3{
+	position: relative;
+}
+
+.left-section3-header{
+	display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 74px;
+    border-top: 2px solid var(--ruler-semantic-color-border-divider-strong);
+    border-bottom: 1px solid var(--ruler-semantic-color-border-line);
+}
+
+.sec3-header-mil{
+	font-family: var(--ruler-semantic-typography-title-xs-bold-font-family);
+    font-weight: var(--ruler-semantic-typography-title-xs-bold-font-weight);
+    line-height: var(--ruler-semantic-typography-title-xs-bold-line-height);
+    font-size: var(--ruler-semantic-typography-title-xs-bold-font-size);
+    color: var(--ruler-semantic-color-text-primary);
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.sec3-bot{
+	position: relative;
+    padding: 20px 0px 40px;
+}
+
+.sec3-bot-box{
+	display: flex;
+    padding-bottom: 10px;
+}
+
+.sec3-bot-box:last-of-type{
+	padding-bottom: 0px;
+}
+
+.use-mile-text-text{
+	font-family: var(--ruler-semantic-typography-text-l-font-family);
+    font-weight: var(--ruler-semantic-typography-text-l-font-weight);
+    line-height: var(--ruler-semantic-typography-text-l-line-height);
+    font-size: var(--ruler-semantic-typography-text-l-font-size);
+    color: var(--ruler-semantic-color-text-secondary);
+    display: flex;
+    flex-shrink: 0;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 126px;
+    height: 40px;
+}
+
+.sec3-bot-box-text{
+	display: flex;
+    flex-flow: wrap;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.sec3-bot-box-text-left {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.use-mile-text{
+	display: block;
+    width: 100%;
+    padding: 0px 14px;
+    font-size: 15px;
+    color: rgb(26, 26, 26);
+    border: 1px solid rgb(228, 228, 228);
+    outline: none;
+    height: 42px;
+}
+
+.use-mile-text-btn {
+	border: 1px solid transparent;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    min-width: 84px;
+    height: 44px;
+    min-height: 44px;
+    flex-grow: initial;
+    flex-basis: initial;
+    border-radius: 4px;
+    padding: 0 var(--ruler-scale-dimension-225);
+    background-color: var(--ruler-semantic-color-fill-surface-contents);
+    flex-shrink: 0;
+    margin: 0 var(--ruler-scale-dimension-200) 0 8px;
+}
+
+.ruler-button-text{
+	display: inline-block;
+    font-family: var(--ruler-semantic-typography-text-l-bold-font-family);
+    font-weight: var(--ruler-semantic-typography-text-l-bold-font-weight);
+    line-height: var(--ruler-semantic-typography-text-l-bold-line-height);
+    font-size: var(--ruler-semantic-typography-text-l-bold-font-size);
+    color: var(--ruler-semantic-color-text-primary);
+}
+
+.can-use-mile{
+	display: inline-block;
+    font-family: var(--ruler-semantic-typography-text-s-font-family);
+    font-weight: var(--ruler-semantic-typography-text-s-font-weight);
+    line-height: var(--ruler-semantic-typography-text-s-line-height);
+    font-size: var(--ruler-semantic-typography-text-s-font-size);
+    color: var(--ruler-semantic-color-text-primary);
+    flex-shrink: 0;
+    padding: 7px 0px;
+}
+
+.have-mile{
+	font-weight: 600;
+}
+
+.left-section4{
+	position: relative;
+}
+
+.howtopay{
+	display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 74px;
+    border-top: 2px solid var(--ruler-semantic-color-border-divider-strong);	
+}
+
+.howtopay-text{
+	font-family: var(--ruler-semantic-typography-title-xs-bold-font-family);
+    font-weight: var(--ruler-semantic-typography-title-xs-bold-font-weight);
+    line-height: var(--ruler-semantic-typography-title-xs-bold-line-height);
+    font-size: var(--ruler-semantic-typography-title-xs-bold-font-size);
+    color: var(--ruler-semantic-color-text-primary);
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.sec4-pay-type{
+	position: relative;
+    padding: 20px 0px 50px;
+    border-top: 1px solid rgb(228, 228, 228);
+}
+
+.pay-type-ul{
+	display: block;
+    width: 100%;
+    border: 1px solid rgb(228, 228, 228);
+    outline: none;
+    cursor: pointer;
+    height: 42px;
+    padding: 0px 30px 0px 14px;
+    font-size: 13px;
+    color: rgb(48, 48, 51);
+    background: transparent;
+}
+
+.pay-type-li{
+	position: relative;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    width: 20%;
+    margin-top: 6px;
+    padding: 0px 3px;
 }
 
 </style>
@@ -1539,6 +1721,7 @@ img {
 				<li class="order-confirmed">03 ORDER CONFIRMED</li>
 			</ol>
 		</div>
+		<form method="POST" id="insertPay">
 		<div class="order-mid-main">
 			<div class="order-left">
 				<section class="left-section1">
@@ -1551,7 +1734,8 @@ img {
 							<i class="css-6cb3bj e1mkvd1x4">*</i>
 							 표시는 필수입력 항목
 						</p>
-					</header>	
+					</header>
+					
 					<div class="input-box">
 						<ul class="input-box-ul">
 							<li role="button" class="new-deli-addr">배송지 입력</li>
@@ -1563,51 +1747,53 @@ img {
 						<div class="input-addr-detail">
 							<h2 class="addr-title">배송지명</h2>
 							<div class="addr-title-textbox">
-								<input class="addr-title-text" type="text" autocapitalize="none" name="new-addr" value=""/>
+								<input class="addr-title-text" type="text" autocapitalize="none" name="dAddrName" value=""/>
 							</div>
 						</div>
 						<div class="input-addr-detail">
 							<h2 class="recipient">수령인</h2>
 							<div class="recipient-textbox">
-								<input required="required" class="recipient-text" type="text" autocapitalize="none" name="new-recipient"/>
+								<input required="required" class="recipient-text" type="text" autocapitalize="none" name="receiver" value=""/>
 							</div>
 						</div>
 						<div class="input-addr-detail">
 							<h2 class="deli-location">배송지</h2>
 							<div class="location-box">
 								<div class="location-box-text">
-									<div class="location-box-text1">
-										<div class="location-text-content" id="location-text-content"></div>
+									<div class="location-box-text1" >
+										<div class="location-text-content" id="location-text-content">
+											<%-- <input class="location-text-content" type="hidden" value="${olist.dAddr }" /> --%>
+										</div>
 										<button class="post-code" type="button" onclick="execDaumPostcode()">우편번호 검색</button>
 									</div>
 								</div>
 								
-								<div class="location-box-text">
+								<div class="location-box-text" id="location-box-text">
 								<div class="post-code-addr" id="post-code-addr"></div>
 								</div>
 								<div class="location-box-text">
-									<input required="required" class="detail-location-addr" id="detail-location-addr" placeholder="상세주소 입력" type="text" />
+									<input required="required" class="detail-location-addr" id="detail-location-addr" name="dAddr" placeholder="상세주소 입력" type="text" value=""/>
 								</div>
 							</div>
 						</div>
 						<div class="input-addr-detail">
 							<h2 class="first-tel">연락처1</h2>
 							<div class="first-tel-box">
-								<input class="first-tel-text" autocapitalize="none" type="text" name="tel1" required="required" inputmode="numeric" maxlength="4" value=""/>
+								<input class="first-tel-text" autocapitalize="none" type="text" id="tel1" name="tel1" required="required" inputmode="numeric" maxlength="3" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
 								<span class="dive-first-tel-text">-</span>
-								<input class="first-tel-text" autocapitalize="none" type="text" name="tel2" required="required" inputmode="numeric" maxlength="4" value=""/>
+								<input class="first-tel-text" autocapitalize="none" type="text" id="tel2" name="tel2" required="required" inputmode="numeric" maxlength="4" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
 								<span class="dive-first-tel-text">-</span>
-								<input class="first-tel-text" autocapitalize="none" type="text" name="tel3" required="required" inputmode="numeric" maxlength="4" value=""/>
+								<input class="first-tel-text" autocapitalize="none" type="text" id="tel3" name="tel3" required="required" inputmode="numeric" maxlength="4" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
 							</div>
 						</div>
 						<div class="input-addr-detail">
 							<h2 class="second-tel">연락처2</h2>
 							<div class="second-tel-box">
-								<input class="second-tel-text" autocapitalize="none" type="text" name="tel1" inputmode="numeric" maxlength="4" value=""/>
+								<input class="second-tel-text" autocapitalize="none" type="text" id="tel1-1" name="tel1-1" inputmode="numeric" maxlength="4" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
 								<span class="dive-second-tel-text">-</span>
-								<input class="second-tel-text" autocapitalize="none" type="text" name="tel2" inputmode="numeric" maxlength="4" value=""/>
+								<input class="second-tel-text" autocapitalize="none" type="text" id="tel2-2" name="tel2-2" inputmode="numeric" maxlength="4" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
 								<span class="dive-second-tel-text">-</span>
-								<input class="second-tel-text" autocapitalize="none" type="text" name="tel3" inputmode="numeric" maxlength="4" value=""/>
+								<input class="second-tel-text" autocapitalize="none" type="text" id="tel3-3" name="tel3-3" inputmode="numeric" maxlength="4" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
 							</div>
 						</div>
 						<div class="input-addr-detail">
@@ -1643,7 +1829,7 @@ img {
 				</section>
 				<section class="left-section2">
 					<header class="second-header">
-						<h2 class="coupon-item-info">쿠폰 사용 및 상품 정보 / 총 1개</h2>
+						<h2 class="coupon-item-info"></h2>
 					</header>
 					<!--
 					<div style="flex: 0 0 auto; height: 25px;"></div>
@@ -1654,12 +1840,13 @@ img {
 						</div>
 					</div>
 					 -->
-					<%-- <c:forEach items="${list }" var="list"> --%>
+					<c:forEach items="${list}" var="list">
 					<ul class="sec2-coupon-item-info">
 						<li class="sec2-coupon-item-info2">
 							<div class="sec2-coupon-item-info3">
 								<div class="sec2-coupon-item-info4">
-									<img class="sec2-coupon-item-info4-img" src="${list.pdImageURL }" alt="title" />
+									<img class="sec2-coupon-item-info4-img" src="${list.pdImageUrl }" alt="title" />
+									<input class="hiddenPdId" type="hidden" value="${list.pdId }" name="pdId"/>
 								</div>
 								<div class="sec2-coupon-item-info5">
 									<div class="sec2-coupon-item-info5-box">
@@ -1690,18 +1877,50 @@ img {
 										<div class="sec2-coupon-item-info5-price">
 											<span class="sec2-coupon-item-info5-price-span" data-pdPrice="${list.pdPrice }">
 												<fmt:formatNumber pattern="###,###" value="${list.pdPrice }" /> 원
-											</span> &nbsp; / &nbsp; <span class="sec2-coupon-item-info5-price-span">수량 : ${list.stock } 개</span>
+											</span> &nbsp; / &nbsp; <span class="sec2-coupon-item-info5-price-span stock" data-stock="${list.stock }">수량 : ${list.stock } 개</span>
 										</div>		
 									</div>
 								</div>
 							</div>
 						</li>
 					</ul>
-					<%-- </c:forEach> --%>
+					</c:forEach>
 					<div class="sec2-bottom-border"></div>
 				</section>
-				<section class="left-section3"></section>
-				<section class="left-section4"></section>
+				<section class="left-section3">
+					<header class="left-section3-header">
+						<h2 class="sec3-header-mil" color="primary">마일리지</h2>
+					</header>
+					<div class="sec3-bot">
+						<div class="sec3-bot-box">
+							<h2 class="use-mile-text-text">사용 가능 입력</h2>
+							<div class="sec3-bot-box-text">
+								<div class="sec3-bot-box-text-left">
+									<input class="use-mile-text" autocapitalize="none" type="text" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="0" />
+									<button class="use-mile-text-btn" type="button">
+										<span class="ruler-button-text css-izpnhq e1vrs9a70" color="primary">모두 사용</span>
+									</button>
+								</div>
+								<span class="can-use-mile">사용 가능
+									<em class="have-mile">0p</em>
+								</span>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="left-section4">
+					<header class="howtopay">
+						<h2 class="howtopay-text" color="primary">결제방법</h2>
+					</header>
+					<div class="sec4-pay-type">
+						<select class="pay-type-ul">
+							<option class="pay-type-li" value="no" data-paytype="no">결제 방법을 선택해주세요</option>
+							<c:forEach items="${olist}" var="olist">
+							<option class="pay-type-li" value="${olist.payTypeId}">${olist.payTypeName }</option>
+							</c:forEach>
+						</select>
+					</div>
+				</section>
 			</div>
 			<aside class="rigtht-section">
 				<section class="right-section-box">
@@ -1760,7 +1979,7 @@ img {
 							<li class="for-mid-li">
 								<div class="go-total-pay">
 									<span class="go-total-pay-box">총 결제 금액</span>
-									<span class="go-total-pay-text">
+									<span class="go-total-pay-text" data-totalpay="">
 									
 									</span>
 								</div>
@@ -1809,52 +2028,34 @@ img {
 							</p>
 						</div>
 						<div class="right-section-bot-btn">
-							<button class="right-section-bot-checkout">CHECK OUT</button>
+							<button type="button" class="right-section-bot-checkout">CHECK OUT</button>
 						</div>
 					</div>
 				</section>
 			</aside>
 		</div>
+		</form>
+<input type="hidden" id="csrf_token" name="${_csrf.parameterName }" value="${_csrf.token }">
 	</div>
-	<!-- 
-	<div class="for-modal">
-		<div class="deli-info-modal" open="">
-			<button class="modal-close" type="button">
-				<svg class="e1mkvd1x2 css-1e20pup etrxoz0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 82">
-					<g fill="none" fill-rule="evenodd" stroke="#000000" stroke-width="2" stroke-linecap="square">
-						<path d="M82.655.345L1.156 81.844M82.655 81.655L1.156.156"></path>
-					</g>
-				</svg>
-			</button>
-			<div class="modal-inside">
-				<div class="inside-box">
-					<h2 class="deli-info-head">배송안내</h2>
-						<ul class="deli-info-modal-ul">
-							<li class="css-1tzaxnm esx5ojl3">도서산간 지역의 경우 추후 수령 시 추가 배송비가 발생할 수 있으며, 해외배송은 불가합니다.</li>
-							<li class="css-1tzaxnm esx5ojl3">배송지 불분명 및 수신불가 연락처 기입으로 반송되는 왕복 택배 비용은 구매자 부담으로 정확한 주소 및 통화 가능한 연락처 필수 기입.</li>
-							<li class="css-1tzaxnm esx5ojl3">대리 주문으로 해외 주소로 발송 전, 주문품 꼭 확인해주세요. 오배송 및 불량 교환에 따른 배송비는 국내 택배 비용만 지원됩니다.</li>
-						</ul>
-				</div>
-			</div>
-		</div>
-	</div>
- -->
 <footer>
 	<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush="false"></jsp:include>
 </footer>
-
 <script>
+const csrfToken = $('#csrf_token').val();
 $(document).ready(function(){
 	setTotalInfo();
+	console.log(csrfToken);
 });
 
 function setTotalInfo(){
 	let = totalPrice = 0;
+	let = totalCnt = 0;
 	let = totalDeliPrice = 0;
 	let = finalTotalPrice = 0;
 	
 	$(".sec2-coupon-item-info2").each(function(index, element){
 			totalPrice += parseInt($(element).find(".sec2-coupon-item-info5-price-span").data("pdprice"));
+			totalCnt += parseInt($(element).find(".stock").data("stock"));
 	})
 	
 	if (totalPrice >= 100000) {
@@ -1867,13 +2068,16 @@ function setTotalInfo(){
 	
 	finalTotalPrice = totalPrice + totalDeliPrice;
 	
-	$(".right-sec-totalpay-text").text(totalPrice.toLocaleString() + "원");
+	$(".right-sec-totalpay-text").text(totalPrice.toLocaleString() + "원")
+	$(".coupon-item-info").text("쿠폰 사용 및 상품 정보 / 총 " + totalCnt +"개")
 	$(".go-deli-pay-text").text(" + " + totalDeliPrice.toLocaleString() + "원");
-	$(".go-total-pay-text").text(finalTotalPrice.toLocaleString() + "원");
+	$(".go-total-pay-text").text(finalTotalPrice.toLocaleString() + "원")
+						   .attr("data-totalpay", finalTotalPrice);
 }
 </script>
 
-/* 
+
+<!-- 
 $(".sec2-sale-btn-not").on("click", function(){
 	var sw = $(".sec2-sale-btn-not").hasClass("sec2-sale-btn");
     if (sw) {
@@ -1886,7 +2090,8 @@ $(".sec2-sale-btn-not").on("click", function(){
         $(".sec2-sale-box-not").addClass("sec2-sale-box");
     }
 })
- */
+ -->
+ 
 <script>
 function checkSelectAll()  {
 	  // 전체 체크박스
@@ -1928,9 +2133,7 @@ function checkSelectAll()  {
         if (!allChecked) {
             alert("필수 항목에 동의해야 합니다.");
             return false;
-        } else {
-        	alert("결제 완료");
-        }
+        } 
     });
 	
 	/* 우편번호 API */
@@ -1982,5 +2185,99 @@ function checkSelectAll()  {
         }).open();
     }
 </script>
+<!-- 
+<script>
+	$(".right-section-bot-checkout").on("click", function(event){
+		
+		let selectedOption = $(".pay-type-ul pay-type-li:selected")
+		let selectOption = selectedOption.data('option')
+		
+		if (selectOption === "no") {
+			
+			alert("결제 방법을 선택해주세요")
+			
+			event.preventDefault();
+		}
+		
+		var datas = {
+				"dAddrName" : $(".addr-title-text").val(),
+				"receiver" : $(".recipient-text").val(),
+				"dAddr" : $(".location-text-content").text() + " / " + $(".post-code-addr").text() + " / " + $(".detail-location-addr").val(),
+				"telNum1" : $("#tel1").val() + " - " + $("#tel2").val() + " - " + $("#tel3").val(),
+				"telNum2" : $("#tel1-1").val() + " - " + $("#tel2-2").val() + " - " + $("#tel3-3").val(),
+				"totalPay" : $(".go-total-pay-text").text(),
+				"payTypeId" : selectOption,
+				"pdId" : $(".hiddenPdId").val()
+		}
+		
+		$.ajax({
+            type: "POST",
+            url: "/user/order.do",
+            contentType: "application/json",
+            data: JSON.stringify(datas),
+            success: function() {
+            	
+            },
+            error: function() {
+                alert("오류가 발생했습니다.");
+            }
+        });
+	})
+</script>
+ -->
+ 
+ <script>
+ $(document).ready(function() {
+	$(".right-section-bot-checkout").on("click", function(event) {
+		console.log($(".hiddenPdId").val())
+	    
+        let selectedOption = $(".pay-type-ul option:selected");
+        let payType = selectedOption.val();
+		
+		console.log(payType)
+        
+        if (selectedOption === "no") {
+            alert("결제 방법을 선택해주세요");
+            event.preventDefault();
+        } else {
+
+	        var datas = {
+        		"daddrname": $("input[name='dAddrName']").val(),
+                "receiver": $("input[name='receiver']").val(),
+                "daddr": $(".location-text-content").text() + " / " + $("#post-code-addr").text() + " / " + $("#detail-location-addr").val(),
+                "telNum1": $("input[name='tel1']").val() + "-" + $("input[name='tel2']").val() + "-" + $("input[name='tel3']").val(),
+                "telNum2": $("input[name='tel1-1']").val() + "-" + $("input[name='tel2-2']").val() + "-" + $("input[name='tel3-3']").val(),
+                "totalPay": $(".go-total-pay-text").data("totalpay"),
+                "payTypeId": payType,
+                "pdId": $("input[name='pdId']").val()
+	        };
+	        
+	        console.log(datas);
+	        console.log(csrfToken);
+	        $.ajax({
+	        	type: "POST",
+	            url: "/user/orderSuccess.do",
+	            contentType: "application/json",
+	            dataType:'json',
+	            data: JSON.stringify(datas),
+	            beforeSend: function(xhr) {
+	            	console.log(csrfToken);
+	                xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+	            },
+	            success: function(response) {
+	                alert("주문이 성공적으로 완료되었습니다.");
+	                
+	                location.href = "/main.do";
+	                
+	            },
+	            error: function() {
+	                alert("오류가 발생했습니다.");
+	                location.href = "/main.do";
+	            }
+			});
+        };
+    });
+});
+ </script>
 </body>
 </html>

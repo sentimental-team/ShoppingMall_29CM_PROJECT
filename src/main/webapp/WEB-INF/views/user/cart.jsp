@@ -73,7 +73,6 @@
 						</div>
 						<div class="box-info-bottom">
 							<h3 class="item-name" translate="no"></h3>
-							
 							<c:forEach items="${list }" var="list">
 							<div class="box-bottom-main" id="checkbox-bottom-main">
 								<div class="bot-checkbox">
@@ -87,7 +86,7 @@
 								<div class="bot-info1">
 									<div class="bot-item-info">
 										<a href="/product/viewDetail.do?pd_id=${list.pdId }&large_ctgr_id=${list.largeCtgrId}">
-											<img class="item-img" src="${list.pdImageURL }" alt="${list.pdName }" loading="lazy"/>
+											<img class="item-img" src="${list.pdImageUrl }" alt="${list.pdName }" loading="lazy"/>
 										</a>
 										<div class="item-img-info">
 											<div translate="no">
@@ -198,20 +197,13 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
-	
-	<%-- 
-	<form action="/cartDel.do" method="post" class="delete_form">
-			<input type="hidden" name="cartId" class="delete_cartId">
-			<input type="hidden" name="memberId" value="${member.memberId}">
-	</form>
-	 --%>
-	
 <footer>
 	<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush="false"></jsp:include>
 </footer>
+<input type="hidden" id="csrf_token" name="${_csrf.parameterName }" value="${_csrf.token }">
 </body>
 <script>
-
+const csrfToken = $('#csrf_token').val();
    	$(document).ready(function(){
    		// 수량에서 + 버튼 눌렀을 때
    		$(".plus").on("click", function() {
@@ -315,7 +307,7 @@ function setTotalInfo(){
 	})
 	
 	/* 배송비를 다 합치는 건 아니라고 생각해서 조건을 넣어 각 총 주문금액에 따라 배송비 부여 */
-	if (totalPrice >= 100000) {
+	if (totalPrice >= 300000 || totalCnt >= 5) {
 		totalDeliPrice = 0;
 	} else if (totalPrice == 0) {
 		totalDeliPrice = 0;
@@ -332,64 +324,9 @@ function setTotalInfo(){
 }
 </script>
 
-<!-- 
 <script>
-	/* 체크된 상품 삭제 */
-   	$(".click-btn").on("click", function(){
-   		
-    	if (totalCnt == 0) {
-			alert("항목을 선택하세요.")
-			
-			event.preventDefault();
-		} else {
-	    	var confirm_del2 = confirm("선택한 " + totalCnt + "개 상품을 삭제하시겠습니까?");
-	
-	    	if(confirm_del2) {
-	    	    var checkArr = new Array();
-	    	    
-	   	    $(".checkbox-btn:checked").each(function() {
-	               checkArr.push($(this).attr("data-cartId"));
-	        });
-		      
-			} else {
-				event.preventDefault();
-			}
-		}
-   });
-</script>
- -->
-<script>
+	/* 단일 상품 삭제 */
 	$(document).ready(function() {
-	
-	    /* 개별삭제 */
-	    /* 일단 보류
-	    $(".item-delete").on("click", function(event) {
-	    	
-	        let confirm_del = confirm("담기 취소 하시겠습니까 ?");
-	        
-	        if (!confirm_del) {
-	        	
-	        	event.preventDefault();
-	        	
-	        } else {
-		        let cartId = $(this).data('cartId');
-		        
-		        $.ajax({
-		            url: "/user/cartSingleDel.do",
-		            type: "POST",
-		            data: { cartIdList: cartId },
-		            success: function() {
-		            	window.location.reload();
-		            },
-		            error: function() {
-	                    alert("오류가 발생했습니다.");
-	                }
-		        });
-	        }
-	    });
-	     */
-	     
-	    /* 단일 상품 삭제 */
 	 	$(".item-delete").on("click", function(){
 	     	let confirm_del = confirm("담기 취소 하시겠습니까 ?");
 	 		
@@ -424,6 +361,9 @@ function setTotalInfo(){
 		            type: "POST",
 		            data: { cartId: checkArr },
 		            traditional: true, // 배열을 전송할 때 사용
+		            beforeSend: function(xhr) {
+		                xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+		            },
 		            success: function(response) {
 		                window.location.reload();
 		            },
@@ -437,61 +377,7 @@ function setTotalInfo(){
 </script>
 
 <script>
-
-	/* 선택한 상품 주문 */
-	/*
-	$(".check-out").on("click", function() {
-	    if (totalCnt == 0) {
-	        alert("항목을 선택하세요.");
-	        event.preventDefault();
-	    } else {
-	        var confirm_del2 = confirm(totalCnt + "개 상품을 구매하시겠습니까?");
-	        if(confirm_del2) {
-	            var checkArr = [];
-	            $(".checkbox-btn:checked").each(function() {
-	                checkArr.push($(this).attr("data-cartId"));
-	            });
-	            console.log("체크 cartId 값 : " + checkArr);
-	            
-	            $.ajax({
-		            url: "/user/order.do",
-		            type: "POST",
-		            data: { cartIdList: checkArr },
-		            traditional: true, // 배열을 전송할 때 사용
-		            success: function(response) {
-		                location.href("/user/order.do");
-		            },
-		            error: function() {
-	                    alert("오류가 발생했습니다.");
-	                }
-		        });
-	            
-	        } else {
-	            event.preventDefault();
-	        }
-	    }
-	});
-	
-	$(".buy-now-btn").on("click", function() {
-	    let confirmOrderOne = confirm("선택한 상품을 구매하시겠습니까 ?");
-	    if (confirmOrderOne) {
-	        let cartId = $(this).data("cartid");
-	        console.log("cartId 값 : " + cartId);
-	
-	        // 폼 데이터에 선택된 cartId를 추가
-	        var form = $('#getProductToOrderForm');
-	        form.find('input[name="cartIdList"]').remove();
-	        form.append('<input type="hidden" name="cartIdList" value="' + cartId + '">');
-	
-	        form.submit();
-	    } else {
-	        event.preventDefault();
-	    }
-	});
-	 */
-
-	/* 선택한 상품 주문 */
-	
+	/* 상품 주문 */
 	$(".check-out").on("click", function(event){
 	    if (totalCnt == 0) {
 	        alert("항목을 선택하세요.");
@@ -510,55 +396,13 @@ function setTotalInfo(){
 	                return "cartId=" + cartId;
 	            }).join("&");
 	
-	            location.href = "/user/order2.do?" + cartIdsQuery;
+	            location.href = "/user/order.do?" + cartIdsQuery;
 	        } else {
 	            event.preventDefault();
 	        }
 	    }
 	});
 
-/* 	$(".check-out").on("click", function(){
-		
-		if (totalCnt == 0) {
-			alert("항목을 선택하세요.")
-			
-			event.preventDefault();
-			
-		} else {
-	    	var confirm_del2 = confirm(totalCnt + "개 상품을 구매하시겠습니까?");
-	
-	    	if(confirm_del2) {
-	    	    var checkArr = new Array();
-	    	    
-	   	    $(".checkbox-btn:checked").each(function() {
-	               checkArr.push($(this).attr("data-cartId"));
-	        });
-	   	    
-	        console.log("체크 cartId 값 : " + checkArr);
-	        location.href = "/user/order.do?cartId=" + cartId;
-		      
-			} else {
-				event.preventDefault();
-			}
-		}
-	}); */
-	
-	/* 단일 상품 주문  */
-	/* $(".buy-now-btn").on("click", function(){
-		
-		let confirmOrderOne = confirm("선택한 상품을 구매하시겠습니까 ?")
-		
-		if (confirmOrderOne) {
-			
-			let cartId = $(this).data("cartid");
-			
-			console.log("cartId 값 : " + cartId);
-			
-			location.href("/user/order.do");
-		} else {
-			event.preventDefault;
-		}
-	}) */
 	$(".buy-now-btn").on("click", function(event) {
 	    let confirmOrderOne = confirm("선택한 상품을 구매하시겠습니까 ?");
 	    

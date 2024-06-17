@@ -364,9 +364,9 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                                 <%-- <input id="option2"  value="${pDetail.largeCtgrId }"  class="e15gsm0h1 css-qmbng6 e1u1pays0"  placeholder="향기" autocapitalize="none" type="text" readonly="" value=""> --%>
                                 	<select class="e15gsm0h1 css-qmbng6 e1u1pays0 select-option">
                                 		<!-- option -->
-                                		<option value="no">옵션을 선택해주세요.</option>
+                                		<option value="no" data-option="no">옵션을 선택해주세요.</option>
 									        <c:forEach items="${oDetail}" var="item">
-									            <option value="${item.pdOptionName}">${item.pdOptionName}</option>
+									            <option class="asdf" value="${item.pdOptionName}" data-option="${item.pdOptionId}">${item.pdOptionName}</option>
 									        </c:forEach>
                                 	</select>
                                <!--  <svg class="e15gsm0h2 css-cs4h3q e11s8l6m0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 16">
@@ -377,13 +377,14 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
                             </div>
                         </div>
                     </div>
-                    <div class="css-jna93d e1aklvx10">
-                    
+                    <form class="css-jna93d e1aklvx10" method="post" action="/user/order.do">
+                    		<input class="direct-buy" type="hidden" name="pdId" value="${pDetail.pdId }">
+                    		<input class="direct-buy" type="hidden" id="pdOptionId" name="pdOptionId" value="${pdOptionId}">
                    			 <button id="pdp_shopping_basket" class="e1aklvx11 eh8h1ux0 css-vqh4y e12h9sp60 cartbtn" type="button" data-pdid="${pDetail.pdId }">
                        		      장바구니 담기
                              </button>
-                             <button id="pdp_buy_now" class="e1aklvx12 er7ti0m0 css-103n73x e12h9sp60" type="button">바로 구매하기</button>
-                    </div>
+                             <button id="pdp_buy_now" class="e1aklvx12 er7ti0m0 css-103n73x e12h9sp60 direct-buy" type="submit" data-pdid="${pDetail.pdId}">바로 구매하기</button>
+                    </form>
                 </div>
             </div>
             
@@ -1040,6 +1041,9 @@ $(document).ready(function() {
 	                url: "/user/cartAdd.do",
 	                contentType: "application/json",
 	                data: JSON.stringify(cartDTO),
+	                beforeSend: function(xhr) {
+	                    xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+	                },
 	                success: function() {
 	                    alert("상품이 장바구니에 추가되었습니다.");
 	                    
@@ -1058,6 +1062,37 @@ $(document).ready(function() {
 	        }
         }
     });
+    
+	$(".direct-buy").on("click", function(event){
+   		
+		let selectedOption = $(".select-option option:selected");
+        let pdOptionId = selectedOption.data('option');
+        
+        let pdId = $(".direct-buy").data('pdid');
+        
+   		if (pdOptionId === "no") {
+            alert("옵션을 선택해주세요.");
+            event.preventDefault();
+        } else {
+            console.log("선택된 옵션값 : " + pdOptionId);
+            let confirmCart = confirm("상품을 구매하시겠습니까 ?");
+			
+            if (confirmCart) {
+    	        pdId = $(this).data("pdid");
+    	        pdOptionId = selectedOption.data('option');
+    	        console.log("pdId 값 : " + pdId);
+    	        console.log("option 값 : " + pdOptionId);
+    	        
+    	        $("#pdOptionId").val(pdOptionId);
+    	        
+    	        $(".buy-now-btn").submit();
+    	        
+    	    } else {
+    	    	event.preventDefault();
+    	    }
+            
+		}
+	})
 });
 	
 	// 리뷰 쓰기 누르면 리뷰 쓰는창 뜨기

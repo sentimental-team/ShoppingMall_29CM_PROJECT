@@ -8,7 +8,30 @@
 	<!-- 장바구니 추가 -->
 	<insert id="insertCart" parameterType="CartDTO">
 		INSERT INTO CART (cart_id, member_id, pd_id, select_option, stock)
-		VALUES (seq_cart_id.NEXTVAL, 'yujin@naver.com', #{pdId}, #{selectOption}, 1)
-	</insert>	
+		VALUES (seq_cart_id.NEXTVAL, #{memberId}, #{pdId}, #{selectOption}, 1)
+	</insert>
+	
+	<select id="directOrder" resultType="org.doit.senti.domain.board.BoardVO">
+		SELECT p.pd_id, p.pd_name, b.brand_name, pi.pd_image_url, po.pd_option_name AS select_option, COUNT(*) AS stock
+		, ROUND(p.pd_price * ( 1 - p.pd_discount_rate / 100 ), -1) AS pd_price
+		FROM product p JOIN brand b ON p.brand_id = b.brand_id
+		            JOIN product_image i ON p.pd_id = i.pd_id
+		            JOIN large_ctgr lc ON p.large_ctgr_id = lc.large_ctgr_id
+		            JOIN product_option po ON lc.large_ctgr_id = po.large_ctgr_id
+		            JOIN product_image pi ON p.pd_id = pi.pd_id
+		WHERE p.pd_id = #{pdId} AND po.pd_option_id = #{pdOptionId }
+		GROUP BY p.pd_id, p.pd_name, p.pd_price, b.brand_name, pi.pd_image_url, po.pd_option_name, p.pd_discount_rate
+	</select>
+	
+	<!-- 상품주문 -->
+	<!-- 
+	<select id="productInOrder" resultType="org.doit.senti.domain.user.CartDTO">
+		SELECT p.pd_id, p.pd_name, select_option, pd_price, b.brand_name, c.stock, i.pd_image_url
+		FROM cart c JOIN product p ON p.pd_id = c.pd_id
+		    		JOIN brand b ON p.brand_id = b.brand_id
+		    		JOIN product_image i ON p.pd_id = i.pd_id
+		WHERE pd_id = #{pdId}
+	</select>
+	 -->
 	
 </mapper>
