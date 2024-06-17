@@ -1847,6 +1847,7 @@ img {
 								<div class="sec2-coupon-item-info4">
 									<img class="sec2-coupon-item-info4-img" src="${list.pdImageUrl }" alt="title" />
 									<input class="hiddenPdId" type="hidden" value="${list.pdId }" name="pdId"/>
+									<input class="hiddenCartId" type="hidden" value="${list.cartId }" name="cartId"/>
 								</div>
 								<div class="sec2-coupon-item-info5">
 									<div class="sec2-coupon-item-info5-box">
@@ -2058,7 +2059,7 @@ function setTotalInfo(){
 			totalCnt += parseInt($(element).find(".stock").data("stock"));
 	})
 	
-	if (totalPrice >= 100000) {
+	if (totalPrice >= 300000 || totalCnt >= 5) {
 		totalDeliPrice = 0;
 	} else if (totalPrice == 0) {
 		totalDeliPrice = 0;
@@ -2075,22 +2076,6 @@ function setTotalInfo(){
 						   .attr("data-totalpay", finalTotalPrice);
 }
 </script>
-
-
-<!-- 
-$(".sec2-sale-btn-not").on("click", function(){
-	var sw = $(".sec2-sale-btn-not").hasClass("sec2-sale-btn");
-    if (sw) {
-        $(".sec2-sale-btn-not").removeClass("sec2-sale-btn");
-        $(".sec2-sale-text-not").removeClass("sec2-sale-text").text("최대 할인이 적용되지 않았어요. 최대 할인을 활성화 하세요.");
-        $(".sec2-sale-box-not").removeClass("sec2-sale-box");
-    } else {
-        $(".sec2-sale-btn-not").addClass("sec2-sale-btn");
-        $(".sec2-sale-text-not").addClass("sec2-sale-text").text("최대 할인이 적용됐어요");
-        $(".sec2-sale-box-not").addClass("sec2-sale-box");
-    }
-})
- -->
  
 <script>
 function checkSelectAll()  {
@@ -2119,13 +2104,13 @@ function checkSelectAll()  {
 	  })
 	}
 	
-	$(".right-section-bot-checkout").click(function(){
+	$(".right-section-bot-checkout").click(function(event){
         // 필수로 체크해야 하는 체크박스가 모두 선택되었는지 확인
         var allChecked = true;
         $(".bot3-li-div-span-input[required]").each(function(){
             if (!$(this).is(":checked")) {
                 allChecked = false;
-                return false;
+                event.preventDefault();
             }
         });
 
@@ -2185,47 +2170,7 @@ function checkSelectAll()  {
         }).open();
     }
 </script>
-<!-- 
-<script>
-	$(".right-section-bot-checkout").on("click", function(event){
-		
-		let selectedOption = $(".pay-type-ul pay-type-li:selected")
-		let selectOption = selectedOption.data('option')
-		
-		if (selectOption === "no") {
-			
-			alert("결제 방법을 선택해주세요")
-			
-			event.preventDefault();
-		}
-		
-		var datas = {
-				"dAddrName" : $(".addr-title-text").val(),
-				"receiver" : $(".recipient-text").val(),
-				"dAddr" : $(".location-text-content").text() + " / " + $(".post-code-addr").text() + " / " + $(".detail-location-addr").val(),
-				"telNum1" : $("#tel1").val() + " - " + $("#tel2").val() + " - " + $("#tel3").val(),
-				"telNum2" : $("#tel1-1").val() + " - " + $("#tel2-2").val() + " - " + $("#tel3-3").val(),
-				"totalPay" : $(".go-total-pay-text").text(),
-				"payTypeId" : selectOption,
-				"pdId" : $(".hiddenPdId").val()
-		}
-		
-		$.ajax({
-            type: "POST",
-            url: "/user/order.do",
-            contentType: "application/json",
-            data: JSON.stringify(datas),
-            success: function() {
-            	
-            },
-            error: function() {
-                alert("오류가 발생했습니다.");
-            }
-        });
-	})
-</script>
- -->
- 
+
  <script>
  $(document).ready(function() {
 	$(".right-section-bot-checkout").on("click", function(event) {
@@ -2266,18 +2211,39 @@ function checkSelectAll()  {
 	            },
 	            success: function(response) {
 	                alert("주문이 성공적으로 완료되었습니다.");
-	                
-	                location.href = "/main.do";
-	                
+	                deleteCart();
 	            },
 	            error: function() {
 	                alert("오류가 발생했습니다.");
-	                location.href = "/main.do";
 	            }
 			});
         };
     });
 });
+ 
+function deleteCart(){
+    var checkArr = new Array();
+    
+    $(".sec2-coupon-item-info4").each(function() {
+        checkArr.push($(".hiddenCartId").val());
+    });
+    
+    $.ajax({
+        url: "/user/cartMultipleDel.do",
+        type: "POST",
+        data: { cartId: checkArr },
+        traditional: true, // 배열을 전송할 때 사용
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+        },
+        success: function(response) {
+        	location.href = "/main.do";
+        },
+        error: function() {
+            alert("오류가 발생했습니다.");
+        }
+    });
+}
  </script>
 </body>
 </html>

@@ -40,9 +40,9 @@
 
 	<!-- 장바구니 선택 삭제 -->
 	<delete id="deleteSelectCart" parameterType="list">
-    	DELETE FROM cart WHERE cart_id IN
+	    DELETE FROM cart WHERE cart_id IN
 	    <foreach item="cartId" collection="list" open="(" separator="," close=")">
-	    #{cartId}
+        #{cartId}
 	    </foreach>
 	</delete>
 	
@@ -55,7 +55,7 @@
 
 	<!-- 상품 주문 -->
 	<select id="getProductToOrder" parameterType="list" resultType="org.doit.senti.domain.user.CartDTO">			
-	SELECT p.pd_id, p.pd_name, select_option, pd_price, b.brand_name, c.stock,  i.pd_image_url
+	SELECT p.pd_id, p.pd_name, select_option, pd_price, b.brand_name, c.stock,  i.pd_image_url, c.cart_id
 	FROM cart c JOIN product p ON p.pd_id = c.pd_id
 	    		JOIN brand b ON p.brand_id = b.brand_id
 	    		JOIN product_image i ON p.pd_id = i.pd_id
