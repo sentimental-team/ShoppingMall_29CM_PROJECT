@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.doit.senti.domain.user.ReviewVO;
 import org.springframework.stereotype.Repository;
@@ -27,12 +28,12 @@ public interface ReviewMapper {
 	public int reviewUpdate(ReviewVO review)throws ClassNotFoundException, SQLException;
 	
 	// 리뷰 삭제
-	public int reviewDelete(int pd_id)throws ClassNotFoundException, SQLException;
+	public int reviewDelete(int pay_id)throws ClassNotFoundException, SQLException;
 	
 	// 로그인한 계정 해당 상품 리뷰쓸 결제내역 확인
-	public int existPayId(int pd_id, String memberId) throws ClassNotFoundException, SQLException;
+	public int existPayId(@Param(value = "pdId") int pdId ,@Param(value = "memberId") String memberId) throws ClassNotFoundException, SQLException;
 	
 	// 로그인한 계정의 해당 상품 결제 내역 결제 아이디 반환(리뷰를 작성하지 않은 결제 아이디)
-	public int returnPayId(int pd_id , String memberId)throws ClassNotFoundException, SQLException;
+	public int returnPayId(@Param(value = "pdId") int pdId ,@Param(value = "memberId") String memberId)throws ClassNotFoundException, SQLException;
 	
 }

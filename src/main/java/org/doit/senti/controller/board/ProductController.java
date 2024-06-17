@@ -262,6 +262,9 @@ public class ProductController {
     	 product.setLikeCheck(result);
     	 product.setPdLikeCount(likeCount);
     	 
+    	model.addAttribute("pdId",pd_id);
+ 		model.addAttribute("large_ctgr_id",large_ctgr_id);
+ 		model.addAttribute("memberId",loginMemberId); 
 		model.addAttribute("pDetail", product);
 		model.addAttribute("iDetail", this.boardService.getInfoImage(pd_id));
 		model.addAttribute("reviewCount", this.reviewMapper.reviewCount(pd_id));

@@ -2,7 +2,7 @@ package org.doit.senti.domain.user;
 
 import java.sql.Date;
 
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +20,9 @@ public class ReviewVO {
 	private int payId;
 	private Date reviewDate;
 	private String memberId;
+	private int pdId;
+	private String imageUrlUuid;
 	
-	private CommonsMultipartFile file;
+	private MultipartFile file;
 }
+
