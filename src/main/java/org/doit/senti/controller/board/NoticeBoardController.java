@@ -3,6 +3,8 @@ package org.doit.senti.controller.board;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.doit.senti.domain.board.NoticeBoardVO;
 import org.doit.senti.service.board.NoticeBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,7 +81,6 @@ public class NoticeBoardController {
 		}
 		 
 	}
-
-
+	
 
 }

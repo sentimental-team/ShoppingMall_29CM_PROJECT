@@ -550,9 +550,9 @@ custom-pagination[_ngcontent-kxm-c98] .current[_ngcontent-kxm-c98] {
 											</p>
 											<p class="tit">
 												<span _ngcontent-kxm-c152="" class="blind">제목</span>
-												<button class="btn_detail" type="button" 
-												<%-- onclick="detailNotice(${notice.noticeId});" --%> data-noticeid="${notice.noticeId}">
-												상세보기</button>
+												<button class="btn_detail" type="button"
+													<%-- onclick="detailNotice(${notice.noticeId});" --%> data-noticeid="${notice.noticeId}">
+													상세보기</button>
 												<button class="btn_delete" type="button"
 													onclick="deleteNotice(${notice.noticeId});">삭제하기</button>
 												<input type="hidden" name="${_csrf.parameterName }"
@@ -650,7 +650,7 @@ $(document).ready(function() {
 </script>
 
 
-<script>
+	<script>
 // 글쓰기 버튼
 $("#writeBtn").on("click", function name() {
 	// alert("bbbbbbbbbbb");
@@ -658,7 +658,7 @@ $("#writeBtn").on("click", function name() {
 });
 </script>
 
-<script>
+	<script>
 $(".btn_detail").on("click", function() {
 	// alert("###########");
 	 var noticeId = $(this).data("noticeid");
@@ -666,7 +666,7 @@ $(".btn_detail").on("click", function() {
 	});
 </script>
 
-<script>
+	<script>
 	function deleteNotice(noticeId) {
     // 확인 다이얼로그 표시
     if (confirm("정말로 삭제하시겠습니까?")) {
@@ -677,9 +677,9 @@ $(".btn_detail").on("click", function() {
             url: "/noticeBoard/delete.do", // 삭제 요청을 처리할 서버의 URL
             type: "POST",
             data: { noticeId: noticeId }, // 삭제할 공지사항의 번호를 서버에 전달
-           /*  beforeSend: function(xhr) {
+           beforeSend: function(xhr) {
                 xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
-            }, */
+            }, 
             
             success: function(result) {
                 if (result === "SUCCESS") {

@@ -1,6 +1,8 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -517,9 +519,13 @@ custom-pagination[_ngcontent-kxm-c98] .current[_ngcontent-kxm-c98] {
 				<section class="my_notice2">
 					<h3 class="my_tit nobor">공지사항</h3>
 
-					<div class="right_btn">
-						<button type="button" class="btn_wr" id="writeBtn">글쓰기</button>
-					</div>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<!-- 관리자에게만 보이는 버튼 -->
+						<div class="right_btn">
+							<button type="button" class="btn_wr" id="writeBtn">글쓰기</button>
+						</div>
+					</sec:authorize>
+
 
 					<div class="tab">
 						<ul>
@@ -538,60 +544,49 @@ custom-pagination[_ngcontent-kxm-c98] .current[_ngcontent-kxm-c98] {
 						</div>
 
 						<c:forEach var="notice" items="${notices}">
-							<!-- 90번 번호/제목/등록일 -->
 							<div class="ng-star-inserted">
 								<div class="my_tbl">
-
 									<div class="my_tbl_info">
-
 										<div class="infoinner">
 											<p class="type">
-												<span _ngcontent-kxm-c152="" class="blind">번호</span>${notice.noticeId}
+												<span class="blind">번호</span>${notice.noticeId}
 											</p>
 											<p class="tit">
-												<span _ngcontent-kxm-c152="" class="blind">제목</span>
-												<button class="btn_detail" type="button" 
-												<%-- onclick="detailNotice(${notice.noticeId});" --%> data-noticeid="${notice.noticeId}">
-												상세보기</button>
-												<button class="btn_delete" type="button"
-													onclick="deleteNotice(${notice.noticeId});">삭제하기</button>
-												<input type="hidden" name="${_csrf.parameterName }"
-													value="${_csrf.token }" id="csrfToken" /> <br> <br>
+												<span class="blind">제목</span>
+												<sec:authorize access="hasRole('ROLE_ADMIN')">
+													<button class="btn_detail" type="button"
+														data-noticeid="${notice.noticeId}">상세보기</button>
+												</sec:authorize>
+
+												<sec:authorize access="hasRole('ROLE_ADMIN')">
+													<!-- 관리자에게만 삭제하기 버튼 보이기 -->
+													<button class="btn_delete" type="button"
+														onclick="deleteNotice(${notice.noticeId});">삭제하기</button>
+												</sec:authorize>
+												<input type="hidden" name="${_csrf.parameterName}"
+													value="${_csrf.token}" id="csrfToken" /> <br> <br>
 												${notice.noticeTitle}
 											</p>
 											<p class="date">
-												<span _ngcontent-kxm-c152="" class="blind">등록일</span>
+												<span class="blind">등록일</span>
 												<fmt:formatDate value="${notice.noticeDate}"
 													pattern="yyyy-MM-dd" />
 											</p>
 										</div>
 									</div>
 
-									<!-- 90번 CONTENT -->
-									<div _ngcontent-kxm-c152="" class="reply_row">
-										<div _ngcontent-kxm-c152="" class="notice_wrap">
-											<div _ngcontent-kxm-c152="">
-												<!---->
-												${notice.noticeContent}
-											</div>
-
-										</div>
+									<!-- 공지사항 내용 -->
+									<div class="reply_row">
+										<div class="notice_wrap">${notice.noticeContent}</div>
 									</div>
 								</div>
 							</div>
-
 						</c:forEach>
 					</div>
+				</section>
+				</ui-notice-list>
 			</div>
-			<!---->
-
 		</div>
-	</section>
-	</ui-notice-list>
-	<!---->
-	</div>
-	</div>
-	<!---->
 	</section>
 
 
@@ -650,7 +645,7 @@ $(document).ready(function() {
 </script>
 
 
-<script>
+	<script>
 // 글쓰기 버튼
 $("#writeBtn").on("click", function name() {
 	// alert("bbbbbbbbbbb");
@@ -658,7 +653,7 @@ $("#writeBtn").on("click", function name() {
 });
 </script>
 
-<script>
+	<script>
 $(".btn_detail").on("click", function() {
 	// alert("###########");
 	 var noticeId = $(this).data("noticeid");
@@ -666,7 +661,7 @@ $(".btn_detail").on("click", function() {
 	});
 </script>
 
-<script>
+	<script>
 	function deleteNotice(noticeId) {
     // 확인 다이얼로그 표시
     if (confirm("정말로 삭제하시겠습니까?")) {
@@ -675,7 +670,7 @@ $(".btn_detail").on("click", function() {
         // 확인을 눌렀을 때 AJAX를 사용하여 서버에 삭제 요청을 보냄
         $.ajax({
             url: "/noticeBoard/delete.do", // 삭제 요청을 처리할 서버의 URL
-            type: "POST",
+            type: "GET",
             data: { noticeId: noticeId }, // 삭제할 공지사항의 번호를 서버에 전달
            /*  beforeSend: function(xhr) {
                 xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
@@ -698,6 +693,7 @@ $(".btn_detail").on("click", function() {
 }
 
 </script>
+
 
 </body>
 </html>

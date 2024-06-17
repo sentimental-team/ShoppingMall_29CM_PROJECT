@@ -21,8 +21,8 @@
         <security:session-management session-fixation-protection="migrateSession">
             <security:concurrency-control max-sessions="1" expired-url="/signUp/login.do?expired=true"/>
         </security:session-management>
-    	
-        <!-- URL 패턴에 대한 권한 설정 -->
+              
+                <!-- URL 패턴에 대한 권한 설정 -->
         <security:intercept-url pattern="/signUp/join.do" access="permitAll"/>
         <security:intercept-url pattern="/signUp/login.do" access="permitAll"/>
         <security:intercept-url pattern="/signUp/logout.do" access="permitAll"/>
@@ -30,6 +30,7 @@
         <security:intercept-url pattern="/login" access="permitAll"/>
         <security:intercept-url pattern="/main.do" access="permitAll"/>
         <security:intercept-url pattern="/" access="permitAll"/>
+        <security:intercept-url pattern="/noticeBoard/notice.do" access="permitAll"/>
         
         <!-- 모든 .do 및 .jsp 파일에 권한 설정 -->
         <security:intercept-url pattern="/**/*.do" access="permitAll"/>
@@ -47,7 +48,8 @@
                              authentication-success-handler-ref="loginSuccessHandler"
                              authentication-failure-url="/signUp/login.do?error=true"
                              default-target-url="/main.do"
-                             always-use-default-target="true"/>
+                             always-use-default-target="true"
+                             />
 
         <!-- 로그아웃 설정 -->
         <security:logout logout-url="/signUp/logout.do"

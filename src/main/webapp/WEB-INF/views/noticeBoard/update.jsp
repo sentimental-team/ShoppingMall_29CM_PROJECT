@@ -97,21 +97,4 @@ h1 {
 	</div>
 </body>
 
-<script>
-	/* 등록일 달력 출력 */
-/* 	$(function() {
-		$("#noticeDate").datepicker({
-			dateFormat : 'yy-MM-dd'
-		});
-	}); */
-</script>
-<script>
-/*
-$(".btn-update").on("click", function() {
-	//alert("###########");
-	 var noticeId = $(this).data("noticeid");
-	 location.href = "/noticeBoard/detail.do?noticeId=" + noticeId;
-	});
-	*/
-</script>
 </html>
