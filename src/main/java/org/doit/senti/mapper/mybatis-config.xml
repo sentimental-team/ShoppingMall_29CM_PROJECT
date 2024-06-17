@@ -20,6 +20,7 @@
     <typeAlias type="org.doit.senti.domain.user.CartDTO" alias="CartDTO" />
     <typeAlias type="org.doit.senti.domain.board.ProductRegisterDTO" alias="ProductRegisterDTO" />
     <typeAlias type="org.doit.senti.domain.board.ProductImageDTO" alias="ProductImageDTO" />
+    <typeAlias type="org.doit.senti.domain.board.OrderDTO" alias="orderDTO" />
     <typeAlias type="java.util.Map" alias="Map" />
     <typeAlias type="java.util.HashMap" alias="HashMap" />
     <typeAlias type="java.util.List" alias="List" />

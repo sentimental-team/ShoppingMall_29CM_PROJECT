@@ -51,6 +51,8 @@ public class BoardVO {
 
 	//
 	private String selectOption;
+	private int pdOptionId;
+	private int stock;
 	
 }
 
