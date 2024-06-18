@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.doit.senti.mapper.InquiryCtgrMapper">
+	
+	<!-- 문의내역 카테고리 가져오는 리스트 -->
+	<!-- 구매문의 select -->
+	<!-- public List<InquiryCtgrVO> getBuyInqCtgr(String buyInquiryName) throws ClassNotFoundException, SQLException; -->
+	<select id="getBuyInqCtgr">
+		select * from buy_inquiry where buy_inquiry_name = ${buyInquiryName}
+	</select>
+	
+	<!--  일반문의 select -->
+	<!-- public List<InquiryCtgrVO> getGeneralInqCtgr(String generalInquiryName) throws ClassNotFoundException, SQLException; -->
+	<select id="getGeneralInqCtgr">
+		select * from general_inquiry where general_inquiry_name = ${generalInquiryName}
+	</select>
+	
+	<!-- 기타문의 select -->
+	<!-- public List<InquiryCtgrVO> getEtcInqCtgr(String etcInquiryName) throws ClassNotFoundException, SQLException; -->
+	<select id="getEtcInqCtgr">
+		select * from etc_inquiry where etc_inquiry_name = ${etcInquiryName}
+	</select>
+
+</mapper>
+ 
