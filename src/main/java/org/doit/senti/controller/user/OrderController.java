@@ -44,8 +44,6 @@ public class OrderController {
 		
 		this.orderMapper.insertPay(orderDTO);
 		
-		//ResponseEntity<String> responseEntity = new ResponseEntity<String>("주문완료", HttpStatus.OK);
-		
 		String result = "{\"result\":\"success\"}";
 		return result;
 	}

@@ -1101,6 +1101,7 @@ $(document).ready(function() {
     $(".cartbtn").on("click", function(event) {
 
         let selectOption = $(".select-option").val();
+        
         if (selectOption === "no") {
             alert("옵션을 선택해주세요.");
             event.preventDefault();

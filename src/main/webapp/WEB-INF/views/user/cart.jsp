@@ -231,28 +231,6 @@ const csrfToken = $('#csrf_token').val();
    			updatePrice($(this));
    		});
    	})
-   	
-   	
-   	/* 상품 수량 증가할때 가격도 증가되도록 ajax 처리 해야함...
-   	function updatePrice(changeStock){
-   		let cartId = changeStock.closest(".box-bottom-main").find(".checkbox-btn").data("cartId");
-   		let currentStock = changeStock.val();
-   		
-   		$.ajax({
-   			url: "/user/updateCart.do",
-   			type: "POST",
-   			data: JSON.stringify({ cartId: cartId, currentStock: currentStock }),
-            contentType: 'application/json; charset=UTF-8',
-   			success: function(response) {
-   				let changePrice = changeStock.closest(".box-bottom-main").find(".sell-price");
-   				changePrice.text(response.updatedPrice + "원");
-
-   				updateTotalPrice();
-   			}
-   		});
-   	}
-   	 */
-   	
 </script>
 	   	
 <script>

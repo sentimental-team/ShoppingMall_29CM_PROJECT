@@ -14,9 +14,5 @@ public interface ViewDetailMapper {
 	
 	// 상품 주문
 	List<BoardVO> directOrder(BoardVO boardVO) throws Exception;
-	/*
-	// 상품 주문
-	public CartDTO productInOrder(@RequestParam("pdId") int pdId) throws Exception;
-	*/
 }
 
