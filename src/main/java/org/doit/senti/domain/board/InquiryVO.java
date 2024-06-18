@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,21 +15,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class InquiryVO {
 	
-	private int inquiryId;
+	private String inquiryId;
 	private String inquiryTitle;
 	private String inquiryContent;
 	private Date inquiryDate;
 	private int buyInquiry;
-	private int generalInquiry;
+	private int generalInquiryId;
 	private int etcInquiry;
 	private String memberId;
-	private String fileSrc;
+	private String filesrc;
 	
-	// p445 ì°¸ê³ 
-	// ìŠ¤í”„ë§ì—ì„œ ì§€ì›í•˜ëŠ” íŒŒì¼ ì—…ë¡œë“œ ê¸°ëŠ¥ì„ (4)ë°©ë²•ì¸
-	// ì»¤ë§¨ë“œ ê°ì²´ë¥¼ ì´ìš©í•˜ëŠ” ë°©ë²•
+	// p445 Âü°í
+	// ½ºÇÁ¸µ¿¡¼­ Áö¿øÇÏ´Â ÆÄÀÏ ¾÷·Îµå ±â´ÉÀ» (4)¹æ¹ıÀÎ
+	// Ä¿¸Çµå °´Ã¼¸¦ ÀÌ¿ëÇÏ´Â ¹æ¹ı
 	// <input type="file" id="txtFile" name="file" />
-	private List<MultipartFile> inqimgList ;
+	
+	private List<MultipartFile> inquiryFileList;
 	private MultipartFile inquiryImage;
 }
   

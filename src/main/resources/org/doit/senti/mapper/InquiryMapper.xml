@@ -18,34 +18,22 @@
 	</delete>
 
 	<!-- // 문의내역 추가하는 메서드 -->
-  	<!-- buyInquiry 라디오버튼 선택시 -->
-	<insert id="insertBuyInquiry">
+	<insert id="insert">
+		<selectKey order="BEFORE" resultType="String"
+			keyProperty="inquiryId">
+			SELECT NVL(MAX(TO_NUMBER(inquiryId)),0)+1
+			FROM inquiry
+		</selectKey>
 		INSERT INTO inquiry
-		(inquiry_id, inquiry_title, inquiry_content, inquiry_date <if test="filesrc">, filesrc</if> , member_id , buy_inquiry )
+		(inquiry_id, inquiry_title, inquiry_content,inquiry_date
+		, inquiryImage, buy_inquiry, general_inquiry_id, etc_inquiry, member_id)
 		VALUES(
-			(SELECT NVL(MAX(TO_NUMBER(inquiry_id)),0)+1 FROM product), #{inquiryTitle, jdbcType=VARCHAR}, #{inquiryContent, jdbcType=VARCHAR} , SYSDATE
-			<if test="filesrc">, #{fileSrc, javaType=String, jdbcType=VARCHAR} </if> , #{memberId, jdbcType=VARCHAR} , #{buyInquiry} 
+			(SELECT NVL(MAX(TO_NUMBER(inquiryId)),0)+1 FROM inquiry), #{inquiryTitle}, #{inquiryContent} , SYSDATE
+			, #{inquiryImage, javaType=String, jdbcType=VARCHAR}}, #{buyInquiry}, #{generalInquiryId}, #{etcInquiry}, #{memberId}
 			)
 	</insert>
-	<!-- generalInquiry 라디오버튼 선택시 -->
-	<insert id="insertGeneralInquiry">
-		INSERT INTO inquiry
-		(inquiry_id, inquiry_title, inquiry_content, inquiry_date <if test="filesrc">, filesrc</if>, member_id , general_inquiry )
-		VALUES(
-			(SELECT NVL(MAX(TO_NUMBER(inquiry_id)),0)+1 FROM product), #{inquiryTitle, jdbcType=VARCHAR}, #{inquiryContent, jdbcType=VARCHAR} , SYSDATE
-			<if test="filesrc">, #{fileSrc, javaType=String, jdbcType=VARCHAR} </if>, #{memberId, jdbcType=VARCHAR} , #{generalInquiry} 
-			)
-	</insert>
-	<!-- etcInquiry 라디오버튼 선택시 -->
-	<insert id="insertEtcInquiry">
-		INSERT INTO inquiry
-		(inquiry_id, inquiry_title, inquiry_content, inquiry_date <if test="filesrc">, filesrc</if>, member_id , etcInquiry )
-		VALUES(
-			(SELECT NVL(MAX(TO_NUMBER(inquiry_id)),0)+1 FROM product), #{inquiryTitle, jdbcType=VARCHAR}, #{inquiryContent, jdbcType=VARCHAR} , SYSDATE
-			<if test="filesrc">, #{fileSrc, javaType=String, jdbcType=VARCHAR} </if>, #{memberId, jdbcType=VARCHAR} , #{etcInquiry} 
-			)
-	</insert>
-	
+
+
 
 	<!-- // 문의내역의 목록을 List 컬렉션으로 반환하는 메서드 public List<InquiryVO> getInquirys( 
 		 String memberId // 작성한멤버아이디) throws ClassNotFoundException, SQLException; -->
@@ -53,14 +41,7 @@
 		select * from inquiry 
 		where member_id = #{memberId}
 	</select>
-	
-		
-	<!-- // 문의내역 상세보기
-	InquiryVO getInquiryId(int inquiryId) throws ClassNotFoundException, SQLException; -->
-	<select id="getInquiryId" resultType="org.doit.senti.domain.board.InquiryVO">
-		select * from inquiry
-		where inquiry_id = #{inquiryId}
-	</select>
+
 
 </mapper>
  

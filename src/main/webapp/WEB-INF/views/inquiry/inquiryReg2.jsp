@@ -1,886 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 <style>
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
-	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
-	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
-	b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table,
-	caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
-	details, embed, figure, figcaption, footer, header, menu, nav, output,
-	ruby, section, summary, time, mark, audio, video, input, textarea,
-	button, select {
-	margin: 0;
-	padding: 0;
-}
-
-*, *::before, *::after {
-	box-sizing: border-box;
-}
-
-div {
-	display: block;
-	unicode-bidi: isolate;
-}
-
-ol, ul, li {
-	list-style: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, main, menu,
-	nav, section, summary {
-	display: block;
-}
-
-section {
-	display: block;
-	unicode-bidi: isolate;
-}
-
-ul {
-	display: block;
-	list-style-type: disc;
-	margin-block-start: 1em;
-	margin-block-end: 1em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
-	padding-inline-start: 40px;
-	unicode-bidi: isolate;
-}
-
-@media ( min-width : 541px) {
-	.css-1t4xf4n {
-		-webkit-flex: 1;
-		-ms-flex: 1;
-		flex: 1;
-		padding-top: 190px;
-	}
-}
-
-@media ( min-width : 541px) {
-	.mid-div {
-		display: -webkit-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-pack: justify;
-		-webkit-justify-content: space-between;
-		justify-content: space-between;
-		min-width: 1000px;
-		max-width: 1600px;
-		margin: 40px auto 0;
-		padding: 0 50px 100px;
-	}
-}
-
-.mid-div {
-	position: relative;
-}
-
-@media ( min-width : 541px) {
-	.mid-left {
-		flex: 0 0 auto;
-		width: 180px;
-		margin-right: 50px;
-	}
-}
-
-.name {
-	font-size: 40px;
-	font-weight: 700;
-	line-height: 1;
-	color: rgb(0, 0, 0);
-	word-break: break-all;
-}
-
-.like {
-	margin: 27px 0px 30px;
-	font-size: 14px;
-}
-
-.like-li {
-	padding: 4px 0px 5px;
-}
-
-.like-a {
-	font-size: 15px;
-	font-weight: 600;
-	color: rgb(48, 48, 51);
-}
-
-a {
-	-webkit-text-decoration: none;
-	text-decoration: none;
-	outline: none;
-}
-
-@media ( min-width : 541px) {
-	.mid-top {
-		position: absolute;
-		top: 0px;
-		right: 50px;
-		left: 280px;
-		height: 150px;
-		padding: 25px 0px;
-	}
-}
-
-@media ( min-width : 541px) {
-	.mid-top {
-		height: 150px;
-		padding: 25px 0px;
-	}
-}
-
-.mid-top {
-	display: flex;
-	line-height: 1;
-	background-color: rgb(48, 48, 51);
-}
-
-.user-grade {
-	position: relative;
-	padding: 0px 20px;
-	width: 50%;
-	border-left: none;
-}
-
-@media ( min-width : 541px) {
-	.grade1 {
-		display: flex;
-		flex-direction: column;
-		-webkit-box-pack: justify;
-		justify-content: space-between;
-		height: 100%;
-	}
-}
-
-.grade1 {
-	/* display: block; */
-	color: rgb(255, 255, 255);
-}
-
-.sale {
-	position: absolute;
-	right: 20px;
-	bottom: 0px;
-	height: 32px;
-	padding: 0px 20px;
-	font-size: 14px;
-	font-weight: 300;
-	line-height: 30px;
-	color: rgb(255, 255, 255);
-	border: 1px solid rgb(228, 228, 228);
-	border-radius: 16px;
-}
-
-.grade2 {
-	position: relative;
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	font-size: 14px;
-	font-weight: 600;
-	color: rgb(160, 160, 160);
-}
-
-.grade2::after {
-	content: "";
-	transform: rotate(45deg);
-	display: inline-block;
-	width: 5px;
-	height: 5px;
-	margin-left: 3px;
-	border-top: 1px solid rgb(160, 160, 160);
-	border-right: 1px solid rgb(160, 160, 160);
-}
-
-@media ( max-width : 1440px) {
-	.grade-color {
-		font-size: 30px;
-	}
-}
-
-.grade-color {
-	display: block;
-	font-size: 50px;
-	font-weight: 400;
-	transition: font-size 0.25s ease-in-out 0s;
-}
-
-li {
-	display: list-item;
-	text-align: -webkit-match-parent;
-	unicode-bidi: isolate;
-}
-
-.user-coupon, .user-mileage {
-	position: relative;
-	width: 25%;
-	padding: 0px 20px;
-	border-left: 1px solid rgb(93, 93, 93);
-}
-
-.shop-info {
-	margin-bottom: 8px;
-	font-size: 17px;
-	line-height: 26px;
-	font-weight: 800;
-	color: rgb(48, 48, 51);
-}
-
-h4 {
-	display: block;
-	margin-block-start: 1.33em;
-	margin-block-end: 1.33em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
-	font-weight: bold;
-	unicode-bidi: isolate;
-}
-
-@media ( min-width : 541px) {
-	.mid-mid {
-		-webkit-flex: 1;
-		-ms-flex: 1;
-		flex: 1;
-		padding-top: 190px;
-	}
-}
-
-.delivery-view {
-	display: inline-block;
-	padding: 10px 0px;
-	font-size: 15px;
-	color: rgb(48, 48, 51);
-	font-weight: 600;
-}
-
-.shop-info-a {
-	display: inline-block;
-	padding: 10px 0px;
-	font-size: 15px;
-	color: rgb(93, 93, 93);
-	font-weight: 200;
-}
-
-.id {
-	margin-top: 30px;
-}
-
-.id-info {
-	margin-bottom: 8px;
-	font-size: 17px;
-	line-height: 26px;
-	font-weight: 800;
-	color: rgb(48, 48, 51);
-}
-
-.id-a {
-	display: inline-block;
-	padding: 10px 0px;
-	font-size: 15px;
-	color: rgb(93, 93, 93);
-	font-weight: 200;
-}
-
-.service-center {
-	margin-top: 30px;
-}
-
-.service-info {
-	margin-bottom: 8px;
-	font-size: 17px;
-	line-height: 26px;
-	font-weight: 800;
-	color: rgb(48, 48, 51);
-}
-
-.service-a {
-	display: inline-block;
-	padding: 10px 0px;
-	font-size: 15px;
-	color: rgb(93, 93, 93);
-	font-weight: 200;
-}
-
-.information {
-	position: relative;
-	margin-top: 30px;
-}
-
-.service-center-guide {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	overflow: hidden;
-	width: 1px;
-	height: 1px;
-	margin: 0px;
-	padding: 0px;
-	white-space: nowrap;
-}
-
-.service-email {
-	font-size: 12px;
-	line-height: 1;
-	color: rgb(160, 160, 160);
-}
-
-.go-go {
-	margin-top: 20px;
-}
-
-.go-go-go {
-	display: block;
-	box-sizing: border-box;
-	width: 150px;
-	height: 40px;
-	padding-left: 12px;
-	font-size: 12px;
-	line-height: 38px;
-	color: rgb(48, 48, 51);
-	border: 1px solid rgb(228, 228, 228);
-	border-radius: 2px;
-}
-
-body, input, select, textarea, button, a {
-	-webkit-text-size-adjust: none;
-	font-family: 'campton', 'Apple SD Gothic Neo', NanumBarunGothic,
-		'나눔바른고딕', Malgun Gothic, '맑은 고딕', dotum, sans-serif;
-}
-</style>
-<style>
-body {
-	font-family: Arial, sans-serif;
-	margin: 20px;
-}
-
-.container {
-	max-width: 800px;
-	margin: 0 auto;
-}
-
-h1 {
-	font-size: 24px;
-	margin-bottom: 20px;
-}
-
-.notice-detail {
-	border: 1px solid #ddd;
-	padding: 20px;
-	border-radius: 8px;
-	background-color: #f9f9f9;
-}
-
-.notice-detail p {
-	margin: 10px 0;
-}
-
-.btn-update, .btn-back {
-	display: inline-block;
-	padding: 10px 20px;
-	color: #fff;
-	background-color: #333;
-	text-decoration: none;
-	border-radius: 5px;
-	margin-right: 10px; /* 수정하기 버튼과 목록으로 돌아가기 버튼 사이의 간격 조정 */
-}
-
-.btn-update:hover, .btn-back:hover {
-	background-color: #555;
-}
-
-.btn-group {
-	margin-top: 20px;
-}
-</style>
-<style>
-.css-tmdn83 {
-	display: inline-block;
-	font-family: var(- -ruler-semantic-typography-title-m-medium-font-family);
-	font-weight: var(- -ruler-semantic-typography-title-m-medium-font-weight);
-	line-height: var(- -ruler-semantic-typography-title-m-medium-line-height);
-	font-size: var(- -ruler-semantic-typography-title-m-medium-font-size);
-	color: var(- -ruler-semantic-color-text-primary);
-}
-
-.css-1heuese {
-	display: flex;
-	border-bottom: 4px solid rgb(0, 0, 0);
-	margin-top: 40px;
-}
-
-.css-19yreqa {
-	cursor: pointer;
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	justify-content: center;
-	height: 49px;
-	font-size: 14px;
-	color: rgb(255, 255, 255);
-	background-color: rgb(0, 0, 0);
-	width: auto;
-	padding: 0px 30px;
-	border: none;
-}
-
-.css-140aynn {
-	cursor: pointer;
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	justify-content: center;
-	height: 49px;
-	font-size: 14px;
-	color: rgb(160, 160, 160);
-	background-color: rgb(255, 255, 255);
-	width: auto;
-	padding: 0px 30px;
-	border: none;
-}
-
-.css-tr1wkt {
-	width: 100%;
-}
-
-.css-1lads1q {
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	justify-content: center;
-	width: 100%;
-}
-
-.css-1ofqig9 {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-direction: column;
-	-ms-flex-direction: column;
-	flex-direction: column;
-	width: 100%;
-}
-
-.css-f9qh2y {
-	display: flex;
-	flex-direction: row;
-	min-height: 50px;
-	border-bottom: 1px solid rgb(212, 212, 212);
-}
-
-.css-f9qh2y:first-of-type {
-	border-bottom: 1px solid var(- -ruler-scale-color-gray-950);
-}
-
-.css-r9nzd6 {
-	display: flex;
-	flex: 1 1 0px;
-	-webkit-box-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	justify-content: center;
-	min-height: 50px;
-}
-
-.css-17x39sj {
-	display: inline-block;
-	font-family: var(- -ruler-semantic-typography-text-l-font-family);
-	font-weight: var(- -ruler-semantic-typography-text-l-font-weight);
-	line-height: var(- -ruler-semantic-typography-text-l-line-height);
-	font-size: var(- -ruler-semantic-typography-text-l-font-size);
-	color: var(- -ruler-semantic-color-text-secondary);
-}
-
-.css-1o3oomb {
-	margin-top: 60px;
-}
-
-.css-19djemi {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-align-items: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	-webkit-justify-content: center;
-	justify-content: center;
-	width: 100%;
-	margin-top: 30px;
-	border-top: 4px solid var(- -ruler-scale-color-gray-950);
-}
-
-.css-1vqrq36 {
-	display: inline-block;
-	font-family: var(- -ruler-semantic-typography-text-xxl-bold-font-family);
-	font-weight: var(- -ruler-semantic-typography-text-xxl-bold-font-weight);
-	line-height: var(- -ruler-semantic-typography-text-xxl-bold-line-height);
-	font-size: var(- -ruler-semantic-typography-text-xxl-bold-font-size);
-	color: var(- -ruler-semantic-color-text-primary);
-}
-
-.css-zp7ii8 {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex-direction: row;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	min-height: 50px;
-	border-bottom: 1px solid #d4d4d4;
-}
-
-.css-n0ir3y:first-of-type {
-	-webkit-flex: 0 0 100px;
-	-ms-flex: 0 0 100px;
-	flex: 0 0 100px;
-}
-
-.css-n0ir3y {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-flex: 1 1 0;
-	-ms-flex: 1 1 0;
-	flex: 1 1 0;
-	-webkit-align-items: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	-webkit-justify-content: center;
-	justify-content: center;
-	min-height: 50px;
-	-webkit-flex: 1 1 0;
-	-ms-flex: 1 1 0;
-	flex: 1 1 0;
-	padding: 15px 1%;
-}
-
-.css-ery12n {
-	display: inline-block;
-	font-family: var(- -ruler-semantic-typography-text-xxl-bold-font-family);
-	font-weight: var(- -ruler-semantic-typography-text-xxl-bold-font-weight);
-	line-height: var(- -ruler-semantic-typography-text-xxl-bold-line-height);
-	font-size: var(- -ruler-semantic-typography-text-xxl-bold-font-size);
-	color: var(- -ruler-semantic-color-text-primary);
-	text-align: center;
-	white-space: pre;
-}
-
-.css-8xai2a {
-	display: inline-block;
-	font-family: var(- -ruler-semantic-typography-text-l-font-family);
-	font-weight: var(- -ruler-semantic-typography-text-l-font-weight);
-	line-height: var(- -ruler-semantic-typography-text-l-line-height);
-	font-size: var(- -ruler-semantic-typography-text-l-font-size);
-	color: var(- -ruler-semantic-color-text-secondary);
-	text-align: center;
-	white-space: nowrap;
-	padding-top: 7px;
-	padding-bottom: 6px;
-}
-
-.css-izpnhq {
-	display: inline-block;
-	font-family: var(- -ruler-semantic-typography-text-l-bold-font-family);
-	font-weight: var(- -ruler-semantic-typography-text-l-bold-font-weight);
-	line-height: var(- -ruler-semantic-typography-text-l-bold-line-height);
-	font-size: var(- -ruler-semantic-typography-text-l-bold-font-size);
-	color: var(- -ruler-semantic-color-text-primary);
-}
-
-.css-19ft22s {
-	margin-top: 60px;
-}
-
-.css-192or3:first-of-type {
-	margin-top: 0;
-}
-
-.css-192or3 {
-	display: inline-block;
-	font-family: var(- -ruler-semantic-typography-text-xxl-bold-font-family);
-	font-weight: var(- -ruler-semantic-typography-text-xxl-bold-font-weight);
-	line-height: var(- -ruler-semantic-typography-text-xxl-bold-line-height);
-	font-size: var(- -ruler-semantic-typography-text-xxl-bold-font-size);
-	color: var(- -ruler-semantic-color-text-primary);
-	margin-top: 60px;
-}
-
-.css-1hw29i9 {
-	margin-top: 12px;
-}
-
-.css-vuajq3 {
-	display: inline-block;
-	font-family: var(- -ruler-semantic-typography-text-xxl-bold-font-family);
-	font-weight: var(- -ruler-semantic-typography-text-xxl-bold-font-weight);
-	line-height: var(- -ruler-semantic-typography-text-xxl-bold-line-height);
-	font-size: var(- -ruler-semantic-typography-text-xxl-bold-font-size);
-	color: var(- -ruler-semantic-color-text-secondary);
-	margin-top: 60px;
-}
-
-.css-130oa9n {
-	display: inline-block;
-	font-family: var(- -ruler-semantic-typography-text-l-font-family);
-	font-weight: var(- -ruler-semantic-typography-text-l-font-weight);
-	line-height: var(- -ruler-semantic-typography-text-l-line-height);
-	font-size: var(- -ruler-semantic-typography-text-l-font-size);
-	color: var(- -ruler-semantic-color-text-secondary);
-	position: relative;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-align-items: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	padding-left: 10px;
-	line-height: 32px;
-	word-break: keep-all;
-}
-
-.css-130oa9n::before {
-	content: '';
-	position: absolute;
-	top: 14px;
-	left: 0;
-	display: inline-block;
-	width: 4px;
-	height: 4px;
-	background-color: var(- -ruler-scale-color-gray-950);
-	border-radius: 100%;
-}
-</style>
-<style>
-.my_inquire {
-	position: relative;
-}
-
-.my_tit {
-	position: relative;
-	padding-bottom: 10px;
-	border-bottom: 4px solid #000;
-	font-size: 22px;
-	color: #000;
-	line-height: 30px;
-	font-weight: 500;
-}
-
-.m_view {
-	display: none;
-}
-
-.cs_description_container {
-	display: -webkit-box;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
-	flex-direction: column;
-	gap: 6px;
-}
-
-.cs_description_container {
-	padding-top: 12px;
-	font-family: Pretendard;
-}
-
-.my_inquire .cs_description {
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 19.6px;
-}
-
-.pc_view {
-	display: block;
-}
-
-.write_btnbx {
-	text-align: right;
-	display: -webkit-box;
-	display: flex;
-	gap: 4px;
-	-webkit-box-pack: end;
-	justify-content: end;
-}
-
-.btn_bor {
-	display: inline-block;
-	border: 1px solid #d4d4d4;
-	border-radius: 2px;
-	font-size: 12px;
-	color: #5d5d5d;
-	line-height: 30px;
-	text-align: center;
-	box-sizing: border-box;
-}
-
-a, button {
-	outline: none;
-}
-
-.btn_black {
-	display: inline-block;
-	min-width: 82px;
-	padding: 0 17px;
-	border: 1px solid #303033;
-	background: #303033;
-	font-size: 13px;
-	color: #fff;
-	line-height: 38px;
-	box-sizing: border-box;
-}
-
-.order_list_none {
-	display: -webkit-box;
-	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	justify-content: center;
-}
-
-.my_tbl_tit {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-</style>
-<style type="text/css">
-.buy_radio {
-	display: inline-block;
-	overflow: hidden;
-	position: relative;
-	min-height: 20px;
-	line-height: 20px;
-	vertical-align: top;
-}
-
-.my_tbl_inquire {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-}
-
-
-.my_tbl_info {
-    display: flex;
-    flex-direction: row;
-    min-height: 50px;
-    border-bottom: 1px solid #d4d4d4;
-}
-
-.my_tbl_info:first-of-type {
-    border-top: 4px solid var(--ruler-semantic-color-border-divider-strong);
-}
-
-.tb_lst .type {
-	display: inline-block;
-	font-size: 14px;
-	font-weight: 600;
-	color: #303033;
-	line-height: 60px;
-}
-
-.tb_lst .in_td:first-child {
-	width: 120px;
-	padding: 0;
-	border-right: 1px solid #e4e4e4;
-	vertical-align: middle;
-}
-
-
-.inquiryId {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50px;
-    width: 10%;	
-}
-
-.type {
-    display: flex;
-    flex: 1 1 0;
-    align-items: center;
-    justify-content: center;
-    min-height: 50px;
-	width: 10%;
-}
-
-.title {
-    display: flex;
-    flex: 1 1 0;
-    align-items: center;
-    justify-content: center;
-    min-height: 50px;
-	width: 35%;
-}
-
-.date {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50px;
-    width: 15%;
-}
-
-.state {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50px;
-    width: 20%;
-}
-
-.tblbtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50px;
-    width: 10%;
-}
-
-.my_tbl_content {
-	display: flex;
-	flex-wrap: wrap;
-    align-items: center;
-    width: 100%;
-    height: 65px;
-    border-bottom: 1px solid rgb(212, 212, 212);
-}
-
-.my_list_none {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-    height: 65px;
-    font-size: 14px;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid rgb(212,212,212);
-}
-
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
 	blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn,
 	em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var,
@@ -1233,7 +360,8 @@ body, input, select, textarea, button, a {
 	font-family: 'campton', 'Apple SD Gothic Neo', NanumBarunGothic,
 		'나눔바른고딕', Malgun Gothic, '맑은 고딕', dotum, sans-serif;
 }
-
+</style>
+<style>
 .css-tmdn83 {
 	display: inline-block;
 	font-family: var(- -ruler-semantic-typography-title-m-medium-font-family);
@@ -1504,7 +632,9 @@ body, input, select, textarea, button, a {
 	background-color: var(- -ruler-scale-color-gray-950);
 	border-radius: 100%;
 }
+</style>
 
+<style>
 @media screen and (min-width: 541px) {
 	.article_right {
 		-webkit-box-flex: 1;
@@ -2053,7 +1183,8 @@ ruler-message-dialog {
 	text-align: center;
 	line-height: 1.2;
 }
-
+</style>
+<style>
 .my_grade ul {
 	overflow: hidden;
 }
@@ -2210,7 +1341,9 @@ address, em {
 	border-right: 1px solid #a0a0a0;
 	content: "";
 }
-
+</style>
+<!-- 라디오클릭 스타일 -->
+<style>
 .tb_lst .in_td_photo {
 	display: table-cell;
 	height: 62px;
@@ -2285,33 +1418,13 @@ input[type=radio]:checked+label:before {
 .hidden {
 	display: none;
 }
-
-
-.css-1guny36 {
-    display: inline-block;
-    font-family: var(--ruler-semantic-typography-text-l-bold-font-family);
-    font-weight: var(--ruler-semantic-typography-text-l-bold-font-weight);
-    line-height: var(--ruler-semantic-typography-text-l-bold-line-height);
-    font-size: var(--ruler-semantic-typography-text-l-bold-font-size);
-    color: var(--ruler-semantic-color-text-secondary);
-    font-size: 14px;
-    -webkit-flex: none;
-    -ms-flex: none;
-    flex: none;
-    width: 120px;
-    line-height: 60px;
-    border-right: 1px solid var(--ruler-semantic-color-border-line);
-}
-
-
 </style>
-
 </head>
-
 <header>
-	<jsp:include page="/WEB-INF/views/layout/top.jsp" flush="false"></jsp:include>
+	<%-- <jsp:include page="/layout/top.jsp" flush="false"></jsp:include> --%>
 </header>
 <body>
+	<form action="write_ok.ss" method="post" enctype="multipart/form-data">
 	<div class="mid-div">
 		<div class="mid-left">
 			<div class="mid-left-top">
@@ -2379,66 +1492,411 @@ input[type=radio]:checked+label:before {
 				</ul>
 			</section>
 		</div>
-		<div class="mid-mid">
-			<!-- 여기서부터 작업하시면 됩니다 -->
-			<ul class="mantoman-list">
 
-				<section class="my_inquire">
-					<div class="my_inquire_info">
-						<div class="container">
-							<h1>문의내역 상세보기</h1>
-							<div class="notice-detail">								
-								<p>
-									<strong>상담번호:</strong> ${inquiryInfo.inquiryId}
-								</p>
-								<p>
-									<strong>제목:</strong> ${inquiryInfo.inquiryTitle}
-								</p>
-								<p>
-									<strong>작성자:</strong> ${inquiryInfo.memberId}
-								</p>
-								<p>
-									<strong>등록일:</strong>
-									<fmt:formatDate value="${inquiryInfo.inquiryDate}"
-										pattern="yyyy-MM-dd" />
-								</p>
-								<p>
-									<strong>첨부파일:</strong>
-									<a href="inquiryDetail.do?dir=inquiry/upload&file=${ inquiryInfo.filesrc }">${ inquiryInfo.filesrc }</a>
-								</p>
-								<p>
-									<strong>내용:</strong>
-								</p>
-								<p>${inquiryInfo.inquiryContent}</p>
-							</div>
-							<br>
-							<div>
-								<div class="btn-group">
-									<a href="/inquiry/inquiry.do" class="btn-back">목록</a>
-									<a href="/inquiry/inquiryDel.do?inquiryId=${inquiryInfo.inquiryId}" class="btn-back">삭제</a> 
+		<div class="article_right">
+			<router-outlet></router-outlet>
+			<ui-qna-mantoman-detail class="ng-star-inserted">
+			<section class="my_inq">
+				<h3 class="my_tit.nobor">1:1 문의쓰기</h3>
+				<p class="my_tit_dsc">
+					산업안전보건법 제 41조 시행령에 근거하여 2018년 10월 18일 부터 산업안전보건법에 따라 고객응대근로자 보호조치를
+					시행하고 있습니다.<br> 고객응대근로자에게 폭언, 폭행 등을 하지 말아주세요.
+				</p>
+				<form class="ng-untouched ng-pristine ng-invalid">
+					<fieldset>
+						<legend>1:1 문의 작성</legend>
+						<ul class="tb_lst">
+							<li>
+								<div class="in_td">
+									<strong class="type">구매관련문의</strong>
 								</div>
-							</div>
+								<div class="in_td">
+									<uio-radio class="ng-star-inserted"> <span>
+										<label title="선택안함" style="padding-left: 25px;"> <input
+											type="radio">선택안함
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted" id="order_radio">
+									<span> <label title="배송문의" style="padding-left: 25px;">
+											<input type="radio" name="buy" value="1">배송문의
+									</label>
+									</span> </uio-radio>
+
+									<uio-radio class="ng-star-inserted" id="order_radio">
+									<span> <label title="주문문의" style="padding-left: 25px;">
+											<input type="radio" name="buy" value="2">주문문의
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted" id="order_radio">
+									<span> <label title="취소문의" style="padding-left: 25px;">
+											<input type="radio" name="buy" value="3">취소문의
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted" id="order_radio">
+									<span> <label title="반품문의" style="padding-left: 25px;">
+											<input type="radio" name="buy" value="4">반품문의
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted" id="order_radio">
+									<span> <label title="교환문의" style="padding-left: 25px;">
+											<input type="radio" name="buy" value="5">교환문의
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted" id="order_radio">
+									<span> <label title="환불문의" style="padding-left: 25px;">
+											<input type="radio" name="buy" value="6">환불문의
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted" id="order_radio">
+									<span> <label title="사은품문의" style="padding-left: 25px;">
+											<input type="radio" name="buy" value="7">사은품문의
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted"> <span>
+										<label title="입금문의" style="padding-left: 25px;"> <input
+											type="radio" name="buy" value="8">입금문의
+									</label>
+									</span> </uio-radio>
+
+								</div>
+							</li>
+							<li>
+								<!--라디오 선택시 나타나는 새로운 창-->
+								<div id="hiddenDiv1" class="hidden">
+									<ul class="clear">
+										<li class="order_no ng-star-inserted">
+											<div class="in_td">
+												<strong class="type">주문번호</strong>
+											</div>
+											<div class="in_td orderno_td">
+											
+												<input type="text" id="orderNo"
+													formcontrolname="order_serial" placeholder=" "
+													class="ng-untouched ng-pristine" style="position: inherit;">
+
+												<button type="button" class="btn btn_bor">번호 조회</button>
+
+											</div>
+											<div class="in_td">
+												<strong class="type">상품명</strong>
+											</div>
+
+											<div class="in_td ng-star-inserted">
+												<!---->
+											</div> <!----> <!---->
+										</li>
+										
+										<li class="order_no order_bx ng-star-inserted">
+											<div class="in_td">
+												<strong class="type">주문일자</strong>
+											</div>
+											<div class="in_td">
+												<p class="txt"></p>
+
+											</div>
+											<div class="in_td">
+												<strong class="type">결제방법</strong>
+											</div>
+											<div class="in_td">
+												<p class="txt"></p>
+
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<div class="in_td">
+									<strong class="type">일반상담문의</strong>
+								</div>
+								<div class="in_td">
+									<uio-radio class="ng-star-inserted"> <span>
+										<label title="선택안함" style="padding-left: 25px;"> <input
+											type="radio">선택안함
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted"> <span>
+										<label title="회원정보문의" style="padding-left: 25px;"> <input
+											type="radio">회원정보문의
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted"> <span>
+										<label title="회원제도문의" style="padding-left: 25px;"> <input
+											type="radio">회원제도문의
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted"> <span>
+										<label title="결제방법문의" style="padding-left: 25px;"> <input
+											type="radio">결제방법문의
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted"> <span>
+										<label title="상품문의" style="padding-left: 25px;"> <input
+											type="radio" name="inquiry" value="2">상품문의
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted"> <span>
+										<label title="당첨문의" style="padding-left: 25px;"> <input
+											type="radio">당첨문의
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted"> <span>
+										<label title="쿠폰/마일리지문의" style="padding-left: 25px;">
+											<input type="radio">쿠폰/마일리지문의
+									</label>
+									</span> </uio-radio>
+									<!---->
+								</div>
+							</li>
+							<li>
+								<div div id="hiddenDiv2" class="hidden">
+									<ul class="clear">
+										<li class="item ng-star-inserted">
+											<div class="in_td">
+												<strong class="type">문의상품</strong>
+											</div>
+											<div class="in_td">
+												<input type="text" id="itemNo" formcontrolname="itemNo"
+													placeholder="상품번호를 입력해주세요."
+													class="ng-untouched ng-pristine ng-valid"
+													style="position: inherit;">
+
+												<button type="button" class="btn btn_bor">상품 조회</button>
+
+											</div>
+										</li>
+										<li class="item_info ng-star-inserted">
+											<div class="in_td">
+												<strong class="type">상품명</strong>
+											</div>
+											<div class="in_td" style="width: 60%;">
+												<p class="txt"></p>
+
+											</div>
+											<div class="in_td">
+												<strong class="type">판매가</strong>
+											</div>
+											<div class="in_td">
+												<p class="txt"></p>
+
+												<!---->
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li>
+								<div class="in_td">
+									<strong class="type">기타문의</strong>
+								</div>
+								<div class="in_td">
+									<uio-radio class="ng-star-inserted"> <span>
+										<label title="선택안함" style="padding-left: 25px;"> <input
+											type="radio">선택안함
+									</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted"> <span>
+										<input type="radio" name="system"> <label
+										title="시스템문의" style="padding-left: 25px;">시스템문의</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted"> <span>
+										<input type="radio" name="system"> <label title="기타문의"
+										style="padding-left: 25px;">기타문의</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted"> <span>
+										<input type="radio" name="system"> <label
+										title="증빙서류문의" style="padding-left: 25px;">증빙서류문의</label>
+									</span> </uio-radio>
+									<uio-radio _nghost-ctd-c86="" class="ng-star-inserted">
+									<span> <input type="radio" name="system"> <label
+										title="매장문의" style="padding-left: 25px;">매장문의</label>
+									</span> </uio-radio>
+									<uio-radio class="ng-star-inserted"> <span>
+										<input type="radio" name="system"> <label
+										title="리뷰재노출문의" style="padding-left: 25px;">리뷰재노출문의</label>
+									</span> </uio-radio>
+									<!---->
+								</div>
+							</li>
+
+
+							<!-- 1번라디오  -->
+
+
+							<!-- 여기까지 2번 라디오 클릭시 -->
+							<li class="user">
+								<div class="in_td">
+									<strong class="type">성명</strong>
+								</div>
+								<div class="in_td">
+									<p class="txt"></p>
+									조연화
+								</div>
+							</li>
+							<li class="user_id">
+								<div class="in_td">
+									<strong class="type">아이디</strong>
+								</div>
+								<div class="in_td">
+									<p class="txt"></p>
+									dusk323@naver.com [GREEN]
+								</div>
+							</li>
+							<li class="user_email">
+								<div class="in_td">
+									<strong class="type">이메일</strong>
+								</div>
+								<div class="in_td">
+									<p class="txt"></p>
+									dusk323@naver.com <a href="/mypage/edit/info">이메일 변경하기</a>
+								</div>
+							</li>
+							<li class="tit_row">
+								<div class="in_td">
+									<strong for="u_title" class="type">제목</strong>
+								</div>
+								<div class="in_td">
+									<input type="text" id="u_title" formcontrolname="title"
+										placeholder="제목을 입력하세요."
+										class="ng-untouched ng-pristine ng-invalid"
+										style="position: inherit;">
+								</div>
+							</li>
+							<li class="cnt_row">
+								<div class="in_td">
+									<strong for="u_content" class="type">내용</strong>
+								</div>
+								<div class="in_td">
+									<div class="inptxtbx">
+										<textarea id="u_content" rows="5" cols="1"
+											placeholder="내용을 입력하세요." formcontrolname="contents"
+											class="field_inp ng-untouched ng-pristine ng-invalid"></textarea>
+									</div>
+								</div>
+								<div class="ckemail">
+									<uio-checkbox label="이메일 받기" _nghost-ctd-c82="">
+									<input type="checkbox" value="undefined" id="email_checkbox">
+									<label title="이메일 받기" class="email_agree"z-index: 10;>이메일
+										받기</label> </uio-checkbox>
+								</div>
+							</li>
+							<li class="add_img">
+								<div class="in_td_photo">
+									<strong class="type">사진첨부</strong>
+								</div>
+								<div class="in_td_photo">
+									<uio-file-upload _nghost-ctd-c113="">
+									<div class="fileUpload">
+										<ul class="fileUpload_list">
+											<!---->
+										</ul>
+										<div class="fileUpload-able" style="display: block;">
+											<label for="file" class="file">
+												<div class="btn-upload">사진파일첨부하기</div>
+											</label> <input type="file" accept="image/*" id="file" multiple="">
+										</div>
+									</div>
+									</uio-file-upload>
+
+									<ul class="info_lst">
+										<li>상품 불량 및 오배송의 경우, 해당 제품 사진을 등록 부탁드립니다.</li>
+										<li class="point">파일명은 영문만 가능하며, 파일당 최대 10MB 의<br>
+											용량 제한이 있습니다.
+										</li>
+										<li>가로사이즈가 450pixel을 초과하는 경우 자동으로<br> 450픽셀로 조정됩니다.
+										</li>
+										<li>첨부파일은 최대 2개까지 등록가능합니다.</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+
+						<div class="btn_bx">
+							<button type="submit" class="btn_black">등록하기</button>
 						</div>
-
-					</div>
-
-					<ruler-basic-pagination> </ruler-basic-pagination>
-				</section>
-
-			</ul>
-
-
+						<ruler-message-dialog class="ng-star-inserted"><!---->
+						</ruler-message-dialog>
+						<!---->
+						<!---->
+					</fieldset>
+				</form>
+				<div id="div1" class="hidden">This is Div 1</div>
+				<div id="div2" class="hidden">This is Div 2</div>
+				<!---->
+			</section>
+			</ui-qna-mantoman-detail>
+			<!---->
 		</div>
+
 	</div>
 
 	<br>
-<footer>
-		<jsp:include page="/WEB-INF/views/layout/bottom.jsp" flush="false"></jsp:include>
+	<footer>
+		<%-- <jsp:include page="/views/layout/bottom.jsp" flush="false"></jsp:include> --%>
 	</footer>
-
-
-
-
-
 </body>
+<script>
+$(document).ready(function() {
+    $('.css-140aynn').click(function() {
+        // 버튼들의 순서를 찾기
+        var $currentBtn = $(this);
+        var $otherBtn = $('.css-19yreqa');
+
+        // jQuery의 'insertBefore' 메소드를 사용하여 순서 바꾸기
+        if($currentBtn.index() > $otherBtn.index()) {
+            $currentBtn.insertBefore($otherBtn);
+        } else {
+            $otherBtn.insertBefore($currentBtn);
+        }
+    });
+});
+</script>
+
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const radioButtons = document.querySelectorAll('input[name="buy"]');
+            const hiddenDiv1 = document.getElementById("hiddenDiv1");
+
+            radioButtons.forEach(radio => {
+                radio.addEventListener("change", function() {
+                    hiddenDiv1.classList.remove("hidden");
+                });
+            });
+        });
+</script>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const radioButtons = document.querySelectorAll('input[name="inquiry"]');
+            const hiddenDiv1 = document.getElementById("hiddenDiv2");
+
+            radioButtons.forEach(radio => {
+                radio.addEventListener("change", function() {
+                    hiddenDiv1.classList.remove("hidden");
+                });
+            });
+        });
+</script>
+<!-- 숨겨진 div 전환하는 스크립트....실패.....
+<script>
+		document.addEventListener('DOMContentLoaded', function() {
+		    const radios = document.querySelectorAll('input[type="radio"]');
+		    const hiddenDiv1 = document.getElementById('hiddenDiv1');
+		    const hiddenDiv2 = document.getElementById('hiddenDiv2');
+		
+		    radios.forEach(radio => {
+		        radio.addEventListener('change', function(event) {
+		            if (event.target.value === '1') {
+		                div1.classList.remove('hidden');
+		                div2.classList.add('hidden');
+		            } else if (event.target.value === '2') {
+		                div1.classList.add('hidden');
+		                div2.classList.remove('hidden');
+		            }
+		        });
+		    });
+		});
+
+
+</script>
+ -->
 </html>
