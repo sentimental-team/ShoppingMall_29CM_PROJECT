@@ -1,12 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../inquiry/inquiry.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<title>문의하기</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <style>
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
@@ -749,7 +750,7 @@ li, ol, ul {
 	content: "";
 }
 
-.tb_lst .in_td:first-child {
+.tb_lst .in_td:first-child, .tb_lst .in_title:first-child {
 	width: 120px;
 	padding: 0;
 	border-right: 1px solid #e4e4e4;
@@ -764,7 +765,7 @@ li, ol, ul {
 	}
 }
 
-.tb_lst .in_td {
+.tb_lst .in_td, .tb_lst .in_title {
 	display: table-cell;
 	height: 62px;
 	padding: 10px 0 10px 20px;
@@ -779,8 +780,6 @@ li, ol, ul {
 	margin: 5px 20px 0 0;
 	font-size: 12px;
 }
-
-
 
 input {
 	position: absolute;
@@ -838,7 +837,7 @@ input, textarea {
 	left: 1px;
 	width: 18px;
 	height: 18px;
-	border: 5px solid #bdbdbd ;
+	border: 5px solid #bdbdbd;
 	border-radius: 50%;
 	background: #f4f4f4;
 }
@@ -1145,11 +1144,17 @@ uio-checkbox {
 .my_inq .btn_bx {
 	margin: 10px 0 -20px;
 	text-align: center;
-}
-
-.btn_bx .btn_black {
 	width: 100px;
 	height: 40px;
+	display: inline-block;
+	min-width: 82px;
+	padding: 0 17px;
+	border: 1px solid #303033;
+	background: #303033;
+	font-size: 13px;
+	color: #fff;
+	line-height: 38px;
+	box-sizing: border-box;
 }
 
 .btn_black {
@@ -1405,12 +1410,89 @@ input[type=radio]:checked+label:before {
 	display: none;
 }
 </style>
+<style>
+body {
+	background-color: white;
+	color: black;
+}
+
+.write-post-form {
+	margin: 0 auto;
+	width: 50%;
+	padding: 20px;
+	border: 1px solid black;
+}
+
+.write-post-form input, .write-post-form textarea {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 1px solid black;
+	background-color: white;
+	color: black;
+}
+
+/* 모든 버튼에 대한 공통 스타일 */
+.write-post-form button, .write-post-form input[type="submit"] {
+	flex: 1; /* 동일한 크기로 확장 */
+	cursor: pointer;
+	padding: 10px 20px;
+	text-align: center;
+}
+
+/* 수정하기, 삭제하기 버튼 스타일 */
+.write-post-form .btn_update, .write-post-form .btn_delete {
+	background-color: white;
+	border: 1px solid black;
+	color: black;
+}
+
+/* 목록으로 버튼 스타일 */
+.write-post-form .goList {
+	background-color: white;
+	color: gray;
+	/* border: 1px solid gray; */
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* 글쓰기 완료 버튼 스타일 */
+.write-post-form .btn-save.button {
+	background-color: black;
+	border: 1px solid black;
+	color: white;
+}
+
+.write-post-form textarea {
+	resize: none;
+}
+
+.write-post-form .btn-group {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+h3 {
+	text-align: center;
+	margin: 20px 0;
+}
+
+.goList:hover {
+	color: black;
+}
+
+/* 목록으로 버튼 가운데 정렬 */
+.goList-container {
+	text-align: center;
+}
+</style>
 </head>
 <header>
 	<%-- <jsp:include page="/layout/top.jsp" flush="false"></jsp:include> --%>
 </header>
 <body>
-	<form action="inquiry.do" method="post" enctype="multipart/form-data">
+
 	<div class="mid-div">
 		<div class="mid-left">
 			<div class="mid-left-top">
@@ -1479,316 +1561,189 @@ input[type=radio]:checked+label:before {
 			</section>
 		</div>
 
+
 		<div class="article_right">
-			<router-outlet></router-outlet>
 			<ui-qna-mantoman-detail class="ng-star-inserted">
-			<section class="my_inq">
-				<h3 class="my_tit.nobor">1:1 문의쓰기</h3>
+			<div class="my_inq">
+				<h1 class="my_tit.nobor">1:1 문의작성</h1>
 				<p class="my_tit_dsc">
 					산업안전보건법 제 41조 시행령에 근거하여 2018년 10월 18일 부터 산업안전보건법에 따라 고객응대근로자 보호조치를
 					시행하고 있습니다.<br> 고객응대근로자에게 폭언, 폭행 등을 하지 말아주세요.
 				</p>
-	
-				<form class="ng-untouched ng-pristine ng-invalid">
-					<fieldset>
-						<legend>1:1 문의 작성</legend>
-						<ul class="tb_lst">
-							<li>
-								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">구매관련문의</h4>
-								<div class="in_td">
-									<form action="inquiry.jsp" method="post">
-										<span class="buy_radio">
-											<input type="radio" id="배송문의" name="buy" value="배송문의" >
-											<label for="배송문의" style="padding-left: 25px;">배송문의</label><br> 
-										</span>
-										<span class="order_radio">
-											<input type="radio" id="주문문의" name="buy" value="주문문의" >
-											<label for="주문문의" style="padding-left: 25px;">주문문의</label><br> 
-										</span>
-										<span class="order_radio">
-											<input type="radio" id="취소문의" name="buy" value="취소문의" >
-											<label for="취소문의" style="padding-left: 25px;">취소문의</label><br>
-										</span>
-										<span class="order_radio">
-											<input type="radio" id="반품문의" name="buy" value="반품문의" >
-											<label for="반품문의" style="padding-left: 25px;">반품문의</label><br>
-										</span>
-										<span class="order_radio">
-											<input type="radio" id="교환문의" name="buy" value="교환문의" >
-											<label for="교환문의" style="padding-left: 25px;">교환문의</label><br> 
-										</span>
-										<span class="order_radio">
-											<input type="radio" id="환불문의" name="buy" value="환불문의" >
-											<label for="환불문의" style="padding-left: 25px;">환불문의</label><br>
-										</span>
-										<span class="order_radio">
-											<input type="radio" id="사은품문의" name="buy" value="사은품문의" >
-											<label for="사은품문의" style="padding-left: 25px;">사은품문의</label><br> 
-										</span>
-										<span class="order_radio">
-											<input type="radio" id="입금문의" name="buy" value="사은품문의" >
-											<label for="입금문의" style="padding-left: 25px;">입금문의</label><br>
-										</span>
-										
-										<input type="submit" value="Submit">
-									</form>
-								</div>								
-							</li>
-							<li>
-								<!--라디오 선택시 나타나는 새로운 창-->
-								<div id="hiddenDiv1" class="hidden">
-									<ul class="clear">
-										<li class="order_no ng-star-inserted">
-											<div class="in_td">
-												<strong class="type">주문번호</strong>
-											</div>
-											<div class="in_td orderno_td">
-											
-												<input type="text" id="orderNo"
-													formcontrolname="order_serial" placeholder=" "
-													class="ng-untouched ng-pristine" style="position: inherit;">
 
-												<button type="button" class="btn btn_bor">번호 조회</button>
+				<form action="/inquiry/inquiryReg.do?${_csrf.parameterName}=${_csrf.token}" method="post" enctype="multipart/form-data"> 
+				<!-- <form action="/inquiry/inquiryReg.do" method="post"> -->
+					<h3>1:1 문의 작성</h3>
+					<div class="tb_lst">
+						<li>
+							<div class="in_td">
+								<h3>구매관련문의</h3>
+							</div>
+							<div class="in_td">
+									<input type="radio" id="배송문의" name="InquiryRadio" value="배송문의"> 
+									<label for="배송문의" style="padding-left: 25px;">배송문의</label> <br>
 
-											</div>
-											<div class="in_td">
-												<strong class="type">상품명</strong>
-											</div>
+									<input type="radio" id="주문문의" name="InquiryRadio" value="주문문의"> 
+									<label for="주문문의" style="padding-left: 25px;">주문문의</label> <br>
 
-											<div class="in_td ng-star-inserted">
-												<!---->
-											</div> <!----> <!---->
-										</li>
-										
-										<li class="order_no order_bx ng-star-inserted">
-											<div class="in_td">
-												<strong class="type">주문일자</strong>
-											</div>
-											<div class="in_td">
-												<p class="txt"></p>
+									<input type="radio" id="취소문의" name="InquiryRadio" value="취소문의"> 
+									<label for="취소문의" style="padding-left: 25px;">취소문의</label><br>
 
-											</div>
-											<div class="in_td">
-												<strong class="type">결제방법</strong>
-											</div>
-											<div class="in_td">
-												<p class="txt"></p>
+									<input type="radio" id="반품문의" name="InquiryRadio" value="반품문의"> 
+									<label for="반품문의" style="padding-left: 25px;">반품문의</label><br>
 
-											</div>
-										</li>
+									<input type="radio" id="교환문의" name="InquiryRadio" value="교환문의"> 
+									<label for="교환문의" style="padding-left: 25px;">교환문의</label><br>
+									
+									<input type="radio" id="환불문의" name="InquiryRadio" value="환불문의"> 
+									<label for="환불문의" style="padding-left: 25px;">환불문의</label><br>
+									
+									<input type="radio" id="사은품문의" name="InquiryRadio" value="사은품문의"> 
+									<label for="사은품문의"	style="padding-left: 25px;">사은품문의</label><br>
+									
+									<input type="radio" id="입금문의" name="InquiryRadio" value="입금문의"> 
+									<label for="입금문의" style="padding-left: 25px;">입금문의</label><br>
+							</div>
+							<div class="in_td">
+								<h3>일반상담문의</h3>
+							</div>
+							<div class="in_td">
+								<input type="radio" id="회원정보문의" name="InquiryRadio"value="회원정보문의"> 
+								<label for="회원정보문의" style="padding-left: 25px;">회원정보문의</label><br>
+
+								<input type="radio" id="회원제도문의" name="InquiryRadio"value="회원제도문의"> 
+								<label for="회원제도문의" style="padding-left: 25px;">회원제도문의</label><br>
+
+								<input type="radio" id="결제방법문의" name="InquiryRadio"value="결제방법문의"> 
+								<label for="결제방법문의" style="padding-left: 25px;">결제방법문의</label><br>
+
+								<input type="radio" id="상품문의" name="InquiryRadio" value="상품문의"> 
+								<label for="상품문의" style="padding-left: 25px;">상품문의</label><br>
+
+								<input type="radio" id="당첨문의" name="InquiryRadio" value="당첨문의"> 
+								<label for="당첨문의" style="padding-left: 25px;">당첨문의</label><br>
+
+								<input type="radio" id="쿠폰/마일리지문의" name="InquiryRadio" value="쿠폰/마일리지문의"> 
+								<label for="쿠폰/마일리지문의" style="padding-left: 25px;">쿠폰/마일리지문의</label><br>
+							</div>
+
+							<div class="in_td">
+								<h3>기타문의</h3>
+							</div>
+							<div class="in_td"> 
+								<input type="radio" id="시스템문의" name="InquiryRadio" value="시스템문의"> 
+								<label for="시스템문의" style="padding-left: 25px;">시스템문의</label><br>
+								
+								<input type="radio" id="기타문의" name="InquiryRadio" value="기타문의"> 
+								<label for="기타문의" style="padding-left: 25px;">기타문의</label><br>
+								
+								<input type="radio" id="증빙서류문의"	name="InquiryRadio" value="증빙서류문의"> 
+								<label for="증빙서류문의" style="padding-left: 25px;">증빙서류문의</label><br> 
+
+								<input type="radio" id="매장문의" name="InquiryRadio" value="매장문의"> 
+								<label for="매장문의" style="padding-left: 25px;">매장문의</label><br>
+
+								<input type="radio" id="리뷰재노출문의" name="InquiryRadio" value="리뷰재노출문의">
+								<label for="리뷰재노출문의" style="padding-left: 25px;">리뷰재노출문의</label><br>
+							</div>
+						</li>
+
+						<li class="user">
+							<div class="in_td">
+								<strong class="type">성명</strong>
+							</div>
+							<div class="in_td">
+								<p class="txt">${ memberInfo.memberName }</p>								
+							</div>
+						</li>
+						<li class="user_id">
+							<div class="in_td">
+								<strong class="type">아이디</strong>
+							</div>
+							<div class="in_td">
+								<p class="txt">${ memberInfo.memberId }  [${ memberInfo.gradeId }]</p>								
+							</div>
+						</li>
+						<li class="tit_row">
+							<div class="in_title">
+							<!-- <strong class="type">제목</strong> -->
+							<label for="u_title" class="type">제목</label>
+							</div>
+
+							<div class="in_td">
+								<input type="text" id="u_title" name="inquiryTitle"
+									placeholder="제목을 입력하세요." required
+									class="ng-untouched ng-pristine ng-invalid"
+									style="position: inherit;">
+							</div>
+
+						</li>
+						<li class="cnt_row">
+							<div class="in_td">
+								<strong for="u_content" class="type">내용</strong>
+							</div>
+							<div class="in_td">
+								<div class="inptxtbx">
+									<textarea id="u_content" rows="5" cols="1"
+										placeholder="내용을 입력하세요." name="inquiryContent"
+										class="field_inp ng-untouched ng-pristine ng-invalid"></textarea>
+								</div>
+							</div>
+						</li>
+
+						<li class="add_img">
+							<div class="in_td">
+								<strong class="type">사진첨부</strong>
+							</div>
+							<div class="in_td_photo">
+								<div class="fileUpload">
+									<ul class="fileUpload_list">
+										<!---->
 									</ul>
-								</div>
-							</li>
-							<li>							
-								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">일반상담문의</h4>
-								<div class="in_td">
-									<form action="inquiry.jsp" method="post">
-										<span class="general_radio">
-											<input type="radio" id="회원정보문의" value="회원정보문의" >
-											<label for="회원정보문의" style="padding-left: 25px;">회원정보문의</label><br> 
-										</span>
-										<span class="general_radio">
-											<input type="radio" id="회원제도문의" value="회원제도문의" >
-											<label for="회원제도문의" style="padding-left: 25px;">회원제도문의</label><br> 
-										</span>
-										<span class="general_radio">
-											<input type="radio" id="결제방법문의" value="결제방법문의" >
-											<label for="결제방법문의" style="padding-left: 25px;">결제방법문의</label><br> 
-										</span>
-										<span class="general_radio">
-											<input type="radio" id="상품문의" name="general" value="상품문의" >
-											<label for="상품문의" style="padding-left: 25px;">상품문의</label><br> 
-										</span>
-										<span class="general_radio">
-											<input type="radio" id="당첨문의" value="당첨문의" >
-											<label for="당첨문의" style="padding-left: 25px;">당첨문의</label><br> 
-										</span>
-										<span class="general_radio">
-											<input type="radio" id="쿠폰/마일리지문의" value="쿠폰/마일리지문의" >
-											<label for="쿠폰/마일리지문의" style="padding-left: 25px;">쿠폰/마일리지문의</label><br> 
-										</span>
-										
-										<input type="submit" value="Submit">
-									</form>
-								</div>								
-							</li>
-							<li>
-								<div div id="hiddenDiv2" class="hidden">
-									<ul class="clear">
-										<li class="item ng-star-inserted">
-											<div class="in_td">
-												<strong class="type">문의상품</strong>
-											</div>
-											<div class="in_td">
-												<input type="text" id="itemNo" formcontrolname="itemNo"
-													placeholder="상품번호를 입력해주세요."
-													class="ng-untouched ng-pristine ng-valid"
-													style="position: inherit;">
-
-												<button type="button" class="btn btn_bor">상품 조회</button>
-
-											</div>
-										</li>
-										<li class="item_info ng-star-inserted">
-											<div class="in_td">
-												<strong class="type">상품명</strong>
-											</div>
-											<div class="in_td" style="width: 60%;">
-												<p class="txt"></p>
-
-											</div>
-											<div class="in_td">
-												<strong class="type">판매가</strong>
-											</div>
-											<div class="in_td">
-												<p class="txt"></p>
-
-												<!---->
-											</div>
-										</li>
-									</ul>
-								</div>
-							</li>
-							<li>
-								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">기타문의</h4>
-								<div class="in_td">
-									<form action="inquiry.jsp" method="post">
-										<span class="etc_radio">
-											<input type="radio" id="시스템문의" value="시스템문의" >
-											<label for="시스템문의" style="padding-left: 25px;">시스템문의</label><br> 
-										</span>
-										<span class="etc_radio">
-											<input type="radio" id="기타문의" value="기타문의" >
-											<label for="기타문의" style="padding-left: 25px;">기타문의</label><br> 
-										</span>
-										<span class="etc_radio">
-											<input type="radio" id="증빙서류문의" value="증빙서류문의" >
-											<label for="증빙서류문의" style="padding-left: 25px;">증빙서류문의</label><br> 
-										</span>
-										<span class="etc_radio">
-											<input type="radio" id="매장문의" value="매장문의" >
-											<label for="매장문의" style="padding-left: 25px;">매장문의</label><br> 
-										</span>
-										<span class="etc_radio">
-											<input type="radio" id="리뷰재노출문의" value="리뷰재노출문의" >
-											<label for="리뷰재노출문의" style="padding-left: 25px;">리뷰재노출문의</label><br> 
-										</span>
-										
-										<input type="submit" value="Submit">
-									</form>
-									<!---->
-								</div>
-							</li>
-							<li class="user">
-								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">성명</h4>
-								<div class="in_td">
-									<p class="txt"></p>
-									조연화
-								</div>	
-							</li>
-							<li class="user_id">
-								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">아이디</h4>
-								<div class="in_td">
-									<p class="txt"></p>
-									yeon@naver.com [GREEN]							
-								</div>
-							</li>
-							<li class="tit_row">
-								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">제목</h4>
-								<div class="in_td">
-									<input type="text" id="u_title" formcontrolname="title"
-										placeholder="제목을 입력하세요."
-										class="ng-untouched ng-pristine ng-invalid"
-										style="position: inherit;">
-								</div>
-							</li>
-							<li class="cnt_row">
-								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">내용</h4>
-								<div class="in_td">
-									<div class="inptxtbx">
-										<textarea id="u_content" rows="5" cols="1"
-											placeholder="내용을 입력하세요." formcontrolname="contents"
-											class="field_inp ng-untouched ng-pristine ng-invalid"></textarea>
+									<div class="fileUpload-able" style="display: block;">
+										<label for="file" class="file">
+											<div class="btn-upload">사진파일첨부하기</div>
+										</label> 
+										<input type="file" accept="image/*" id="file" name="fileSrc" multiple="multiple">
 									</div>
 								</div>
-								<div class="ckemail">
-									<uio-checkbox label="이메일 받기" _nghost-ctd-c82="">
-									<input type="checkbox" value="undefined" id="email_checkbox">
-									<label title="이메일 받기" class="email_agree"z-index: 10;>이메일
-										받기</label> </uio-checkbox>
-								</div>
-							</li>
-							<li class="add_img"> <!-- 사진 2개까지가능 -->
-								<h4 class="e1ne7g4m0 css-1guny36 e1vrs9a70" color="secondary">사진첨부</h4>
-								<div class="in_td_photo">
-									<uio-file-upload _nghost-ctd-c113="">
-									<div class="fileUpload">
-										<ul class="fileUpload_list">
-											<!---->
-										</ul>
-										<div class="fileUpload-able" style="display: block;">
-											<label for="file" class="file">
-												<div class="btn-upload">사진파일첨부하기</div>
-											</label> <input type="file" accept="image/*" id="file" multiple="">
-										</div>
-									</div>
-									</uio-file-upload>
 
-									<ul class="info_lst">
-										<li>상품 불량 및 오배송의 경우, 해당 제품 사진을 등록 부탁드립니다.</li>
-										<li class="point">파일명은 영문만 가능하며, 파일당 최대 10MB 의<br>
-											용량 제한이 있습니다.
-										</li>
-										<li>가로사이즈가 450pixel을 초과하는 경우 자동으로<br> 450픽셀로 조정됩니다.
-										</li>
-										<li>첨부파일은 최대 2개까지 등록가능합니다.</li>
-									</ul>
-								</div>
-							</li>
-						</ul>
+								<ul class="info_lst">
+									<li>상품 불량 및 오배송의 경우, 해당 제품 사진을 등록 부탁드립니다.</li>
+									<li class="point">파일명은 영문만 가능하며, 파일당 최대 10MB 의<br> 용량
+										제한이 있습니다.
+									</li>
+									<li>가로사이즈가 450pixel을 초과하는 경우 자동으로<br> 450픽셀로 조정됩니다.
+									</li>
+									<li>첨부파일은 최대 2개까지 등록가능합니다.</li>
+								</ul>
+							</div>
+						</li>
 
-						<div class="btn_bx">
-							<button type="submit" class="btn_black" value="Submit">등록하기</button>
-							<button type="submit" href="inquiry.do">취소</button>
-						</div>
-						
-						<!---->
-						<!---->
-					</fieldset>
-					
-					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }"></input>
+					</div>
+					<button class="btn_bx" type="submit">등록하기</button>
+					<button type="submit" href="/inquiry/inquiry.do">취소</button>
+										
+					<%-- <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }" /> --%>
 					
 				</form>
-				
-				<!---->
-			</section>
+
+
+			</div>
+
 			</ui-qna-mantoman-detail>
 			<!---->
 		</div>
 
+		<!---->
 	</div>
 
 	<br>
 	<footer>
-		<%-- <jsp:include page="/views/layout/bottom.jsp" flush="false"></jsp:include> --%>
+		<jsp:include page="../layout/bottom.jsp" flush="false"></jsp:include>
 	</footer>
 </body>
-<script>
-$(document).ready(function() {
-    $('.css-140aynn').click(function() {
-        // 버튼들의 순서를 찾기
-        var $currentBtn = $(this);
-        var $otherBtn = $('.css-19yreqa');
 
-        // jQuery의 'insertBefore' 메소드를 사용하여 순서 바꾸기
-        if($currentBtn.index() > $otherBtn.index()) {
-            $currentBtn.insertBefore($otherBtn);
-        } else {
-            $otherBtn.insertBefore($currentBtn);
-        }
-    });
-});
-</script>
 
 <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -1814,5 +1769,48 @@ $(document).ready(function() {
             });
         });
 </script>
+<script>
+	if($("input[name=InquiryRadio]").val() == "") {
+			$("input[name=InquiryRadio]").val(0);
+	}
+</script>
 
+<!-- 
+<script>
+  	    $(function() {
+  	    	$(#btn_bx).on("click", function( event ) {
+  	    		//alert("xxx");
+  	    		
+  	    		// 1단계
+  	    		var formData = new FormData();
+  	    		var inputRadio = $(":radio[name='buyInquiry']");
+  	    		var inputRadio = $(":radio[name='generalInquiry']");
+  	    		var inputRadio = $(":radio[name='etcInquiry']");
+  	    		var inputFile = $(":file[name='filesrc']");
+  	    		var files = inputFile[0].files;  	    		
+  	    		console.log(files);
+  	    		// 1단계 끝
+  	    		// 2단계
+  	    		for (var i = 0; i < files.length; i++) {
+  	    			formData.append( "fileSrcList", files[i] );
+				} // for
+  	    		// 2단계 끝
+  	    		// 3단계
+  	    		$.ajax({
+  	    			url : 'uploadAjax'
+  	    			, processData: false
+  	    			, contentType: false
+  	    			, data : formData
+  	    			, type : 'POST'
+  	    			, success: function ( result ){
+  	    				alert("ajax uploaded");
+  	    			}
+  	    		});
+  	    		// 3단계 끝
+  	    		
+  	    	});// click
+  	    	
+  	    });//function
+ </script>
+ -->
 </html>
