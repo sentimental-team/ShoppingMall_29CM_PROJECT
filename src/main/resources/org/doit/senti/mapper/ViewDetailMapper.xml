@@ -11,6 +11,7 @@
 		VALUES (seq_cart_id.NEXTVAL, #{memberId}, #{pdId}, #{selectOption}, 1)
 	</insert>
 	
+	<!-- 상품 구매 -->
 	<select id="directOrder" resultType="org.doit.senti.domain.board.BoardVO">
 		SELECT p.pd_id, p.pd_name, b.brand_name, pi.pd_image_url, po.pd_option_name AS select_option, COUNT(*) AS stock
 		, ROUND(p.pd_price * ( 1 - p.pd_discount_rate / 100 ), -1) AS pd_price

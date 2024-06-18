@@ -10,10 +10,9 @@
 	                     total_pay, pay_date, pay_type_id, pd_id)
 	    VALUES 
 	        (seq_pay_id.NEXTVAL, #{memberId}, #{daddrname}, #{receiver}, #{daddr}, #{telNum1}, 
-	        #{telNum2}, 0,
-	         #{totalPay}, SYSDATE, #{payTypeId}, #{pdId})
+	        #{telNum2}, 0, #{totalPay}, SYSDATE, #{payTypeId}, #{pdId})
 	</insert>
-	 
+	
 	<select id="getPayOption" resultType="org.doit.senti.domain.board.OrderDTO">
 		SELECT pay_type_name, pay_type_id
 		FROM pay_type

@@ -34,6 +34,7 @@ public class CartInController {
 	@Autowired
 	private OrderMapper orderMapper;
 	
+	// 장바구니 조회
 	@GetMapping("/cart.do")
 	public String cart(HttpSession httpSession, Model model) throws Exception{
 		
@@ -49,19 +50,6 @@ public class CartInController {
 		
 		return "user/cart.jsp";
 	}
-
-	/*
-	// 장바구니 조회
-	@GetMapping("/cart.do")
-	public String cart(Model model) throws Exception{
-		log.info("> CartController.cartList() ... ");
-		List<CartDTO> list = this.cartMapper.getCart(); 
-		
-		model.addAttribute("list", list);
-		
-		return "user/cart.jsp";
-	}
-	*/
 	
 	// 장바구니 단일 상품 삭제
 	@GetMapping("/cartDel.do")
@@ -98,18 +86,4 @@ public class CartInController {
 	   	
 		return "/user/order.jsp";
 	}
-
-	/*
-	// 장바구니 수량 수정
-	// 미구현...
-	@PostMapping("/cartUpd.do")
-	@ResponseBody
-	public int updateCartStock(Model model, CartDTO cartDTO, @RequestParam("cartId") int cartId, @RequestParam("stock") int stock) throws Exception{
-		cartDTO = cartMapper.updateCartStock(cartId, stock);
-		
-		int updatePrice = cartDTO.getPdPrice() * stock;
-		
-		return updatePrice;
-	}
-	*/
 }

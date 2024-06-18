@@ -7,18 +7,6 @@
 
 	<!-- 장바구니 조회 쿼리 -->
 	<select id="getCart" resultType="CartDTO">
-		<!-- 로그인 완성시 member_id의 세션값을 받아와서 처리 
-		SELECT m.member_id, pd_name, select_option, brand_name, pd_price, pd_image_url, deli_pay, cart_id, stock, pd_id
-		FROM cart c JOIN member m ON c.member_id = m.member_id
-            JOIN product p ON p.pd_id = c.pd_id
-            JOIN brand b ON b.brand_id = p.brand_id
-            JOIN product_image pi ON pi.pd_id = p.pd_id
-            JOIN large_ctgr lc ON p.large_ctgr_id = lc.large_ctgr_id
-            JOIN main_ctgr mc ON lc.main_ctgr_id = mc.main_ctgr_id
-            JOIN delivery_pay dp ON dp.main_ctgr_id = mc.main_ctgr_id
-        WHERE m.member_id = #{memberId}
-         -->
-        
 		SELECT m.member_id, pd_name, select_option, brand_name, pd_image_url
 		, deli_pay, cart_id, stock, pd_id, lc.large_ctgr_id
 		, ROUND(p.pd_price * ( 1 - p.pd_discount_rate / 100 ), -1) AS pd_price
@@ -45,13 +33,6 @@
         #{cartId}
 	    </foreach>
 	</delete>
-	
-	<!-- 장바구니 수량 -->
-	<update id="updateCartStock">
-		UPDATE cart
-		SET stock = #{stock}
-		WHERE cart_id = #{cartId}
-	</update>
 
 	<!-- 상품 주문 -->
 	<select id="getProductToOrder" parameterType="list" resultType="org.doit.senti.domain.user.CartDTO">			

@@ -2080,14 +2080,11 @@ function setTotalInfo(){
 <script>
 function checkSelectAll()  {
 	  // 전체 체크박스
-	  const checkboxes 
-	    = document.querySelectorAll('input[name="checkone"]');
+	  const checkboxes = document.querySelectorAll('input[name="checkone"]');
 	  // 선택된 체크박스
-	  const checked 
-	    = document.querySelectorAll('input[name="checkone"]:checked');
+	  const checked = document.querySelectorAll('input[name="checkone"]:checked');
 	  // select all 체크박스
-	  const selectAll 
-	    = document.querySelector('input[name="checkall"]');
+	  const selectAll = document.querySelector('input[name="checkall"]');
 	  
 	  if(checkboxes.length === checked.length)  {
 	    selectAll.checked = true;
@@ -2096,8 +2093,7 @@ function checkSelectAll()  {
 	  }
 	}
 	function selectAll(selectAll)  {
-	  const checkboxes 
-	     = document.getElementsByName('checkone');
+	  const checkboxes = document.getElementsByName('checkone');
 	  
 	  checkboxes.forEach((checkbox) => {
 	    checkbox.checked = selectAll.checked
@@ -2113,7 +2109,6 @@ function checkSelectAll()  {
                 event.preventDefault();
             }
         });
-
         // 필수로 체크해야 하는 체크박스가 모두 선택되지 않은 경우 알림창 띄우기
         if (!allChecked) {
             alert("필수 항목에 동의해야 합니다.");
@@ -2174,12 +2169,9 @@ function checkSelectAll()  {
  <script>
  $(document).ready(function() {
 	$(".right-section-bot-checkout").on("click", function(event) {
-		console.log($(".hiddenPdId").val())
 	    
         let selectedOption = $(".pay-type-ul option:selected");
         let payType = selectedOption.val();
-		
-		console.log(payType)
         
         if (selectedOption === "no") {
             alert("결제 방법을 선택해주세요");
@@ -2196,9 +2188,6 @@ function checkSelectAll()  {
                 "payTypeId": payType,
                 "pdId": $("input[name='pdId']").val()
 	        };
-	        
-	        console.log(datas);
-	        console.log(csrfToken);
 	        $.ajax({
 	        	type: "POST",
 	            url: "/user/orderSuccess.do",
@@ -2209,9 +2198,17 @@ function checkSelectAll()  {
 	            	console.log(csrfToken);
 	                xhr.setRequestHeader('X-CSRF-TOKEN', csrfToken);
 	            },
-	            success: function(response) {
-	                alert("주문이 성공적으로 완료되었습니다.");
-	                deleteCart();
+	            success: function(response, event) {
+	            	
+	            	let finalTotalPay = $(".go-total-pay-text").data("totalpay");
+	            	let confirmOrder = confirm("결제 하시겠습니까 ? \n" + "총 결제 금액 : " + finalTotalPay.toLocaleString() + "원")
+	            	
+	            	if (confirmOrder) {
+						alert(finalTotalPay.toLocaleString() + "원 결제 되었습니다.")
+						deleteCart();
+					} else {
+						event.preventDefault();
+					}
 	            },
 	            error: function() {
 	                alert("오류가 발생했습니다.");
@@ -2244,6 +2241,6 @@ function deleteCart(){
         }
     });
 }
- </script>
+</script>
 </body>
 </html>
